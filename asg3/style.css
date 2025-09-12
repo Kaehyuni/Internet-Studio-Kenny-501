@@ -2,12 +2,6 @@ h1, h2, h3 {
   font-family: "Oswald", sans-serif;
 }
 
-img{
-  float: left;
-  margin: 0 16px 12px 0;
-  max-width: 100%;
-  height: auto;
-}
 
 p {
   font-family: "EB Garamond", serif;
