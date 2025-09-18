@@ -23,20 +23,4 @@ p {
   font-size: 1.05rem;
 }
 
-/* Section styling */
-#creative-brief {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-}
 
-/* Header styling */
-header h1 {
-  text-align: center;
-  padding: 1rem;
-  background: #004d7a;
-  color: white;
-}
