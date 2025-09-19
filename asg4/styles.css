@@ -1,34 +1,28 @@
+/* Share Tech for headings */
+.share-tech-regular {
+  font-family: "Share Tech", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: darkred; /* heading color */
+}
+
+/* Genos for body text */
+.genos-body {
+  font-family: "Genos", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #333333; /* paragraph/table text color */
+}
+
 body {
-  font-family: "Blinker", sans-serif;
   background-color: #f4f4f4;
   margin: 20px;
-}
-
-h1 {
-  font-family: "DM Serif Text", serif;
-  color: darkred;
-}
-
-h2 {
-  color: navy;
-}
-
-p {
-  color: #333333;
-}
-
-ul {
-  color: #444444;
 }
 
 table, th, td {
   border: 1px solid #666;
   border-collapse: collapse;
   padding: 8px;
+  background-color: #fff;
 }
-
-table {
-  background-color: #ffffff;
-  margin-top: 10px;
-}
-
