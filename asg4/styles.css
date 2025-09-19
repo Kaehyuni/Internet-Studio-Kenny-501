@@ -2,15 +2,15 @@
 h1, h2 {
   font-family: "Share Tech", sans-serif;
   font-weight: 400;
-  color: darkred;   /* headings color */
+  color: darkred;   /* heading color */
 }
 
 /* Body text: Genos */
-p, ul, table, td, th {
+p, ul, table, th, td {
   font-family: "Genos", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  color: #333333;   /* paragraph and body text color */
+  color: #333333;   /* paragraph and table text color */
 }
 
 body {
@@ -18,9 +18,22 @@ body {
   margin: 20px;
 }
 
-table, th, td {
-  border: 1px solid #666;
+/* Table styling */
+table {
   border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #ffffff;
+}
+
+th, td {
+  border: 1px solid #666;
   padding: 8px;
-  background-color: #fff;
+  text-align: left;
+}
+
+th {
+  background-color: #f0dada;  /* light red shade for headings */
+  color: darkred;
+  font-weight: 700;
 }
