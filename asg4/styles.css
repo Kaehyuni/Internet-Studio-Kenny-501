@@ -1,18 +1,16 @@
-/* Share Tech for headings */
-.share-tech-regular {
+/* Headings: Share Tech */
+h1, h2 {
   font-family: "Share Tech", sans-serif;
   font-weight: 400;
-  font-style: normal;
-  color: darkred; /* heading color */
+  color: darkred;   /* headings color */
 }
 
-/* Genos for body text */
-.genos-body {
+/* Body text: Genos */
+p, ul, table, td, th {
   font-family: "Genos", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
-  color: #333333; /* paragraph/table text color */
+  color: #333333;   /* paragraph and body text color */
 }
 
 body {
