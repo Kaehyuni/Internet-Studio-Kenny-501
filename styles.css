@@ -46,9 +46,9 @@ p, li, figcaption { font-size: clamp(1rem, 2.8vw, 1.125rem); }
   background: linear-gradient(135deg, var(--light-blue), var(--aqua));
   border-bottom: 4px solid var(--dark-blue);
 }
-.tagline { margin: 0 0 1rem 0; opacity: 0.9; }
+tagline { margin: 0 0 1rem 0; opacity: 0.9; }
 
-.card {
+card {
   background: var(--white);
   padding: 1.25rem;
   border-radius: 12px;
