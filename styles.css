@@ -63,7 +63,7 @@ gallery {
   gap: 1rem;
 }
 gallery-item { text-align: center; }
-gallery-item img {
+gallery-item {
   width: 100%;        /* lets the image shrink with screen size */
   max-width: 320px;   /* prevents it from being too large */
   height: auto;       /* keeps proportions */
