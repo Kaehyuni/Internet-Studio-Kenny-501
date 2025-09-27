@@ -63,8 +63,12 @@ gallery {
   gap: 1rem;
 }
 gallery-item { text-align: center; }
-gallery-item img{
-  max-width: 320px;
+gallery-item img {
+  width: 100%;        /* lets the image shrink with screen size */
+  max-width: 320px;   /* prevents it from being too large */
+  height: auto;       /* keeps proportions */
+  margin: 0 auto;     /* centers the image */
+  display: block;     /* makes margin:auto work */
   border-radius: 10px;
   border: 3px solid var(--light-blue);
 }
