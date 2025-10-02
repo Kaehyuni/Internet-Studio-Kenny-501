@@ -1,1 +1,77 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Shadows Into Light", cursive;
+  background: url("halftone.svg") repeat,
+              linear-gradient(to bottom, #FFE8B5, #FFFFFF);
+  background-attachment: fixed;
+  background-size: auto, cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.message-box {
+  background: white;
+  border: 3px solid #FF7D00;
+  box-shadow: 0 0 20px rgba(227, 95, 0, 0.6);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.message-box h1 {
+  font-family: "Diplomata", serif;
+  font-size: 2.5rem;
+  color: #E35F00;
+  margin-bottom: 20px;
+}
+
+.message-box p {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.message-box a {
+  display: inline-block;
+  background: #FF7D00;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.message-box a:hover {
+  background: white;
+  color: #FF7D00;
+  border: 2px solid #FF7D00;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: transparent;
+  font-size: 0.9rem;
+  font-family: "Shadows Into Light", cursive;
+}
 
