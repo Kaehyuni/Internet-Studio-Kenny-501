@@ -139,3 +139,13 @@ button[type="submit"]:hover{ background: #fff; color: var(--orange-bright); }
 @media (max-width: 600px){
   .gallery{ grid-template-columns: 1fr; }
 }
+
+footer {
+   background: var(--white);
+  border: 3px solid var(--orange-bright);
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 0 auto 20px;
+  text-align: center;
+  max-width: fit-content;
+}
