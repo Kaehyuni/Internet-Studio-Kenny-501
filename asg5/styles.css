@@ -1,73 +1,70 @@
-/* ===== Reset (professor requirement) ===== */
+/* ===== Reset ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ===== Root palette & font stacks ===== */
 :root{
-  --bg-light: #FFE8B5;          /* light orange */
+  --bg-light: #FFE8B5;
   --white: #FFFFFF;
-  --orange-dark: #E35F00;       /* title */
-  --orange-bright: #FF7D00;     /* subheads / accents */
-  --text-body: #4D3C2F;         /* readable body text */
-  --border-soft: rgba(0,0,0,0.08);
-  --card-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --orange-dark: #E35F00;
+  --orange-bright: #FF7D00;
+  --text-body: #4D3C2F;
 }
 
-html, body { height: 100%; }
 body{
-  font-family: "Shadows Into Light", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Shadows Into Light", cursive;
   color: var(--text-body);
   line-height: 1.6;
-  /* tiled halftone + soft gradient */
+  /* repeat halftone tile */
   background:
     url("halftone.svg") repeat,
     linear-gradient(to bottom, var(--bg-light), var(--white));
+  background-size: 200px 200px, cover; /* force repeat tile size */
   background-attachment: fixed;
-  background-size: auto, cover;
-  padding: 32px; /* page breathing room */
+  padding: 32px;
 }
 
 /* ===== Typography ===== */
-.title{ /* page heading */
+.title,
+.intro,
+#guests-title,
+#menu-title,
+#rsvp-title {
+  background: var(--white);
+  border: 3px solid var(--orange-bright);
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 0 auto 20px;
+  text-align: center;
+  max-width: fit-content;
+  box-shadow: 0 0 12px var(--orange-bright);
+}
+
+.title{
   font-family: "Diplomata", serif;
   color: var(--orange-dark);
   font-size: clamp(2rem, 4vw + 0.5rem, 3.25rem);
-  letter-spacing: 1px;
-  text-align: center;
-  margin-bottom: 8px;
 }
 
 .intro{
-  max-width: 60ch;
-  margin: 0 auto 28px auto;
-  text-align: center;
-}
-
-/* h1 everywhere else (if any) uses Londrina; main .title overrides above */
-h1:not(.title){
-  font-family: "Londrina Solid", sans-serif;
-  color: var(--orange-dark);
+  font-size: 1.2rem;
+  margin-bottom: 28px;
 }
 
 h2{
   font-family: "Shadows Into Light", cursive;
   color: var(--orange-bright);
   font-size: clamp(1.4rem, 2.2vw + 0.3rem, 2rem);
-  text-align: center;
   margin: 24px auto 12px auto;
+  text-align: center;
 }
 
 h3{
   font-family: "Shadows Into Light", cursive;
   color: var(--orange-bright);
-  font-size: clamp(1.1rem, 1.4vw + 0.4rem, 1.5rem);
+  font-size: 1.5rem;
   margin: 8px 0;
 }
 
 p, li{ color: var(--text-body); }
-
-/* ===== Layout helpers ===== */
-main{ max-width: 1100px; margin: 0 auto; }
-section{ margin: 12px auto 28px auto; }
 
 /* ===== Gallery ===== */
 .gallery{
@@ -76,20 +73,15 @@ section{ margin: 12px auto 28px auto; }
   gap: 16px;
   justify-items: center;
 }
-.gallery-item{ 
+.gallery-item{
   width: 100%;
   max-width: 360px;
   background: #fff;
-  border: 1px solid var(--border-soft);
   border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   overflow: hidden;
 }
-.gallery-item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
+.gallery-item img{ width: 100%; height: auto; display: block; }
 .gallery-item figcaption{ padding: 12px 14px 16px; }
 
 /* ===== Menu ===== */
@@ -101,43 +93,32 @@ section{ margin: 12px auto 28px auto; }
   max-width: 900px; 
   margin: 8px auto 0; 
 }
-#menu .menu-list > li{ 
-  background: #fff; 
-  border: 1px solid var(--border-soft); 
-  border-radius: 10px; 
-  box-shadow: var(--card-shadow); 
-  padding: 14px; 
+#menu .menu-list > li{
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 14px;
 }
-#menu ul ul{ 
-  margin-top: 6px; 
-  padding-left: 18px; 
-}
-#menu ul ul li{ margin: 4px 0; }
 
 /* ===== RSVP Form ===== */
 #rsvp form{
   max-width: 520px;
   margin: 8px auto 0;
   background: #fff;
-  border: 1px solid var(--border-soft);
   border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   padding: 18px 16px;
 }
 .form-row{ margin-bottom: 14px; }
 label, legend{ font-weight: 600; color: var(--orange-dark); }
+
 input[type="text"], textarea{
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px 12px;
   font: inherit;
-  outline: none;
 }
-input[type="text"]:focus, textarea:focus{ border-color: var(--orange-bright); box-shadow: 0 0 0 3px rgba(255,125,0,0.15); }
-
-fieldset{ border: none; padding: 0; margin: 0 0 8px; }
-fieldset label{ margin-right: 16px; }
 
 button[type="submit"]{
   background: var(--orange-bright);
@@ -150,16 +131,11 @@ button[type="submit"]{
 }
 button[type="submit"]:hover{ background: #fff; color: var(--orange-bright); }
 
-/* ===== Footer ===== */
-footer{ text-align: center; font-size: 0.9rem; opacity: 0.8; margin-top: 24px; }
-
-/* ===== Responsive tweaks ===== */
+/* ===== Responsive ===== */
 @media (max-width: 900px){
-  .gallery{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery{ grid-template-columns: repeat(2, 1fr); }
   #menu .menu-list{ grid-template-columns: 1fr; }
 }
 @media (max-width: 600px){
-  body{ padding: 20px; }
   .gallery{ grid-template-columns: 1fr; }
 }
-
