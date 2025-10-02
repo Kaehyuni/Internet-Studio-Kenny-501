@@ -1,19 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link href="style.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dinner Invitation</title>
-</head>
 
+  <!-- Google Fonts (linked; styling will be done later in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Diplomata&family=Londrina+Solid:wght@100;300;400;900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
 <body>
-  <section>
-    <h1>Welcome to my Dinner.</h1>
-    <p>Here are the special guest that are going to be attending</p>
-    <ol>
-      <li>Rose from Blackpink</li>
-      <li>Link from Legend of Zelda: TOTK</li>
-      <li>Hanni from NewJeans</li>
-    </ol>
-  </section>
+  <header>
+    <h1 class="title">Dinner Invitation</h1>
+    <p class="intro">You are invited to a warm evening with three special guests of honor.</p>
+  </header>
+
+  <main>
+    <section id="guests" aria-labelledby="guests-title">
+      <h2 id="guests-title">Guests of Honor</h2>
+
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="lisa.jpg" alt="Lisa from Blackpink smiling" />
+          <figcaption>
+            <h3>Lisa from Blackpink</h3>
+            <p>It is the honor for Lisa for joining my Dinner. I would like her to join because I admire her energy and focus. I want to learn how she prepares for a show and how she builds confidence. I also want to talk about her love for music and dance and how she stays kind while working hard.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="link.jpg" alt="Link from The Legend of Zelda holding a sword" />
+          <figcaption>
+            <h3>Link from The Legend of Zelda Tears of the Kingdom</h3>
+            <p>It is the honor for Link for joining my Dinner. I would like him to join because he teaches courage and patience. I want to ask how he stays calm and how he solves problems with simple tools. I also want to learn how the world around him shapes his story without many words.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="felix.jpg" alt="Felix from Stray Kids performing" />
+          <figcaption>
+            <h3>Felix from Stray Kids</h3>
+            <p>It is the honor for Felix for joining my Dinner. I would like him to join because his voice is deep and warm and it brings people together. I want to talk about his practice habits and how he supports his team. I also want to learn how he connects with fans in a real and friendly way.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <h2 id="menu-title">Evening Menu</h2>
+      <ul class="menu-list">
+        <li>
+          <h3>Appetizers</h3>
+          <ul>
+            <li>Vietnamese <em>goi cuon</em> fresh spring rolls</li>
+            <li>Korean <em>mandu</em> dumplings</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Main Course</h3>
+          <ul>
+            <li><em>Bun bo Hue</em> spicy beef noodle soup</li>
+            <li>Kimchi jjigae with steamed rice</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Dessert</h3>
+          <ul>
+            <li><em>Banh flan</em> Vietnamese caramel custard</li>
+            <li>Bingsu shaved ice</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Drinks</h3>
+          <ul>
+            <li>Jasmine tea</li>
+            <li>Yuzu ade</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="rsvp" aria-labelledby="rsvp-title">
+      <h2 id="rsvp-title">RSVP</h2>
+      <form action="#" method="post">
+        <div class="form-row">
+          <label for="name">Name</label><br />
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <fieldset class="form-row">
+          <legend>Will you be bringing a guest?</legend>
+          <label><input type="radio" name="bringing_guest" value="yes" required /> Yes</label>
+          <label><input type="radio" name="bringing_guest" value="no" /> No</label>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="diet">Dietary preferences</label><br />
+          <textarea id="diet" name="diet" rows="5" placeholder="Vegetarian, Halal, nut allergy"></textarea>
+        </div>
+
+        <div class="form-row">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Dinner Invitation for assignment asg5. Images lisa.jpg link.jpg felix.jpg. Background tile halftone.svg will be added with CSS later.</p>
+  </footer>
 </body>
+</html>
