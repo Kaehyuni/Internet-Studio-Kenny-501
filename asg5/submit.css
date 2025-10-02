@@ -1,77 +1,109 @@
-/* Reset defaults */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== Reset ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== Palette & tokens (same vibe as invitation) ===== */
+:root{
+  --bg-light: #FFE8B5;
+  --white: #FFFFFF;
+  --orange-dark: #E35F00;
+  --orange-bright: #FF7D00;
+  --text-body: #4D3C2F;
+
+  --tile-size: 200px 200px;
+  --tile-opacity: .35;
 }
 
-body {
+/* ===== Page background: gradient + halftone (tinted orange) ===== */
+html, body { height: 100%; }
+body{
   font-family: "Shadows Into Light", cursive;
-  background: url("halftone.svg") repeat,
-              linear-gradient(to bottom, #FFE8B5, #FFFFFF);
+  color: var(--text-body);
+  line-height: 1.6;
+
+  /* base gradient */
+  background: linear-gradient(to bottom, var(--bg-light), var(--white));
   background-attachment: fixed;
-  background-size: auto, cover;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: #333;
 }
 
-main {
-  flex: 1;
+/* halftone overlay so we can control opacity/tint */
+body::before{
+  content: "";
+  position: fixed; inset: 0;
+  background: url("halftone.svg") repeat;
+  background-size: var(--tile-size);
+  opacity: var(--tile-opacity);
+  /* tint to orange */
+  filter: invert(29%) sepia(86%) saturate(2438%) hue-rotate(17deg) brightness(98%) contrast(104%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== Centering wrapper ===== */
+.center{
+  min-height: calc(100vh - 80px); /* leave a little room for footer */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 32px 20px;
 }
 
-.message-box {
-  background: white;
-  border: 3px solid #FF7D00;
-  box-shadow: 0 0 20px rgba(227, 95, 0, 0.6);
-  border-radius: 12px;
-  padding: 40px;
-  max-width: 600px;
+/* ===== The white card with glowing orange border ===== */
+.thankyou-card{
+  background: var(--white);
+  border: 3px solid var(--orange-bright);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(255,125,0,.9);
+  max-width: 720px;
+  width: 100%;
   text-align: center;
+  padding: 28px 22px;
 }
 
-.message-box h1 {
+/* Title in orange */
+.title{
   font-family: "Diplomata", serif;
-  font-size: 2.5rem;
-  color: #E35F00;
-  margin-bottom: 20px;
+  color: var(--orange-dark);
+  font-size: clamp(2rem, 3.5vw + .5rem, 3rem);
+  margin-bottom: 10px;
 }
 
-.message-box p {
-  font-family: "Shadows Into Light", cursive;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 20px;
+/* Body text ORANGE as requested */
+.thankyou-card p{
+  color: var(--orange-bright);
+  font-size: 1.25rem;
+  margin: 8px 0;
 }
 
-.message-box a {
+/* Email link and button */
+.thankyou-card a{
+  color: var(--orange-dark);
+  text-decoration: underline;
+}
+
+.actions{ margin-top: 14px; }
+
+.btn{
   display: inline-block;
-  background: #FF7D00;
-  color: white;
+  background: var(--orange-bright);
+  color: #fff;
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--orange-bright);
   font-family: "Londrina Solid", sans-serif;
-  font-weight: 700;
-  transition: all 0.3s ease;
+  font-weight: 900;
+  transition: .2s ease;
+  margin-top: 4px;
+}
+.btn:hover{
+  background: #fff;
+  color: var(--orange-bright);
 }
 
-.message-box a:hover {
-  background: white;
-  color: #FF7D00;
-  border: 2px solid #FF7D00;
-}
-
-footer {
+/* Footer (same as invitation style) */
+footer{
   text-align: center;
-  padding: 20px;
-  background: transparent;
-  font-size: 0.9rem;
-  font-family: "Shadows Into Light", cursive;
+  font-size: .95rem;
+  opacity: .85;
+  padding: 16px 10px;
 }
-
