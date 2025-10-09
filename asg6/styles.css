@@ -13,7 +13,7 @@
   --tintA: #DAD7AA;      /* TL */
   --tintB: #B4EECA;      /* BR */
   --tint-alpha: 0.55;    /* gradient tint strength */
-  --tile-size: 300px;    /* pattern density (smaller = denser) */
+  --tile-size: 300px;    /* pattern density */
 
   /* Layout */
   --container-max: 1080px;
@@ -60,7 +60,7 @@ h2{ font-weight:700; font-size:1.8rem; }
 h3{ font-weight:600; font-size:1.3rem; }
 p { font-size:1.08rem; }
 
-/* ========== Background Pattern ========== */
+/* ========== Background Pattern (fixed) ========== */
 body.mirrored-pattern{
   background-image:
     linear-gradient(45deg,
@@ -71,17 +71,17 @@ body.mirrored-pattern{
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
   background-position: 0 0, 0 0;
-  background-attachment: scroll, scroll;
-  background-blend-mode: screen;   /* color the tile */
+  background-attachment: fixed, fixed;   /* keeps the background still */
+  background-blend-mode: screen;         /* tints the tile */
 }
 
-/* mirrored overlay for kaleidoscope look (absolute to avoid cut-off) */
+/* mirrored overlay (also fixed) */
 body.mirrored-pattern::after{
   content:"";
-  position:absolute;      /* was fixed; absolute avoids viewport clipping */
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
+  position: fixed;       /* stays still with the background */
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 
   background-image:
     linear-gradient(45deg,
@@ -91,12 +91,12 @@ body.mirrored-pattern::after{
     url("images/background_tile.png");
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
-  background-position: 0 0, var(--tile-size) var(--tile-size); /* half-tile shift */
-  background-attachment: scroll, scroll;
+  background-position: 0 0, var(--tile-size) var(--tile-size); /* half-tile offset */
+  background-attachment: fixed, fixed;   /* fixed mirror */
   background-blend-mode: screen;
 
-  transform: scale(-1);   /* flip both axes for mirror effect */
-  opacity: 0.45;          /* mirror strength */
+  transform: scale(-1);  /* flips both axes */
+  opacity: 0.45;         /* mirror strength */
 }
 
 /* ========== Top Nav ========== */
@@ -181,7 +181,7 @@ body.mirrored-pattern::after{
   padding: 12px var(--pad-md);
   margin-top: 10px;
   box-shadow: var(--shadow-sm);
-  border-bottom: none;                /* no line through the band */
+  border-bottom: none;               /* no line through the band */
 }
 .hat-section.changes .hat-heading{
   margin: 4px 0 0;
