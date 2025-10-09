@@ -118,7 +118,10 @@ body.mirrored-pattern::after{
   padding: var(--pad-xl) var(--pad-lg);
   background: var(--band-fill);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 0 20px 3px rgba(101, 255, 203, 0.7),   /* mint glow */
+    var(--shadow-md);
+  border: 1px solid rgba(101, 255, 203, 0.4);
 }
 .title-band .page-title{
   font-size: clamp(2.2rem, 3.6vw + 1rem, 3.2rem);
@@ -131,7 +134,10 @@ body.mirrored-pattern::after{
   padding: var(--pad-lg);
   background: var(--card-fill);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 0 20px 3px rgba(101, 255, 203, 0.7),
+    var(--shadow-md);
+  border: 1px solid rgba(101, 255, 203, 0.4);
 
   /* grid = two columns, no tables */
   display: grid;
@@ -180,8 +186,10 @@ body.mirrored-pattern::after{
   border-radius: var(--radius-lg);
   padding: 12px var(--pad-md);
   margin-top: 10px;
-  box-shadow: var(--shadow-sm);
-  border-bottom: none;               /* no line through the band */
+  box-shadow:
+    0 0 20px 3px rgba(101, 255, 203, 0.7),
+    var(--shadow-sm);
+  border: 1px solid rgba(101, 255, 203, 0.4);
 }
 .hat-section.changes .hat-heading{
   margin: 4px 0 0;
