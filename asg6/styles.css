@@ -10,11 +10,9 @@
   --changes-fill: rgba(180,238,202,0.75);/* mint band for changes */
 
   /* Background controls */
-  --tintA: #DAD7AA;      /* TL */
-  --tintB: #B4EECA;      /* BR */
-  --tint-alpha: 0.55;    /* gradient tint strength */
-  --tile-size: 300px;    /* pattern density */
-
+  --tint-alpha: 0.55;                 /* gradient tint strength */
+  --tile-size: 300px;                 /* pattern density */
+  
   /* Layout */
   --container-max: 1080px;
   --pad-xl: 40px;
@@ -37,7 +35,7 @@ body{
   line-height:1.75;
   background:#fff;        /* base behind pattern */
   position:relative;      /* for ::after overlay */
-  isolation:isolate;      /* prevents clipping with z-index:-1 overlay */
+  isolation:isolate;      /* keeps z-index:-1 safe */
 }
 
 /* Small UI text */
@@ -111,7 +109,7 @@ body.mirrored-pattern::after{
   font-size:.95rem;
 }
 
-/* ========== Title Banner (bigger + rounder like mock) ========== */
+/* ========== Title Banner (with hat row) ========== */
 .title-band{
   max-width:var(--container-max);
   margin: 36px auto 0;
@@ -127,7 +125,30 @@ body.mirrored-pattern::after{
   font-size: clamp(2.2rem, 3.6vw + 1rem, 3.2rem);
 }
 
-/* ========== Worksheet Card (two columns like mock) ========== */
+/* Title + hats aligned in one bar */
+.title-band .title-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap; /* stack hats under title on small screens */
+}
+
+/* Hat row next to title */
+.hat-row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex:0 0 auto;
+}
+.hat-row img{
+  width:56px;
+  height:auto;
+  display:block;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.12));
+}
+
+/* ========== Worksheet Card (two columns) ========== */
 .worksheet-card{
   max-width: var(--container-max);
   margin: 22px auto 56px;
@@ -139,7 +160,6 @@ body.mirrored-pattern::after{
     var(--shadow-md);
   border: 1px solid rgba(101, 255, 203, 0.4);
 
-  /* grid = two columns, no tables */
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 28px;
@@ -159,7 +179,7 @@ body.mirrored-pattern::after{
   margin: 0 0 4px 6px;
 }
 
-/* ========== Hat Sections in Grid ========== */
+/* ========== Hat Sections ========== */
 .hat-section{
   padding: 10px 6px 8px;
   border-bottom: 1px solid rgba(0,0,0,0.06);  /* faint rhythm line */
@@ -173,15 +193,15 @@ body.mirrored-pattern::after{
   margin:0 0 8px;
 }
 .hat-icon{
-  width: 34px;         /* smaller like mock */
+  width: 34px;
   height: auto;
   flex: 0 0 auto;
   vertical-align: middle;
 }
 
-/* ========== Full-width Green Changes Band ========== */
+/* Full-width green band (Changes) */
 .hat-section.changes{
-  grid-column: 1 / -1;               /* span both columns */
+  grid-column: 1 / -1;
   background: var(--changes-fill);
   border-radius: var(--radius-lg);
   padding: 12px var(--pad-md);
@@ -190,12 +210,13 @@ body.mirrored-pattern::after{
     0 0 20px 3px rgba(101, 255, 203, 0.7),
     var(--shadow-sm);
   border: 1px solid rgba(101, 255, 203, 0.4);
+  border-bottom: none;
 }
 .hat-section.changes .hat-heading{
   margin: 4px 0 0;
 }
 
-/* ========== Footer (centered like mock) ========== */
+/* ========== Footer ========== */
 .site-footer{
   max-width:var(--container-max);
   margin: 0 auto var(--pad-md);
@@ -212,10 +233,16 @@ body.mirrored-pattern::after{
 
 /* ========== Responsive Tweaks ========== */
 @media (max-width: 900px){
-  .worksheet-card{
-    grid-template-columns: 1fr;  /* stack to one column */
-  }
+  .worksheet-card{ grid-template-columns: 1fr; }  /* stack to one column */
   .hat-section{ border-bottom-color: rgba(0,0,0,0.08); }
+}
+@media (max-width: 780px){
+  .hat-row img{ width:44px; }
+}
+@media (max-width: 560px){
+  .title-band .title-bar{ gap:14px; }
+  .hat-row{ order:2; }               /* hats drop under the title */
+  .hat-row img{ width:38px; }
 }
 @media (max-width: 600px){
   .title-band{ padding: var(--pad-lg); border-radius: var(--radius-lg); }
