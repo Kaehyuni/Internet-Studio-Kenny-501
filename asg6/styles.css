@@ -12,7 +12,7 @@
   --tintA: #DAD7AA;          /* top-left of gradient */
   --tintB: #B4EECA;          /* bottom-right of gradient */
   --tint-alpha: 0.55;        /* strength of gradient tint (0–1) */
-  --tile-size: 75px;         /* pattern density; smaller = denser */
+  --tile-size: 25px;         /* pattern density; smaller = denser */
 
   /* Layout + effects */
   --container-max: 1080px;
