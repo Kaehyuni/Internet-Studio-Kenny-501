@@ -1,3 +1,4 @@
+
 /* ========== Base / Variables ========== */
 :root{
   /* Text colors */
@@ -69,14 +70,14 @@ body.mirrored-pattern{
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
   background-position: 0 0, 0 0;
-  background-attachment: fixed, fixed;   /* keeps the background still */
+  background-attachment: fixed, fixed;   /* keeps background still */
   background-blend-mode: screen;         /* tints the tile */
 }
 
 /* mirrored overlay (also fixed) */
 body.mirrored-pattern::after{
   content:"";
-  position: fixed;       /* stays still with the background */
+  position: fixed;       
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -89,12 +90,12 @@ body.mirrored-pattern::after{
     url("images/background_tile.png");
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
-  background-position: 0 0, var(--tile-size) var(--tile-size); /* half-tile offset */
-  background-attachment: fixed, fixed;   /* fixed mirror */
+  background-position: 0 0, var(--tile-size) var(--tile-size); 
+  background-attachment: fixed, fixed;   
   background-blend-mode: screen;
 
-  transform: scale(-1);  /* flips both axes */
-  opacity: 0.45;         /* mirror strength */
+  transform: scale(-1);  
+  opacity: 0.45;         
 }
 
 /* ========== Top Nav ========== */
@@ -109,7 +110,7 @@ body.mirrored-pattern::after{
   font-size:.95rem;
 }
 
-/* ========== Title Banner (with hat row) ========== */
+/* ========== Title Banner ========== */
 .title-band{
   max-width:var(--container-max);
   margin: 36px auto 0;
@@ -117,7 +118,7 @@ body.mirrored-pattern::after{
   background: var(--band-fill);
   border-radius: var(--radius-xl);
   box-shadow:
-    0 0 20px 3px rgba(101, 255, 203, 0.7),   /* mint glow */
+    0 0 20px 3px rgba(101, 255, 203, 0.7),   
     var(--shadow-md);
   border: 1px solid rgba(101, 255, 203, 0.4);
 }
@@ -125,27 +126,37 @@ body.mirrored-pattern::after{
   font-size: clamp(2.2rem, 3.6vw + 1rem, 3.2rem);
 }
 
-/* Title + hats aligned in one bar */
+/* Title + hats inline after title */
 .title-band .title-bar{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  flex-wrap:wrap; /* stack hats under title on small screens */
+  align-items: baseline;         /* align hats to title text */
+  justify-content:flex-start;    /* line up left */
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
-/* Hat row next to title */
+/* Tiny hats row */
 .hat-row{
   display:flex;
-  gap:14px;
-  align-items:center;
-  flex:0 0 auto;
+  gap: 6px;
+  margin-left: 8px;
+  align-items:baseline;
 }
 .hat-row img{
-  width:56px;
-  height:auto;
+  width: 22px;
+  height: auto;
   display:block;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.12));
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.10));
+}
+
+/* Responsive hats */
+@media (max-width: 780px){
+  .hat-row img{ width: 18px; }
+}
+@media (max-width: 560px){
+  .title-band .title-bar{ flex-wrap: wrap; }
+  .hat-row{ order: 2; margin-left: 0; justify-content:center; }
+  .hat-row img{ width: 16px; }
 }
 
 /* ========== Worksheet Card (two columns) ========== */
@@ -182,7 +193,7 @@ body.mirrored-pattern::after{
 /* ========== Hat Sections ========== */
 .hat-section{
   padding: 10px 6px 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);  /* faint rhythm line */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 /* heading with small icon bullet */
@@ -199,7 +210,7 @@ body.mirrored-pattern::after{
   vertical-align: middle;
 }
 
-/* Full-width green band (Changes) */
+/* ========== Green Changes Band ========== */
 .hat-section.changes{
   grid-column: 1 / -1;
   background: var(--changes-fill);
@@ -233,16 +244,8 @@ body.mirrored-pattern::after{
 
 /* ========== Responsive Tweaks ========== */
 @media (max-width: 900px){
-  .worksheet-card{ grid-template-columns: 1fr; }  /* stack to one column */
+  .worksheet-card{ grid-template-columns: 1fr; }
   .hat-section{ border-bottom-color: rgba(0,0,0,0.08); }
-}
-@media (max-width: 780px){
-  .hat-row img{ width:44px; }
-}
-@media (max-width: 560px){
-  .title-band .title-bar{ gap:14px; }
-  .hat-row{ order:2; }               /* hats drop under the title */
-  .hat-row img{ width:38px; }
 }
 @media (max-width: 600px){
   .title-band{ padding: var(--pad-lg); border-radius: var(--radius-lg); }
