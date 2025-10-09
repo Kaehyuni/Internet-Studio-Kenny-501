@@ -1,128 +1,114 @@
+/* =========================================================
+   Assignment 6 — Six Thinking Hats 
+   ========================================================= */
+
 /* ========== Base / Variables (comments required by assignment) ========== */
-/* Type colors */
+/* Type and color system */
 :root{
-  --title-h1:#2F7C78;
-  --body-headings:#0E3F3C;
+  --title-h1: #2F7C78;             /* H1 color */
+  --body-headings: #0E3F3C;        /* H2–H4 + P color */
 
   /* Box fills at 75% opacity */
-  --band-fill: rgba(218,215,170,0.75);   /* #DAD7AA @ 75% */
-  --card-fill: rgba(255,253,204,0.75);   /* #FFFDCC @ 75% */
+  --band-fill: rgba(218,215,170,0.75);  /* #DAD7AA @ 75% */
+  --card-fill: rgba(255,253,204,0.75);  /* #FFFDCC @ 75% */
 
-  /* Accent gradient for pattern tint (top-left -> bottom-right) */
-  --tint-a:#DAD7AA;
-  --tint-b:#B4EECA;
+  /* Gradient tint for background pattern (top-left -> bottom-right) */
+  --tint-a: #DAD7AA;   /* TL */
+  --tint-b: #B4EECA;   /* BR */
 
-  /* Layout */
-  --container-max:1080px;
-  --pad-lg:32px;
-  --pad-md:24px;
-  --pad-sm:16px;
-  --radius-lg:14px;
-  --radius-md:10px;
-  --shadow-md:0 10px 28px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+  /* Layout + effects */
+  --container-max: 1080px;
+  --pad-lg: 32px;
+  --pad-md: 24px;
+  --pad-sm: 16px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --shadow-md: 0 10px 28px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
 }
 
 /* ========== Global Reset-ish ========== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
 /* ========== Typography ========== */
 body{
-  font-family: "EB Garamond", serif;
+  font-family: "EB Garamond", serif;   /* default text font */
   color: var(--body-headings);
   line-height: 1.75;
-  background:#fff; /* white base under the tinted pattern */
+  background: #fff;                    /* hard white base under pattern tint */
 }
 
-/* Small utility text (subtitle pill, footer, nav) */
-.site-label,.back-link,.footer-note{
-  font-family:"BBH Sans Hegarty", sans-serif;
-  letter-spacing:.02em;
+/* Small UI text (subtitle pill, footer, nav) */
+.site-label,
+.back-link,
+.footer-note{
+  font-family: "BBH Sans Hegarty", sans-serif; /* will fall back to system sans if not available */
+  letter-spacing: .02em;
 }
 
 /* Main title */
 .page-title,
 h1{
-  font-family:"Bebas Neue", sans-serif;
-  letter-spacing:.5px;
-  color:var(--title-h1);
-  text-transform:uppercase;
-  margin:0;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .5px;
+  color: var(--title-h1);
+  text-transform: uppercase;
+  margin: 0;
 }
 
-/* Section headings and body text colors */
-h2,h3,h4,p{color:var(--body-headings); margin-block:0 0.6em;}
-h2{font-weight:700; font-size:1.8rem}
-h3{font-weight:600; font-size:1.3rem}
-p{font-size:1.08rem}
+/* Section headings + paragraphs */
+h2, h3, h4, p { color: var(--body-headings); margin-block: 0 0.6em; }
+h2 { font-weight: 700; font-size: 1.8rem; }
+h3 { font-weight: 600; font-size: 1.3rem; }
+p  { font-size: 1.08rem; }
 
 /* ========== Scrollable, tinted repeating pattern background ========== */
-/* We place the patterned, tinted wallpaper on body via a pseudo-element so it sits over white but behind content. */
+/* Layered backgrounds directly on <body> (no ::before). */
 body.mirrored-pattern{
-  position:relative;
-}
-body.mirrored-pattern::before{
-  content:"";
-  position:absolute;   /* scrolls with the page */
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-
-  /* Two-layer background: the gradient tints the pattern via blend-mode */
+  /* layer 1: diagonal gradient tint
+     layer 2: repeating hat tile (make sure file exists at images/hat_pattern.png) */
   background-image:
     linear-gradient(45deg, var(--tint-a) 0%, var(--tint-b) 100%),
-    url("../images/bg_pattern.png");
-  background-repeat: repeat, repeat;
-  /* Adjust tile size to match your asset scale */
-  background-size: 100% 100%, 280px 280px;  /* gradient covers page, pattern tiles */
-  background-position: 0 0, 0 0;
-  background-blend-mode: multiply;  /* tint only where the pattern has ink over white base */
-  opacity:.35; /* overall strength of the wallpaper; tweak between .25–.45 */
-}
+    url("images/hat_pattern.png");
 
-/* OPTIONAL: if you want a stronger kaleidoscope “mirror” look, add class .mirror-kaleido to <body> */
-body.mirror-kaleido::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-  background-image:
-    linear-gradient(45deg, var(--tint-a) 0%, var(--tint-b) 100%),
-    url("../images/bg_pattern.png");
-  background-repeat: repeat, repeat;
-  background-size: 100% 100%, 280px 280px;
-  background-position: 140px 140px, 140px 140px; /* half-tile offset */
+  /* gradient covers the entire painting area; tile repeats across page */
+  background-repeat: no-repeat, repeat;
+
+  /* scale: gradient stretches to page; pattern tile size controls density */
+  background-size: 100% 100%, 280px 280px;  /* tweak 220–340px to taste */
+
+  /* both layers scroll with the page (as requested) */
+  background-attachment: scroll, scroll;
+
+  /* tint only “colors” the dark ink of the pattern over the white base */
   background-blend-mode: multiply;
-  transform: scale(-1);       /* flips this layer both axes to “mirror” alternates */
-  opacity:.18;                 /* lighter than ::before so it doesn’t get busy */
 }
 
 /* ========== Layout Containers ========== */
 .top-nav{
-  max-width:var(--container-max);
+  max-width: var(--container-max);
   margin: var(--pad-sm) auto 0;
   padding: 0 var(--pad-sm);
 }
 .back-link{
-  text-decoration:none;
-  color:var(--body-headings);
-  font-size:.95rem;
+  text-decoration: none;
+  color: var(--body-headings);
+  font-size: .95rem;
 }
 
 /* Title band */
 .title-band{
-  max-width:var(--container-max);
+  max-width: var(--container-max);
   margin: 48px auto 0;
   padding: var(--pad-lg);
   border-radius: var(--radius-lg);
-  background: var(--band-fill);
-  box-shadow: var(--shadow-md);
+  background: var(--band-fill);     /* #DAD7AA @ 75% */
+  box-shadow: var(--shadow-md);     /* subtle shadow per request */
 }
 .site-label{
-  margin:0 0 .35rem;
-  font-size:.95rem;
-  color:var(--body-headings);
+  margin: 0 0 .35rem;
+  font-size: .95rem;
+  color: var(--body-headings);
 }
 .title-band .page-title{
   font-size: clamp(2.1rem, 3.2vw + 1rem, 3rem);
@@ -130,41 +116,41 @@ body.mirror-kaleido::after{
 
 /* Worksheet card */
 .worksheet-card{
-  max-width:var(--container-max);
+  max-width: var(--container-max);
   margin: 28px auto 64px;
   padding: var(--pad-lg);
   border-radius: var(--radius-lg);
-  background: var(--card-fill);
+  background: var(--card-fill);     /* #FFFDCC @ 75% */
   box-shadow: var(--shadow-md);
 }
 .section-label{
-  display:inline-block;
+  display: inline-block;
   background: var(--band-fill);
   color: var(--body-headings);
   padding: 6px 14px;
-  border-radius: 9999px;
+  border-radius: 9999px;            /* pill */
   margin: 0 0 18px 0;
-  font-size:.95rem;
+  font-size: .95rem;
 }
 
 /* ========== Hat Sections ========== */
-.hat-section{ 
+.hat-section{
   margin: 22px 0 28px;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(0,0,0,0.08); /* gentle rhythm line */
 }
 
-/* Title with icon to the left */
+/* H2 with icon to the left (like a visual bullet) */
 .hat-heading{
-  display:flex;
-  align-items:center;
-  gap:12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0 0 10px;
 }
 
-/* Icon sizing (desktop-first) */
+/* PNG hat icons (transparent) */
 .hat-icon{
-  width: 56px;         /* looks balanced next to EB Garamond h2 */
+  width: 56px;          /* balanced next to EB Garamond h2 */
   height: auto;
   flex: 0 0 auto;
   vertical-align: middle;
@@ -173,26 +159,25 @@ body.mirror-kaleido::after{
 
 /* ========== Footer ========== */
 .site-footer{
-  max-width:var(--container-max);
+  max-width: var(--container-max);
   margin: 0 auto var(--pad-md);
   padding: 0 var(--pad-sm);
-  text-align:center;
+  text-align: center;
 }
 .footer-note{
   margin: 0.6rem 0 0;
-  font-size:.95rem;
+  font-size: .95rem;
   color: var(--body-headings);
-  opacity:.9;
+  opacity: .9;
 }
 
-/* ========== Responsive tweaks ========== */
+/* ========== Responsive Tweaks ========== */
 @media (max-width: 800px){
   .title-band{ padding: var(--pad-md); }
   .worksheet-card{ padding: var(--pad-md); }
   .hat-icon{ width: 44px; }
-  p{ font-size:1.02rem; line-height:1.8; }
+  p{ font-size: 1.02rem; line-height: 1.8; }
 }
-
 @media (max-width: 480px){
   .title-band{ margin-top: 36px; }
   .hat-icon{ width: 40px; }
