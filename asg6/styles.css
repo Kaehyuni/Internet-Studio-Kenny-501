@@ -1,6 +1,6 @@
 /* ========== Base / Variables (comments required by assignment) ========== */
 :root{
-  /* Text Colors */
+  /* Text colors */
   --title-h1: #2F7C78;              /* H1 color */
   --body-headings: #0E3F3C;         /* H2–H4 + P color */
 
@@ -8,13 +8,13 @@
   --band-fill: rgba(218,215,170,0.75);   /* #DAD7AA @ 75% */
   --card-fill: rgba(255,253,204,0.75);   /* #FFFDCC @ 75% */
 
-  /* Background gradient and pattern */
-  --tintA: #DAD7AA;   /* top-left */
-  --tintB: #B4EECA;   /* bottom-right */
-  --tint-alpha: 0.55; /* opacity of gradient tint */
-  --tile-size: 25px; /* adjust for pattern density */
+  /* Background controls */
+  --tintA: #DAD7AA;          /* top-left of gradient */
+  --tintB: #B4EECA;          /* bottom-right of gradient */
+  --tint-alpha: 0.55;        /* strength of gradient tint (0–1) */
+  --tile-size: 75px;         /* pattern density; smaller = denser */
 
-  /* Layout settings */
+  /* Layout + effects */
   --container-max: 1080px;
   --pad-lg: 32px;
   --pad-md: 24px;
@@ -26,68 +26,79 @@
 }
 
 /* ========== Global Reset-ish ========== */
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
 
 /* ========== Typography ========== */
 body{
-  font-family:"EB Garamond",serif;
+  font-family:"EB Garamond", serif;  /* default text */
   color:var(--body-headings);
   line-height:1.75;
-  background:#fff; /* base color behind everything */
+  background:#fff;                   /* hard white base behind pattern */
+  position:relative;                 /* containing context for ::after overlay */
 }
 
-/* Small utility text */
-.site-label,
-.back-link,
-.footer-note{
-  font-family:"BBH Sans Hegarty",sans-serif;
+/* Small UI text */
+.site-label, .back-link, .footer-note{
+  font-family:"BBH Sans Hegarty", sans-serif;
   letter-spacing:.02em;
 }
 
 /* Title text */
-.page-title,
-h1{
-  font-family:"Bebas Neue",sans-serif;
+.page-title, h1{
+  font-family:"Bebas Neue", sans-serif;
   letter-spacing:.5px;
   color:var(--title-h1);
   text-transform:uppercase;
   margin:0;
 }
 
-/* Heading and paragraph styling */
-h2,h3,h4,p{
-  color:var(--body-headings);
-  margin-block:0 0.6em;
-}
-h2{font-weight:700;font-size:1.8rem;}
-h3{font-weight:600;font-size:1.3rem;}
-p{font-size:1.08rem;}
+/* Headings + paragraphs */
+h2,h3,h4,p{ color:var(--body-headings); margin-block:0 0.6em; }
+h2{ font-weight:700; font-size:1.8rem; }
+h3{ font-weight:600; font-size:1.3rem; }
+p { font-size:1.08rem; }
 
-/* ========== Scrollable, tinted repeating pattern (final) ========== */
+/* ========== Background: tinted tile + mirrored overlay ========== */
+/* Base layer: gradient + normal tile (colors the tile using 'screen') */
 body.mirrored-pattern{
   background-color:#fff;
-
-  /* layer 1: semi-transparent gradient
-     layer 2: seamless mirrored tile */
   background-image:
     linear-gradient(45deg,
       rgba(218,215,170,var(--tint-alpha)) 0%,
       rgba(180,238,202,var(--tint-alpha)) 100%
     ),
     url("images/hat_pattern.png");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, var(--tile-size) var(--tile-size);
+  background-position: 0 0, 0 0;
+  background-attachment: scroll, scroll;      /* scrolls with content */
+  background-blend-mode: screen;              /* tint fills the pattern ink */
+}
 
-  /* gradient covers, pattern repeats */
-  background-repeat:no-repeat,repeat;
+/* Mirrored overlay: same tile flipped both axes to create kaleidoscope effect */
+body.mirrored-pattern::after{
+  content:"";
+  position:fixed;       /* locked to viewport; scroll matches layer above */
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
 
-  /* pattern density */
-  background-size:100% 100%,var(--tile-size) var(--tile-size);
+  background-image:
+    linear-gradient(45deg,
+      rgba(218,215,170,var(--tint-alpha)) 0%,
+      rgba(180,238,202,var(--tint-alpha)) 100%
+    ),
+    url("images/hat_pattern.png");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, var(--tile-size) var(--tile-size);
+  /* half-tile offset helps the mirror interlock with the base layer */
+  background-position: 0 0, var(--tile-size) var(--tile-size);
+  background-attachment: scroll, scroll;
+  background-blend-mode: screen;
 
-  /* both layers scroll with content */
-  background-attachment:scroll,scroll;
-
-  /* blend the tint with the tile */
-  background-blend-mode:multiply;
+  transform: scale(-1);   /* flips horizontally + vertically */
+  opacity: 0.5;           /* mirror strength; tweak 0.3–0.7 as desired */
 }
 
 /* ========== Layout Containers ========== */
@@ -108,7 +119,7 @@ body.mirrored-pattern{
   margin:48px auto 0;
   padding:var(--pad-lg);
   border-radius:var(--radius-lg);
-  background:var(--band-fill);
+  background:var(--band-fill);     /* #DAD7AA @ 75% */
   box-shadow:var(--shadow-md);
 }
 .site-label{
@@ -117,7 +128,7 @@ body.mirrored-pattern{
   color:var(--body-headings);
 }
 .title-band .page-title{
-  font-size:clamp(2.1rem,3.2vw + 1rem,3rem);
+  font-size:clamp(2.1rem, 3.2vw + 1rem, 3rem);
 }
 
 /* Worksheet card */
@@ -126,7 +137,7 @@ body.mirrored-pattern{
   margin:28px auto 64px;
   padding:var(--pad-lg);
   border-radius:var(--radius-lg);
-  background:var(--card-fill);
+  background:var(--card-fill);     /* #FFFDCC @ 75% */
   box-shadow:var(--shadow-md);
 }
 .section-label{
@@ -146,7 +157,7 @@ body.mirrored-pattern{
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
 
-/* Title with icon on left */
+/* Title with icon on the left */
 .hat-heading{
   display:flex;
   align-items:center;
@@ -154,7 +165,7 @@ body.mirrored-pattern{
   margin:0 0 10px;
 }
 
-/* Hat icons */
+/* Hat icons (transparent PNGs) */
 .hat-icon{
   width:56px;
   height:auto;
@@ -178,14 +189,13 @@ body.mirrored-pattern{
 }
 
 /* ========== Responsive Tweaks ========== */
-@media (max-width:800px){
-  .title-band{padding:var(--pad-md);}
-  .worksheet-card{padding:var(--pad-md);}
-  .hat-icon{width:44px;}
-  p{font-size:1.02rem;line-height:1.8;}
+@media (max-width: 800px){
+  .title-band{ padding:var(--pad-md); }
+  .worksheet-card{ padding:var(--pad-md); }
+  .hat-icon{ width:44px; }
+  p{ font-size:1.02rem; line-height:1.8; }
 }
-
-@media (max-width:480px){
-  .title-band{margin-top:36px;}
-  .hat-icon{width:40px;}
+@media (max-width: 480px){
+  .title-band{ margin-top:36px; }
+  .hat-icon{ width:40px; }
 }
