@@ -1,4 +1,4 @@
-/* ========== Base / Variables (comments required by assignment) ========== */
+/* ========== Base / Variables ========== */
 :root{
   /* Text colors */
   --title-h1: #2F7C78;              /* H1 color */
@@ -25,17 +25,17 @@
                0 4px 12px rgba(0,0,0,0.06);
 }
 
-/* ========== Global Reset-ish ========== */
+/* ========== Global Reset ========== */
 *{ box-sizing: border-box; }
 html, body{ margin:0; padding:0; }
 
 /* ========== Typography ========== */
 body{
-  font-family:"EB Garamond", serif;  /* default text */
+  font-family:"EB Garamond", serif;
   color:var(--body-headings);
   line-height:1.75;
-  background:#fff;                   /* hard white base behind pattern */
-  position:relative;                 /* containing context for ::after overlay */
+  background:#fff;
+  position:relative;
 }
 
 /* Small UI text */
@@ -59,8 +59,8 @@ h2{ font-weight:700; font-size:1.8rem; }
 h3{ font-weight:600; font-size:1.3rem; }
 p { font-size:1.08rem; }
 
-/* ========== Background: tinted tile + mirrored overlay ========== */
-/* Base layer: gradient + normal tile (colors the tile using 'screen') */
+/* ========== Background Pattern ========== */
+/* Base layer: gradient + normal tile */
 body.mirrored-pattern{
   background-color:#fff;
   background-image:
@@ -68,18 +68,18 @@ body.mirrored-pattern{
       rgba(218,215,170,var(--tint-alpha)) 0%,
       rgba(180,238,202,var(--tint-alpha)) 100%
     ),
-    url("images/hat_pattern.png");
+    url("images/background_tile.png");
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
   background-position: 0 0, 0 0;
-  background-attachment: scroll, scroll;      /* scrolls with content */
-  background-blend-mode: screen;              /* tint fills the pattern ink */
+  background-attachment: scroll, scroll;
+  background-blend-mode: screen;
 }
 
-/* Mirrored overlay: same tile flipped both axes to create kaleidoscope effect */
+/* Mirrored overlay */
 body.mirrored-pattern::after{
   content:"";
-  position:fixed;       /* locked to viewport; scroll matches layer above */
+  position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-1;
@@ -89,16 +89,15 @@ body.mirrored-pattern::after{
       rgba(218,215,170,var(--tint-alpha)) 0%,
       rgba(180,238,202,var(--tint-alpha)) 100%
     ),
-    url("images/hat_pattern.png");
+    url("images/background_tile.png");
   background-repeat: no-repeat, repeat;
   background-size: 100% 100%, var(--tile-size) var(--tile-size);
-  /* half-tile offset helps the mirror interlock with the base layer */
   background-position: 0 0, var(--tile-size) var(--tile-size);
   background-attachment: scroll, scroll;
   background-blend-mode: screen;
 
-  transform: scale(-1);   /* flips horizontally + vertically */
-  opacity: 0.5;           /* mirror strength; tweak 0.3–0.7 as desired */
+  transform: scale(-1);
+  opacity: 0.5; /* mirror strength */
 }
 
 /* ========== Layout Containers ========== */
@@ -119,7 +118,7 @@ body.mirrored-pattern::after{
   margin:48px auto 0;
   padding:var(--pad-lg);
   border-radius:var(--radius-lg);
-  background:var(--band-fill);     /* #DAD7AA @ 75% */
+  background:var(--band-fill);
   box-shadow:var(--shadow-md);
 }
 .site-label{
@@ -137,7 +136,7 @@ body.mirrored-pattern::after{
   margin:28px auto 64px;
   padding:var(--pad-lg);
   border-radius:var(--radius-lg);
-  background:var(--card-fill);     /* #FFFDCC @ 75% */
+  background:var(--card-fill);
   box-shadow:var(--shadow-md);
 }
 .section-label{
@@ -157,7 +156,7 @@ body.mirrored-pattern::after{
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
 
-/* Title with icon on the left */
+/* Title with icon */
 .hat-heading{
   display:flex;
   align-items:center;
@@ -165,7 +164,7 @@ body.mirrored-pattern::after{
   margin:0 0 10px;
 }
 
-/* Hat icons (transparent PNGs) */
+/* Hat icons */
 .hat-icon{
   width:56px;
   height:auto;
