@@ -70,7 +70,6 @@ html, body {
 
 body::before {
   content: "";
-  position: fixed;
   background-attachment: fixed;
   inset: 0;
   z-index: -1;
@@ -79,6 +78,7 @@ body::before {
   background-position: center;
   will-change: transform;
   transform: translateZ(0);
+  position: fixed;
 
 /* --------------------------
    Page Layout
