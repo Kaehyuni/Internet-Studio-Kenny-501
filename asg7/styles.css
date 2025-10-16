@@ -24,37 +24,163 @@
 
  Insert all your glorious CSS styles below! */
 
-/* afacad-flux-regular - latin */
+/* ------------------------------
+   LOCAL FONTS (Google Fonts Helper)
+------------------------------ */
+
+/* Afacad Flux Regular */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Afacad Flux';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/afacad-flux-v4-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/afacad-flux-v4-latin-regular.woff2') format('woff2');
 }
-/* afacad-flux-900 - latin */
+
+/* Afacad Flux Bold */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Afacad Flux';
   font-style: normal;
   font-weight: 900;
-  src: url('fonts/afacad-flux-v4-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/afacad-flux-v4-latin-900.woff2') format('woff2');
 }
 
-
-/* adamina-regular - latin */
+/* Adamina Regular */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Adamina';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/adamina-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/adamina-v22-latin-regular.woff2') format('woff2');
 }
 
-p {
-font-family: 'Afacad Flux';
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f6ff;
+  color: #222;
+  font-family: 'Adamina', serif;
+  line-height: 1.6;
 }
 
 h1, h2, h3 {
-      font-family: 'Adamina';
+  font-family: 'Afacad Flux', sans-serif;
+  color: #004aad;
+  text-align: center;
+}
+
+p {
+  font-family: 'Adamina', serif;
+  margin-bottom: 1em;
+}
+
+/* ------------------------------
+   HEADER / BANNER
+------------------------------ */
+
+header {
+  text-align: center;
+  background-color: #e0edff;
+  border-bottom: 4px solid #004aad;
+  padding: 10px;
+}
+
+header img {
+  width: 100%;
+  max-width: 1200px;
+  border: 3px solid #004aad;
+  border-radius: 8px;
+}
+
+/* ------------------------------
+   SECTION STYLING
+------------------------------ */
+
+section {
+  background-color: #ffffff;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1100px;
+  border: 3px solid #004aad;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings inside section titles */
+.section-title {
+  text-align: center;
+  background-color: #e7f0ff;
+  border: 2px solid #004aad;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+/* ------------------------------
+   IMAGES / LOGOS
+------------------------------ */
+
+.profile {
+  display: block;
+  margin: 0 auto;
+  border: 3px solid #004aad;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.logo {
+  display: block;
+  margin: 10px auto;
+  width: 120px;
+  border: 2px solid #004aad;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 6px;
+}
+
+/* ------------------------------
+   RUNNING MATE SIDEBAR
+------------------------------ */
+
+aside {
+  background-color: #f7fbff;
+  border-left: 6px solid #004aad;
+  border-radius: 10px;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ------------------------------
+   LINKS
+------------------------------ */
+
+a {
+  color: #004aad;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #e0edff;
+  border-top: 3px solid #004aad;
+  color: #333;
+  font-family: 'Afacad Flux', sans-serif;
 }
