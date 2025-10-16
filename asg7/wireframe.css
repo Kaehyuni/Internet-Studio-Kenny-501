@@ -71,6 +71,7 @@ html, body {
 body::before {
   content: "";
   position: fixed;
+  background-attachment: fixed;
   inset: 0;
   z-index: -1;
   background-image: url('images/background.jpg');
