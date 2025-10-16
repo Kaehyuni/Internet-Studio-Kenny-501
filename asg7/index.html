@@ -13,54 +13,82 @@
     <img src="images/topbanner.png" alt="MrBeast campaign banner" class="banner">
   </header>
 
-  <!-- PRESIDENT SECTION -->
+  <!-- SECTION 1: President -->
   <div class="section-title">
     <h1>President</h1>
   </div>
 
-  <section class="candidate">
+  <section class="candidate" aria-labelledby="mrbeast-heading">
     <div class="candidate-content">
-      <img src="images/mrbeastpfp.jpg" alt="MrBeast portrait" class="profile">
+      <!-- Left: Portrait -->
+      <img src="images/mrbeastpfp.jpg" alt="Portrait of MrBeast (Jimmy Donaldson)" class="profile">
 
+      <!-- Right: Info -->
       <div class="info">
         <div class="title-row">
-          <img src="images/mrbeastlogo.png" alt="MrBeast logo" class="logo">
-          <h2>Mr. Beast</h2>
+          <img src="images/mrbeastlogo.png" alt="MrBeast tiger logo" class="logo">
+          <h2 id="mrbeast-heading">Mr. Beast</h2>
         </div>
 
         <p><strong>James Stephen “Jimmy” Donaldson</strong> is a creator, entrepreneur, and philanthropist.
-        He co-founded <em>TeamTrees</em> and <em>TeamSeas</em>, and leads <em>Beast Philanthropy</em> to provide
-        food, education, and healthcare support globally.</p>
+          He co-founded <em>TeamTrees</em> and <em>TeamSeas</em>, and leads <em>Beast Philanthropy</em> to provide
+          food, education, and healthcare support globally.</p>
 
         <p>He’s a strong candidate because of his generosity, leadership, and ability to bring people together
-        to solve real-world issues through creativity and kindness.</p>
+          to solve real-world issues through creativity and kindness.</p>
 
-        <p><a href="https://en.wikipedia.org/wiki/MrBeast" target="_blank">Visit MrBeast’s Wikipedia Page</a></p>
+        <a class="wiki-link" href="https://en.wikipedia.org/wiki/MrBeast" target="_blank" rel="noopener">
+          Visit MrBeast’s Wikipedia Page
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- RUNNING MATE SECTION -->
+  <!-- SECTION 2: Running Mate (ASIDE) -->
   <div class="section-title">
     <h1>Running Mate</h1>
   </div>
 
-  <section class="candidate">
+  <aside class="candidate" aria-labelledby="markrober-heading">
     <div class="candidate-content">
-      <img src="images/markrober.jpg" alt="Mark Rober portrait" class="profile">
+      <!-- Left: Portrait -->
+      <img src="images/markrober.jpg" alt="Portrait of Mark Rober" class="profile">
 
+      <!-- Right: Info -->
       <div class="info">
         <div class="title-row">
-          <img src="images/markroberlogo.png" alt="Mark Rober logo" class="logo">
-          <h2>Mark Rober</h2>
+          <img src="images/markroberlogo.png" alt="Mark Rober icon" class="logo">
+          <h2 id="markrober-heading">Mark Rober</h2>
         </div>
 
         <p><strong>Mark Rober</strong> is a former NASA engineer and science educator known for his creative
-        problem-solving and innovative engineering projects. He partners with MrBeast on initiatives that
-        promote sustainability, STEM education, and philanthropy.</p>
+          problem-solving and innovative engineering projects. He partners with MrBeast on initiatives that
+          promote sustainability, STEM education, and philanthropy.</p>
 
         <p>Mark would make a great running mate because of his focus on education, technology, and inspiring
-        youth to think creatively and help the planet.</p>
+          youth to think creatively and help the planet.</p>
+
+        <a class="wiki-link" href="https://en.wikipedia.org/wiki/Mark_Rober" target="_blank" rel="noopener">
+          Visit Mark Rober’s Wikipedia Page
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SECTION 3: Campaign Platform -->
+  <div class="section-title">
+    <h1>Campaign Platform</h1>
+  </div>
+
+  <section class="candidate">
+    <div class="candidate-content" style="grid-template-columns: 1fr;">
+      <div class="info">
+        <p><strong>Top Priorities:</strong> sustainability, STEM education, and scalable philanthropy. The campaign
+          invests in reforestation and ocean cleanup, expands access to hands-on science learning, and directs
+          resources to food security, clean water, and medical care through transparent, measurable projects.</p>
+
+        <p><em>Vision:</em> use creativity, engineering, and collective action to make generosity practical and
+          impactful—so communities can solve problems faster and more fairly.</p>
       </div>
     </div>
   </section>
