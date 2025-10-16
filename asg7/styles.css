@@ -25,10 +25,8 @@
  Insert all your glorious CSS styles below! */
 
 /* ------------------------------
-   LOCAL FONTS (Google Fonts Helper)
+   LOCAL FONTS
 ------------------------------ */
-
-/* Afacad Flux Regular */
 @font-face {
   font-display: swap;
   font-family: 'Afacad Flux';
@@ -37,7 +35,6 @@
   src: url('fonts/afacad-flux-v4-latin-regular.woff2') format('woff2');
 }
 
-/* Afacad Flux Bold */
 @font-face {
   font-display: swap;
   font-family: 'Afacad Flux';
@@ -46,7 +43,6 @@
   src: url('fonts/afacad-flux-v4-latin-900.woff2') format('woff2');
 }
 
-/* Adamina Regular */
 @font-face {
   font-display: swap;
   font-family: 'Adamina';
@@ -56,9 +52,8 @@
 }
 
 /* ------------------------------
-   GLOBAL STYLES
+   GLOBAL STYLE
 ------------------------------ */
-
 body {
   margin: 0;
   padding: 0;
@@ -82,7 +77,6 @@ p {
 /* ------------------------------
    HEADER / BANNER
 ------------------------------ */
-
 header {
   text-align: center;
   background-color: #e0edff;
@@ -90,29 +84,16 @@ header {
   padding: 10px;
 }
 
-header img {
+header img.banner {
   width: 100%;
-  max-width: 1000px;
-  height: auto;
+  max-width: 1100px;
   border: 3px solid #004aad;
   border-radius: 8px;
 }
 
 /* ------------------------------
-   SECTION STYLING
+   SECTION TITLES
 ------------------------------ */
-
-section {
-  background-color: #ffffff;
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 900px;
-  border: 3px solid #004aad;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Section title boxes */
 .section-title {
   text-align: center;
   background-color: #e7f0ff;
@@ -120,85 +101,69 @@ section {
   border-radius: 8px;
   padding: 10px;
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 350px;
 }
 
 /* ------------------------------
-   IMAGE & LOGO SIZES
+   CANDIDATE LAYOUT
 ------------------------------ */
+.candidate {
+  background-color: #ffffff;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 950px;
+  border: 3px solid #004aad;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
 
 .profile {
-  display: block;
-  margin: 10px auto;
   border: 2px solid #004aad;
   border-radius: 8px;
-  width: 180px; /* smaller size */
+  width: 180px;
   height: auto;
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #004aad;
-  margin-right: 10px;
-  vertical-align: middle;
-  display: inline-block;
-  background-color: #fff;
-  object-fit: cover;
+.info {
+  flex: 1;
 }
 
 /* ------------------------------
-   TITLE ROW (LOGO BULLET STYLE)
+   TITLE ROW (Logo + Name)
 ------------------------------ */
-
 .title-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 5px;
-  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #004aad;
+  background-color: #fff;
+  object-fit: cover;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
 .title-row h2 {
-  font-family: 'Afacad Flux', sans-serif;
   font-size: 1.8rem;
   margin: 0;
   color: #004aad;
-}
-
-/* ------------------------------
-   SIDEBAR (Running Mate)
------------------------------- */
-
-aside {
-  background-color: #f7fbff;
-  border-left: 5px solid #004aad;
-  border-radius: 10px;
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 900px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* ------------------------------
-   LINKS
------------------------------- */
-
-a {
-  color: #004aad;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  font-family: 'Afacad Flux', sans-serif;
 }
 
 /* ------------------------------
    FOOTER
 ------------------------------ */
-
 footer {
   text-align: center;
   padding: 15px;
@@ -206,27 +171,29 @@ footer {
   border-top: 3px solid #004aad;
   color: #333;
   font-family: 'Afacad Flux', sans-serif;
+  margin-top: 40px;
 }
 
 /* ------------------------------
-   RESPONSIVE FIX
+   RESPONSIVE
 ------------------------------ */
-
 @media (max-width: 768px) {
+  .candidate-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .profile {
     width: 150px;
   }
 
   .logo {
-    width: 35px;
-    height: 35px;
-  }
-
-  section, aside {
-    padding: 15px;
+    width: 22px;
+    height: 22px;
   }
 
   .title-row h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
