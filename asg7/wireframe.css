@@ -60,6 +60,12 @@ body {
   background: #e9f6ff url('images/background.jpg') center/cover fixed no-repeat;
 }
 
+body::before {
+  position: fixed;
+  inset: 0;
+  background: url("background.jpg") repeat;
+  z-index: -1;
+}
 .page {
   max-width: 1100px;
   margin: 0 auto;
