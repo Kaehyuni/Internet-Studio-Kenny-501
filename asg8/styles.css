@@ -24,62 +24,196 @@
 
  Insert all your glorious CSS styles below! */
 
-/* orelega-one-regular - latin */
+//* =========================================================
+   Local Webfonts (load these first)
+   ========================================================= */
+
+/* PT Sans (regular) */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Orelega One';
+  font-display: swap;
+  font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/orelega-one-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/pt-sans-v18-latin-regular.woff2') format('woff2');
 }
 
+/* Slabo 27px (regular) */
+@font-face {
+  font-display: swap;
+  font-family: 'Slabo 27px';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/slabo-27px-v16-latin-regular.woff2') format('woff2');
+}
 
-html {font-size: 16px;}
+/* =========================================================
+   Base
+   ========================================================= */
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: false;
+  margin: 0;
+  font-family: 'PT Sans', Arial, sans-serif;    /* Body font */
+  font-weight: 400;
   line-height: 1.65;
+  color: #022B3A;                                /* Gunmetal */
+  background: linear-gradient(180deg, #E1E5F2 0%, #FFFFFF 60%) fixed;
 }
 
-p {
-  font-size: 1em;
-}
+img { max-width: 100%; display: block; }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: true;
+p { font-size: 1rem; margin: 0 0 1.5rem; }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Slabo 27px', 'PT Sans', serif;  /* Headings font */
+  font-weight: 400;
   line-height: 1.15;
+  margin: 0 0 0.5em;
 }
 
-h1,
-.text-size-h1 {
-  font-family: 'Orelega One', sans-serif;
-  font-weight: 700;
-  margin-top: 0;
-  font-size: 4.21em;
+/* Fluid type sizes for headings */
+h1 { font-size: clamp(2.25rem, 1.25rem + 4.5vw, 4.21rem); }
+h2 { font-size: clamp(1.75rem, 1.10rem + 2.8vw, 3.16rem); }
+h3 { font-size: clamp(1.35rem, 0.95rem + 2.2vw, 2.37rem); }
+h4 { font-size: clamp(1.15rem, 0.90rem + 1.2vw, 1.78rem); }
+h5 { font-size: clamp(1.00rem, 0.90rem + 0.4vw, 1.33rem); }
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px; height: 1px;
+  overflow: hidden; white-space: nowrap;
 }
 
-h2,
-.text-size-h2 { font-size: 3.16em; }
+/* =========================================================
+   Layout
+   ========================================================= */
 
-h3,
-.text-size-h3 { font-size: 2.37em; }
-
-h4,
-.text-size-h4 { font-size: 1.78em; }
-
-h5,
-.text-size-h5 { font-size: 1.33em; }
-
-.text-caption { font-size: 0.75em; }
-
-small,
-.text-small {
-  font-size: 0.56em;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 420px); /* left + right note */
+  gap: 2rem;
 }
-              
+
+/* Optional left column wrapper */
+.content { padding: 1rem 0; }
+
+/* =========================================================
+   Banner
+   - White background
+   - Dotted teal border
+   - Lavender→white gradient ring behind
+   - Title: white with teal outline and soft shadow
+   ========================================================= */
+
+.banner {
+  position: relative;
+  background: #FFFFFF;
+  border: 4px dotted #1F7A8C;          /* Teal dotted border */
+  border-radius: 14px;
+  margin: 2rem auto 0;
+  max-width: 1100px;
+  padding: 1.5rem 2rem;
+  color: #022B3A;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: -10px;                         /* ring sits outside dotted border */
+  border-radius: 24px;
+  background: linear-gradient(135deg, #E1E5F2, #FFFFFF);
+  z-index: -1;
+  box-shadow: 0 6px 18px rgba(2, 43, 58, 0.18);
+}
+
+.banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner__title {
+  margin: 0;
+  color: #FFFFFF;                        /* white text */
+  -webkit-text-stroke: 2px #1F7A8C;     /* teal outline */
+  text-shadow:
+    0 2px 4px rgba(2, 43, 58, 0.25),
+    0 4px 10px rgba(2, 43, 58, 0.25);
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   Sticky-Note Article (right column)
+   - Rounded corners
+   - Orange top bar
+   - Shadow
+   - Spacious padding so text never touches edges
+   ========================================================= */
+
+.note-card {
+  position: relative;
+  background: #F8F1E1;                  /* pale yellow paper */
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(2, 43, 58, 0.22);
+  padding: 2.5rem 1.5rem 1.5rem;         /* extra top for the bar */
+}
+
+/* Orange bar along the top edge */
+.note-card__bar {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 18px;
+  background: #F47A20;                  /* orange bar */
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+/* Heading and text inside the note */
+.note-card__heading { color: #1F7A8C; margin-top: 0.5rem; }
+.note-card__text    { margin: 0 0 1rem; }
+
+/* List inside the note */
+.note-card__list {
+  margin: 0 0 1rem 1.5rem;
+  padding: 0;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #022B3A;
+  background: linear-gradient(180deg, #FFFFFF, #E1E5F2);
+  border-top: 1px solid #BFDBF7;
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 820px) {
+  .container {
+    grid-template-columns: 1fr;   /* stack columns */
+  }
+  .note-card {
+    order: -1;                    /* note appears above content on mobile */
+  }
+  .banner {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
