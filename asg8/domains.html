@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Domain Names – Semester Project</title>
 
-  <!-- Link to your stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,17 +24,17 @@
     <section class="content">
       <div class="content-card">
         <p>
-          I met with my classmate Jamie to review possible domains for my semester project. 
-          We focused on clarity, professionalism, and alignment with an academic audience. 
-          Each idea references my initials and my role at the Richland Learning Commons 
+          I met with my classmate Jamie to review possible domains for my semester project.
+          We focused on clarity, professionalism, and alignment with an academic audience.
+          Each idea references my initials and my role at the Richland Learning Commons
           so the purpose of the site is evident to students and faculty.
         </p>
 
         <p>
-          My preferred choice is <strong>khn-rlc-ar3d-learning.com</strong>. 
-          KHN is my initials and RLC refers to the Richland Learning Commons where I work as a tutor. 
-          The phrase “ar3d learning” communicates the site's focus on augmented and 3D learning. 
-          Jamie liked this option because it signals education clearly and supports a professional tone 
+          My preferred choice is <strong>khn-rlc-ar3d-learning.com</strong>.
+          KHN is my initials and RLC refers to the Richland Learning Commons where I work as a tutor.
+          The phrase “ar3d learning” communicates the site's focus on augmented and 3D learning.
+          Jamie liked this option because it signals education clearly and supports a professional tone
           for an academic website.
         </p>
       </div>
@@ -52,6 +52,93 @@
     </article>
 
   </main>
+
+  <!-- ============================
+       TYPE SHOWCASE (H1–H5 colors)
+       ============================ -->
+  <section class="type-showcase" aria-labelledby="type-showcase-title">
+    <h2 id="type-showcase-title" class="visually-hidden">Typography Color Showcase</h2>
+
+    <div class="type-card color-gunmetal">
+      <div class="type-card__label">Gunmetal — #022B3A</div>
+      <h1>H1 – Gunmetal</h1>
+      <h2>H2 – Gunmetal</h2>
+      <h3>H3 – Gunmetal</h3>
+      <h4>H4 – Gunmetal</h4>
+      <h5>H5 – Gunmetal</h5>
+    </div>
+
+    <div class="type-card color-teal">
+      <div class="type-card__label">Teal — #1F7A8C</div>
+      <h1>H1 – Teal</h1>
+      <h2>H2 – Teal</h2>
+      <h3>H3 – Teal</h3>
+      <h4>H4 – Teal</h4>
+      <h5>H5 – Teal</h5>
+    </div>
+
+    <div class="type-card color-columbia">
+      <div class="type-card__label">Columbia Blue — #BFDBF7</div>
+      <h1>H1 – Columbia Blue</h1>
+      <h2>H2 – Columbia Blue</h2>
+      <h3>H3 – Columbia Blue</h3>
+      <h4>H4 – Columbia Blue</h4>
+      <h5>H5 – Columbia Blue</h5>
+    </div>
+
+    <div class="type-card color-lavender">
+      <div class="type-card__label">Lavender (web) — #E1E5F2</div>
+      <h1>H1 – Lavender</h1>
+      <h2>H2 – Lavender</h2>
+      <h3>H3 – Lavender</h3>
+      <h4>H4 – Lavender</h4>
+      <h5>H5 – Lavender</h5>
+    </div>
+
+    <div class="type-card color-white">
+      <div class="type-card__label">White — #FFFFFF</div>
+      <h1>H1 – White</h1>
+      <h2>H2 – White</h2>
+      <h3>H3 – White</h3>
+      <h4>H4 – White</h4>
+      <h5>H5 – White</h5>
+    </div>
+  </section>
+
+  <!-- =========================================
+       Reflection + Copy/Paste Color Code Samples
+       ========================================= -->
+  <section class="reflection" aria-labelledby="reflection-title">
+    <h2 id="reflection-title">Reflection: What I Practiced</h2>
+    <p>
+      I practiced applying color with different CSS formats and matched those values to a consistent palette.
+      I used <strong>hex codes</strong> for direct color references, <strong>rgba()</strong> when I needed opacity,
+      and <strong>hsla()</strong> to control hue, saturation, and lightness. Mapping these to my five brand colors
+      helped me understand how each format behaves while keeping the design consistent.
+    </p>
+
+    <div class="code-grid">
+      <article>
+        <h3>HEX examples (Gunmetal &amp; White)</h3>
+        <pre><code>/* HEX — exact values from the palette */
+.color-gunmetal { color: #022B3A; }
+.color-white    { color: #FFFFFF; }</code></pre>
+      </article>
+
+      <article>
+        <h3>RGBA example (Teal with transparency)</h3>
+        <pre><code>/* RGBA — Teal with 90% opacity */
+.teal-text { color: rgba(31, 122, 140, 0.9); }</code></pre>
+      </article>
+
+      <article>
+        <h3>HSLA examples (Columbia Blue &amp; Lavender)</h3>
+        <pre><code>/* HSLA — approximations matching the palette */
+.columbia-text { color: hsla(210, 78%, 86%, 1); }  /* #BFDBF7 */
+.lavender-text { color: hsla(226, 40%, 92%, 1); }  /* #E1E5F2 */</code></pre>
+      </article>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
