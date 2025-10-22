@@ -25,18 +25,14 @@
  Insert all your glorious CSS styles below! */
 
 /* =========================================================
-   FONT IMPORTS
+   LOCAL WEBFONTS
    ========================================================= */
-
-/* pt-sans-regular */
 @font-face {
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
   src: url('fonts/pt-sans-v18-latin-regular.woff2') format('woff2');
 }
-
-/* slabo-regular */
 @font-face {
   font-family: 'Slabo 27px';
   font-style: normal;
@@ -44,274 +40,212 @@
   src: url('fonts/slabo-27px-v16-latin-regular.woff2') format('woff2');
 }
 
-
 /* =========================================================
-   GLOBAL RESET + BASE
+   BASE
    ========================================================= */
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
+html { font-size: 16px; scroll-behavior: smooth; }
+* { box-sizing: border-box; }
 
 body {
-  font-family: 'PT Sans', sans-serif;
-  background: linear-gradient(to bottom, #E1E5F2 0%, #FFFFFF 100%);
-  color: #022B3A;
   margin: 0;
-  padding: 0;
+  font-family: 'PT Sans', Arial, sans-serif;
   line-height: 1.6;
+  color: #022B3A;                     /* Gunmetal */
+  background: linear-gradient(180deg, #E1E5F2 0%, #FFFFFF 100%);
 }
 
-/* Headings */
 h1, h2, h3, h4, h5 {
   font-family: 'Slabo 27px', serif;
   line-height: 1.2;
+  margin: 0 0 .5em;
   color: #022B3A;
 }
 
-/* Links */
-a {
-  text-decoration: none;
-  color: #1F7A8C;
-}
-a:hover {
-  text-decoration: underline;
-}
+a { color: #1F7A8C; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* Utility */
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0;
+  clip:rect(0 0 0 0); overflow:hidden;
 }
-
 
 /* =========================================================
    BANNER
    ========================================================= */
 .banner {
-  background: #FFFFFF;
-  border: 4px dotted #1F7A8C;
-  border-radius: 20px;
-  text-align: center;
-  padding: 1.5rem;
-  margin: 1.5rem auto;
-  width: 90%;
-  box-shadow: 0 8px 25px rgba(2, 43, 58, 0.15);
+  background:#FFFFFF;
+  border:4px dotted #1F7A8C;
+  border-radius:20px;
+  text-align:center;
+  padding:1.5rem;
+  margin:1.5rem auto;
+  width:90%;
+  box-shadow:0 8px 25px rgba(2,43,58,.15);
 }
-
 .banner__title {
-  font-size: 2.8rem;
-  color: #FFFFFF;
-  -webkit-text-stroke: 1.5px #1F7A8C;
-  text-shadow: 3px 3px 8px rgba(2, 43, 58, 0.25);
-}
-
-
-/* =========================================================
-   MAIN CONTAINER
-   ========================================================= */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 2rem;
-  width: 90%;
-  margin: 0 auto 3rem;
-  align-items: flex-start;
-}
-
-/* Content Card (left) */
-.content-card {
-  background: #FFFFFF;
-  border: 3px dotted #1F7A8C;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(2, 43, 58, 0.15);
-  padding: 1.5rem 2rem;
-}
-
-/* Paragraphs */
-.content-card p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: #022B3A;
+  font-size:2.8rem;
+  color:#FFFFFF;
+  -webkit-text-stroke:1.5px #1F7A8C;
+  text-shadow:3px 3px 8px rgba(2,43,58,.25);
 }
 
 /* =========================================================
-   NOTE CARD (right)
+   TWO-COLUMN MAIN
    ========================================================= */
-.note-card {
-  position: relative;
-  background-color: #E1E5F2;
-  border-radius: 10px;
-  padding: 1.5rem 1.5rem 2rem;
-  box-shadow: 4px 6px 14px rgba(2, 43, 58, 0.15);
+.container{
+  display:grid;
+  grid-template-columns:1fr 350px;
+  gap:2rem;
+  width:90%;
+  margin:0 auto 3rem;
+  align-items:flex-start;
 }
 
-.note-card__bar {
-  height: 15px;
-  background-color: #1F7A8C;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin: -1.5rem -1.5rem 1rem -1.5rem;
+/* Left card (paragraphs) */
+.content-card{
+  background:#FFFFFF;
+  border:3px dotted #1F7A8C;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(2,43,58,.15);
+  padding:1.5rem 2rem;
 }
+.content-card p{ font-size:1.1rem; margin:0 0 1rem; color:#022B3A; }
 
-.note-card__heading {
-  font-size: 1.8rem;
-  color: #022B3A;
-  margin-bottom: 1rem;
+/* Right note (list only) */
+.note-card{
+  position:relative;
+  background:#E1E5F2;
+  border-radius:10px;
+  padding:1.5rem 1.5rem 2rem;
+  box-shadow:4px 6px 14px rgba(2,43,58,.15);
 }
-
-.note-card__list {
-  font-size: 1.05rem;
-  color: #022B3A;
-  line-height: 1.6;
+.note-card__bar{
+  height:15px;
+  background:#1F7A8C;                 /* teal bar */
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  margin:-1.5rem -1.5rem 1rem -1.5rem;
 }
-
+.note-card__heading{ font-size:1.8rem; color:#022B3A; margin-bottom:1rem; }
+.note-card__list{ font-size:1.05rem; color:#022B3A; line-height:1.6; }
 
 /* =========================================================
-   FOOTER
+   TYPE SHOWCASE (H1–H5 with true palette swatches)
    ========================================================= */
-.site-footer {
-  background: #1F7A8C;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-  box-shadow: 0 -3px 8px rgba(2, 43, 58, 0.2);
+.type-showcase{
+  max-width:1100px;
+  margin:3rem auto;
+  padding:0 1rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:1.25rem;
 }
-
-
-/* =========================================================
-   TYPE SHOWCASE (H1–H5 color blocks)
-   ========================================================= */
-.type-showcase {
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
+.type-card{
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(2,43,58,.12);
+  padding:1.25rem 1.25rem 1rem;
 }
-
-.type-card {
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(2, 43, 58, 0.12);
-  padding: 1.25rem 1.25rem 1rem;
+.type-card__label{
+  font-size:.95rem;
+  margin-bottom:.5rem;
+  font-weight:700;
+  opacity:.9;
 }
+/* Ensure card styles override global heading color */
+.type-card h1, .type-card h2, .type-card h3, .type-card h4, .type-card h5 { margin:.15em 0; }
 
-.type-card__label {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
-  font-weight: bold;
+/* --- Gunmetal swatch --- */
+.color-gunmetal{
+  background:#022B3A;
+  color:#FFFFFF;
 }
-
-/* Gunmetal */
+.color-gunmetal .type-card__label{ color:#FFFFFF; }
 .color-gunmetal h1, .color-gunmetal h2, .color-gunmetal h3,
-.color-gunmetal h4, .color-gunmetal h5 { color: #022B3A; }
+.color-gunmetal h4, .color-gunmetal h5{
+  color:#FFFFFF;
+  text-shadow:0 1px 3px rgba(0,0,0,.25);
+}
 
-/* Teal */
+/* --- Teal swatch --- */
+.color-teal{
+  background:#1F7A8C;
+  color:#FFFFFF;
+}
+.color-teal .type-card__label{ color:#FFFFFF; }
 .color-teal h1, .color-teal h2, .color-teal h3,
-.color-teal h4, .color-teal h5 { color: #1F7A8C; }
-
-/* Columbia Blue */
-.color-columbia {
-  background: #022B3A;
+.color-teal h4, .color-teal h5{
+  color:#FFFFFF;
+  text-shadow:0 1px 3px rgba(0,0,0,.22);
 }
-.color-columbia .type-card__label { color: #BFDBF7; }
+
+/* --- Columbia Blue swatch --- */
+.color-columbia{
+  background:#BFDBF7;
+  color:#022B3A;
+}
+.color-columbia .type-card__label{ color:#022B3A; }
 .color-columbia h1, .color-columbia h2, .color-columbia h3,
-.color-columbia h4, .color-columbia h5 {
-  color: #BFDBF7;
-  text-shadow: 0 1px 2px rgba(2, 43, 58, 0.35);
-}
+.color-columbia h4, .color-columbia h5{ color:#022B3A; }
 
-/* Lavender */
-.color-lavender {
-  background: #022B3A;
+/* --- Lavender (web) swatch --- */
+.color-lavender{
+  background:#E1E5F2;
+  color:#022B3A;
 }
-.color-lavender .type-card__label { color: #E1E5F2; }
+.color-lavender .type-card__label{ color:#022B3A; }
 .color-lavender h1, .color-lavender h2, .color-lavender h3,
-.color-lavender h4, .color-lavender h5 {
-  color: #E1E5F2;
-  text-shadow: 0 1px 2px rgba(2, 43, 58, 0.35);
-}
+.color-lavender h4, .color-lavender h5{ color:#022B3A; }
 
-/* White */
-.color-white {
-  background: #1F7A8C;
+/* --- White swatch --- */
+.color-white{
+  background:#FFFFFF;
+  color:#022B3A;
+  border:1px solid #BFDBF7;            /* subtle edge so it’s visible */
 }
-.color-white .type-card__label { color: #FFFFFF; }
+.color-white .type-card__label{ color:#022B3A; }
 .color-white h1, .color-white h2, .color-white h3,
-.color-white h4, .color-white h5 {
-  color: #FFFFFF;
-  text-shadow: 0 1px 3px rgba(2, 43, 58, 0.35);
-}
-
+.color-white h4, .color-white h5{ color:#022B3A; }
 
 /* =========================================================
-   REFLECTION SECTION + CODE SNIPPETS
+   REFLECTION + CODE SNIPPETS
    ========================================================= */
-.reflection {
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+.reflection{
+  max-width:1100px;
+  margin:3rem auto;
+  padding:0 1rem;
 }
+.reflection h2{ color:#1F7A8C; text-align:center; margin-bottom:1rem; }
+.reflection p{ text-align:center; margin-bottom:2rem; color:#022B3A; font-size:1.05rem; }
 
-.reflection h2 {
-  color: #1F7A8C;
-  text-align: center;
-  margin-bottom: 1rem;
+.code-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:1.25rem;
+  margin-top:1rem;
 }
-
-.reflection p {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #022B3A;
-  font-size: 1.05rem;
+.reflection article{
+  background:#FFFFFF;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(2,43,58,.12);
+  padding:1rem 1rem .75rem;
 }
-
-.code-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-
-.reflection article {
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(2, 43, 58, 0.12);
-  padding: 1rem 1rem 0.75rem;
-}
-
-.reflection pre {
-  margin: 0.5rem 0 0;
-  background: #F7FAFD;
-  border: 1px solid #BFDBF7;
-  color: #022B3A;
-  border-radius: 8px;
-  padding: 0.75rem 0.85rem;
-  overflow-x: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.95rem;
-  line-height: 1.45;
+.reflection pre{
+  margin:.5rem 0 0;
+  background:#F7FAFD;
+  border:1px solid #BFDBF7;
+  color:#022B3A;
+  border-radius:8px;
+  padding:.75rem .85rem;
+  overflow-x:auto;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size:.95rem;
+  line-height:1.45;
 }
 
 /* =========================================================
-   RESPONSIVE TWEAKS
+   RESPONSIVE
    ========================================================= */
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-  .note-card {
-    margin-top: 2rem;
-  }
+@media (max-width: 768px){
+  .container{ grid-template-columns:1fr; }
+  .note-card{ margin-top:2rem; }
 }
