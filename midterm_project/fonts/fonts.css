@@ -1,1 +1,13 @@
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/pt-sans-v18-latin-regular.woff2') format('woff2');
 
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Asta Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/asta-sans-v3-latin-regular.woff2') format('woff2');
