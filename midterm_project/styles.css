@@ -24,6 +24,63 @@
 
  Insert all your glorious CSS styles below! */
 
+/*Font*/
+
+/* PT Sans */
+@font-face {
+  font-family: "PT Sans";
+  src: url("fonts/pt-sans-v18-latin-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Asta Sans */
+@font-face {
+  font-family: "Asta Sans";
+  src: url("fonts/asta-sans-v3-latin-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Hylia Serif (Zelda BOTW logo) */
+@font-face {
+  font-family: "Hylia Serif";
+  src: url("fonts/HyliaSerifBeta-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* BOTW Hylian Text Font */
+@font-face {
+  font-family: "BOTW Hylian";
+  src: url("fonts/AlbwBotwHylian-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Hylian Symbol Font */
+@font-face {
+  font-family: "Hylian Symbols";
+  src: url("fonts/HylianSymbols.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Zonai Text Font */
+@font-face {
+  font-family: "Zonai";
+  src: url("fonts/Zonai-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/*Navigation*/
 nav ul {
       list-style: none;
       display: flex;
