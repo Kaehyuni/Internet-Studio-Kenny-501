@@ -24,7 +24,9 @@
 
  Insert all your glorious CSS styles below! */
 
-/*Font*/
+/* --------------------------------
+   Webfonts (YAYA)
+----------------------------------*/
 
 /* PT Sans */
 @font-face {
@@ -80,37 +82,304 @@
   font-display: swap;
 }
 
-/*Navigation*/
-nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      gap: 40px; /*spread out the text*/
+/* --------------------------------
+   Base Reset (light)
+----------------------------------*/
+*,
+*::before,
+*::after{ box-sizing:border-box; }
+
+html,body{ margin:0; padding:0; }
+
+img{ max-width:100%; height:auto; display:block; }
+
+a{ color:inherit; text-decoration:none; }
+
+ul,ol{ margin:0; padding-left:1.25rem; }
+
+h1,h2,h3,h4,p,figure{ margin:0 0 20px; }
+
+/* Screen-reader only */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
 }
 
-nav ul li {
-      background-color: dodgerblue;
-      padding: 10px;
-      border-radius: 5px;
+/* --------------------------------
+   Global Typography & Colors
+----------------------------------*/
+body{
+  font-family:"PT Sans", Arial, sans-serif;
+  color:#1E6091;                     /* primary text */
+  background:linear-gradient(180deg, #D9ED92 0%, #ECF7C4 280px, #FFFFFF 600px);
+  line-height:1.65;
 }
 
-body.home {
-      
+h1,h2{
+  font-family:"Hylia Serif", Garamond, serif;
+  line-height:1.2;
+  color:#184E77;
+  letter-spacing:.02em;
+}
+h3{ font-family:"Asta Sans","PT Sans",sans-serif; color:#1A759F; font-size:1.25rem; }
+
+/* unified page width */
+.page,
+.site-header .site-nav,
+.site-footer > *{
+  width:min(100%, 1100px);
+  margin-inline:auto;
+  padding-inline:28px;
 }
 
-body.activities {
-      
+/* --------------------------------
+   Navigation (shared)
+----------------------------------*/
+.site-header{
+  background:linear-gradient(180deg, #99D98C, #76C893);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
-body.dining {
-      
+.site-nav .nav-list{
+  list-style:none;
+  display:flex;
+  gap:22px;
+  justify-content:center;
+  align-items:center;
+  padding:14px 0;
+  flex-wrap:wrap;
 }
 
-body.statement {
-      
+/* your template, refined with palette */
+nav ul{
+  list-style:none;
+  display:flex;
+  justify-content:center;
+  flex-direction:row;
+  gap:40px;
+}
+nav ul li{ padding:0; background:none; border-radius:0; }
+
+.site-nav a{
+  display:block;
+  padding:10px 16px;
+  background:#34A0A4;
+  color:#FFFFFF;
+  border-radius:8px;
+  font-weight:600;
+  transition:transform .12s ease, background .12s ease;
+}
+.site-nav a:hover,
+.site-nav a:focus{ transform:translateY(-1px); background:#168AAD; }
+.site-nav a[aria-current="page"]{ background:#1A759F; }
+
+/* --------------------------------
+   Hero (Home)
+----------------------------------*/
+.hero{
+  min-height:48svh;
+  position:relative;
+  display:grid;
+  place-items:center;
+  margin-bottom:40px;
+}
+.hero__overlay{
+  inset:0;
+  width:100%;
+  padding-block: 80px;
+  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
+}
+.hero__content{
+  width:min(100%, 1100px);
+  margin-inline:auto;
+  padding-inline:28px;
+  color:#FFFFFF;
+  text-align:center;
+}
+.hero__title{ font-size:clamp(2.2rem, 4vw, 3.2rem); color:#FFFFFF; text-shadow:0 3px 10px rgba(0,0,0,.5); }
+.hero__subtitle{ font-size:clamp(1rem, 1.6vw, 1.25rem); opacity:.95; }
+
+/* --------------------------------
+   Generic Sections
+----------------------------------*/
+.page-header{ margin-block:40px 20px; }
+.lede{ font-size:1.05rem; max-width:70ch; color:#1E6091; }
+
+/* parchment scroll frame using your three images */
+.scroll-frame{
+  background:
+    url("images/scroll_top.JPG") center top no-repeat,
+    url("images/scroll_bot.JPG") center bottom no-repeat,
+    url("images/scroll_mid.JPG") center top repeat-y;
+  background-size: 100% auto, 100% auto, 100% 30px;
+  padding:26px 22px;
+  border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  background-color:#FFFFFF;
 }
 
-body.contact {
-      
+/* --------------------------------
+   Two-column Feature Blocks
+----------------------------------*/
+.place,
+.restaurant,
+.highlight{
+  display:grid;
+  grid-template-columns: 1fr minmax(320px, 560px);
+  align-items:start;
+  gap:40px;
+  margin-block: 32px;
+}
+.place__media,
+.restaurant__media,
+.highlight__media{
+  max-width:520px;
+  justify-self:start;
+  border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  background-color:#FFFFFF;
+}
+.place__photo,
+.restaurant__photo{ border-radius:8px; }
+
+.place__content,
+.restaurant__content,
+.highlight__text{
+  max-width:65ch;
+  padding-top:6px;
+}
+.place__title,
+.restaurant__title{ margin-bottom:8px; }
+
+/* small helper chips and gem guide */
+.effects,
+.gem-list{
+  list-style:none;
+  padding:0;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.effects li{
+  background:#B5E48C;
+  color:#184E77;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.95rem;
+}
+
+/* gem guide thumbnails */
+.gem-guide{ margin-top:20px; }
+.gem{ width:88px; text-align:center; }
+.gem img{ border-radius:8px; box-shadow:0 12px 28px rgba(0,0,0,.12); }
+.gem figcaption{ font-size:.8rem; color:#1E6091; margin-top:6px; }
+.note{ font-size:.9rem; color:#1A759F; margin-top:6px; }
+
+/* home highlights separators */
+.highlights .highlight:not(:last-child){
+  border-bottom:1px solid rgba(24,78,119,.12);
+  padding-bottom:20px;
+}
+
+/* --------------------------------
+   Forms (Contact)
+----------------------------------*/
+.form{
+  display:grid;
+  gap:10px;
+  max-width:640px;
+}
+.form label{ font-weight:600; color:#184E77; }
+.form input,
+.form textarea{
+  border:2px solid #76C893;
+  padding:12px 14px;
+  border-radius:10px;
+  background:#FFFFFF;
+  font:inherit;
+  color:#1E6091;
+}
+.btn,
+button{
+  appearance:none;
+  border:none;
+  border-radius:999px;
+  background:#52B69A;
+  color:#FFFFFF;
+  font-weight:700;
+  padding:12px 18px;
+  width:fit-content;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  transition:filter .15s ease, transform .12s ease;
+}
+.btn:hover, button:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+
+/* --------------------------------
+   Footer
+----------------------------------*/
+.site-footer{
+  margin-top:40px;
+  background:linear-gradient(180deg, #1A759F, #184E77);
+  color:#E8F6FF;
+  padding:18px 0;
+  text-align:center;
+}
+
+/* --------------------------------
+   Page-specific backgrounds via body class
+----------------------------------*/
+body.home .hero{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
+    url("images/index_hero_lurelin.jpg") center/cover no-repeat;
+}
+
+body.activities{
+  background-image:linear-gradient(180deg, #D9ED92, #F7FFE2 420px, #FFFFFF 1000px);
+}
+
+body.dining{
+  background-image:linear-gradient(180deg, #F3FFE7, #FFFFFF 700px);
+}
+
+body.statement{
+  background-image:linear-gradient(180deg, #EFFBE3, #FFFFFF 600px);
+}
+
+body.contact{
+  background-image:linear-gradient(180deg, #EEFCF6, #FFFFFF 600px);
+}
+
+/* --------------------------------
+   Media Queries (Responsive)
+----------------------------------*/
+@media (max-width: 900px){
+  .place,
+  .restaurant,
+  .highlight{
+    grid-template-columns: 1fr;    /* stack: image above text */
+  }
+  .place__media,
+  .restaurant__media,
+  .highlight__media{
+    justify-self:center;
+    max-width:100%;
+  }
+  .page,
+  .site-header .site-nav,
+  .site-footer > *{ padding-inline:16px; }
+}
+
+/* --------------------------------
+   Section title underline
+----------------------------------*/
+.section__title{
+  padding-bottom:6px;
+  border-bottom:3px solid #168AAD;
+  max-width:fit-content;
 }
