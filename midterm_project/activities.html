@@ -1,23 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Website Template (Please update for full credit)</title>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faron Region Travel — Activities</title>
+  <meta name="description" content="Explore Lurelin Village, Lakeside Stable, the Dondon gem sanctuary, Floria Bridge, and the Zonai Ruins in the Faron Region." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="activities">
-<nav>
-  <ul>
-    <li><a href="index.html">Homepage</a></li>
-    <li><a href="activities/activities.html">Things to Do</a></li>
-    <li><a href="dining/dining.html">Where to Eat</a></li>
-    <li><a href="statement/statement.html">Design Statement</a></li>
-    <li><a href="contact/contact.html">Contact</a></li>
-  </ul>
-</nav>
-	<h1>Website Template</h1>
-	<p>Fork and use this template repo (a.k.a. "boilerplate") for any web project</p>
-	
+  <!-- Global navigation (same on every page) -->
+  <header class="site-header" role="banner">
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a aria-current="page" href="activities.html">Activities</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <header class="page-header">
+      <h1>Things To Do in the Faron Region</h1>
+      <p class="lede">Each place features a framed image on a scroll. The picture sits on the left. The description sits on the right. Spacing remains wide for easy reading. The layout keeps every section calm and clear.</p>
+    </header>
+
+    <!-- 1) LURELIN VILLAGE -->
+    <section id="lurelin-village" class="place">
+      <figure class="place__media scroll-frame" aria-label="Lurelin Village image frame">
+        <img class="place__photo" src="images/activities_lurelinbay.jpg" alt="Lurelin Bay with stilt houses above gentle water." />
+        <figcaption class="sr-only">Lurelin Village</figcaption>
+      </figure>
+
+      <div class="place__content">
+        <h2 class="place__title">Lurelin Village</h2>
+        <p>The village rests along a bright shore. Wooden docks reach over clear water. Boats return with baskets of fish. The market fills with calm voices and fresh food. Children play near the surf with easy joy. Sunset wraps the bay in soft gold light.</p>
+      </div>
+    </section>
+
+    <!-- 2) LAKESIDE STABLE -->
+    <section id="lakeside-stable" class="place">
+      <figure class="place__media scroll-frame" aria-label="Lakeside Stable image frame">
+        <img class="place__photo" src="images/activities_stable.jpg" alt="Lakeside Stable under wide eaves beside jungle trees." />
+        <figcaption class="sr-only">Lakeside Stable</figcaption>
+      </figure>
+
+      <div class="place__content">
+        <h2 class="place__title">Lakeside Stable</h2>
+        <p>The stable offers shelter for travelers. Horses breathe easy in the shade. A fire warms the main yard at night. The staff shares simple meals with a smile. Beds feel clean after long roads. Morning fog lifts to reveal bright leaves.</p>
+      </div>
+    </section>
+
+    <!-- 3) DONDON GEM SANCTUARY  -->
+    <section id="dondons" class="place">
+      <figure class="place__media scroll-frame" aria-label="Dondon image frame">
+        <img class="place__photo" src="images/activities_dondon1.jpg" alt="Dondons roaming near the stable with soft steps." />
+        <figcaption class="sr-only">Dondons at the stable</figcaption>
+      </figure>
+
+      <div class="place__content">
+        <h2 class="place__title">Dondon Gem Sanctuary</h2>
+        <p>The gentle Dondons live beside the stable. Each creature accepts Luminous Stone with calm trust. Place the stones near the herd and wait. Time passes while they walk and rest. Shiny gems appear on the ground later. Visitors collect the gems with quiet thanks.</p>
+
+        <!-- Small, tidy guide below the paragraph (not inside the description block) -->
+        <div class="gem-guide" aria-label="What to feed and possible gem results">
+          <h3 class="gem-guide__title">Feeding and Results</h3>
+          <ul class="gem-list" role="list">
+            <li class="gem-list__item">
+              <figure class="gem">
+                <img src="images/activities_luminous_stone.PNG" alt="Luminous Stone used as feed for Dondons." />
+                <figcaption>Feed: Luminous Stone</figcaption>
+              </figure>
+            </li>
+            <li class="gem-list__item">
+              <figure class="gem">
+                <img src="images/activities_ruby.PNG" alt="Ruby produced after waiting." />
+                <figcaption>Ruby</figcaption>
+              </figure>
+            </li>
+            <li class="gem-list__item">
+              <figure class="gem">
+                <img src="images/activities_sapphire.PNG" alt="Sapphire produced after waiting." />
+                <figcaption>Sapphire</figcaption>
+              </figure>
+            </li>
+            <li class="gem-list__item">
+              <figure class="gem">
+                <img src="images/activities_daimond.PNG" alt="Diamond produced on rare occasions." />
+                <figcaption>Diamond</figcaption>
+              </figure>
+            </li>
+          </ul>
+          <!-- Optional note tile; keep short to avoid clutter -->
+          <p class="note">Gems appear over time. Rest at the stable to return later. Zonaite is not produced.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) FLORIA BRIDGE -->
+    <section id="floria-bridge" class="place">
+      <figure class="place__media scroll-frame" aria-label="Floria Bridge image frame">
+        <img class="place__photo" src="images/activities_floria_bridge.jpg" alt="Floria Bridge crossing a deep river in the jungle." />
+        <figcaption class="sr-only">Floria Bridge</figcaption>
+      </figure>
+
+      <div class="place__content">
+        <h2 class="place__title">Floria Bridge</h2>
+        <p>The bridge spans swift green water. Stone pillars rise above the current. Clouds gather during the wet season. The air hums before a distant storm. Farosh sometimes glides near the arch at dusk. The view feels wide and full of calm power.</p>
+      </div>
+    </section>
+
+    <!-- 5) ZONAI RUINS -->
+    <section id="zonai-ruins" class="place">
+      <figure class="place__media scroll-frame" aria-label="Zonai Ruins image frame">
+        <img class="place__photo" src="images/activities_zonai_ruins.jpg" alt="Mossy Zonai statues beside an old path." />
+        <figcaption class="sr-only">Zonai Ruins</figcaption>
+      </figure>
+
+      <div class="place__content">
+        <h2 class="place__title">Zonai Ruins</h2>
+        <p>Stone figures wait among vines and ferns. Carvings show calm faces and coiled serpents. Pools reflect leaves and broken walls. Footsteps echo over worn thresholds. The place carries quiet stories from long ago. Visitors leave with steady hearts and clear minds.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p><strong>Faron Jungle Travel Co.</strong> · <a href="mailto:info@faron-travel.co">info@faron-travel.co</a></p>
+  </footer>
+
+  <!-- CSS notes for later:
+       .place            → two-column layout with generous gap and padding
+       .scroll-frame     → apply scroll_top/mid/bot backgrounds behind the image
+       .gem-guide        → compact grid beneath the paragraph on the right column
+       .gem-list .gem    → small thumbnails; keep spacing airy; avoid clutter
+  -->
 </body>
 </html>
