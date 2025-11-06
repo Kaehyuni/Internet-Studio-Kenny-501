@@ -375,6 +375,57 @@ body.contact{
   .site-footer > *{ padding-inline:16px; }
 }
 
+/* =========================
+   UNIFORM SCROLL MEDIA SIZING
+   ========================= */
+
+/* 1) Make every scroll-frame figure a consistent, responsive box */
+.place__media,
+.restaurant__media,
+.highlight__media {
+  /* same visual width everywhere, but still responsive */
+  width: clamp(280px, 42vw, 520px);
+
+  /* lock the shape so all images match */
+  aspect-ratio: 16 / 9;
+
+  /* keep your scroll look */
+  padding: 18px 18px; /* inner room for the parchment edges */
+  border-radius: 12px;
+  background:
+    url("images/scroll_top.JPG") center top no-repeat,
+    url("images/scroll_bot.JPG") center bottom no-repeat,
+    url("images/scroll_mid.JPG") center top repeat-y;
+  background-size: 100% auto, 100% auto, 100% 30px;
+
+  /* tidy */
+  overflow: hidden;              /* hide any overflow so edges are clean */
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  background-color: #FFFFFF;
+}
+
+/* 2) Make the image fill that box perfectly, without distortion */
+.place__photo,
+.restaurant__photo,
+.highlight__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;             /* crop to fill, keeps aspect correct */
+  object-position: center;       /* center the crop */
+  border-radius: 8px;
+}
+
+/* 3) Mobile: give a bit more height so the image doesn't feel cramped */
+@media (max-width: 900px) {
+  .place__media,
+  .restaurant__media,
+  .highlight__media {
+    width: 100%;
+    aspect-ratio: 4 / 3;         /* slightly taller on phones */
+  }
+}
+
 /* --------------------------------
    Section title underline
 ----------------------------------*/
