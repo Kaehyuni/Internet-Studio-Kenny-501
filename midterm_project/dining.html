@@ -4,12 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Faron Region Travel — Dining</title>
-  <meta name="description" content="Dine in the Faron Region with fresh coastal meals and storm-ready recipes. Three featured restaurants with signature dishes." />
+  <meta name="description" content="Coastal meals and storm-ready recipes in the Faron Region. Featured houses and dishes." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body class="dining">
-  <!-- Global navigation (same on every page) -->
   <header class="site-header" role="banner">
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
@@ -25,85 +23,59 @@
   <main id="main" class="page">
     <header class="page-header">
       <h1>Dining in the Faron Region</h1>
-      <p class="lede">Meals celebrate the sea, the forest, and the rain. Cooks use fresh catch and hearty staples. Herbs brighten the air with clean notes. Every plate arrives warm and steady. Travelers rest while clouds move across the hills. Hospitality stays calm even during storms.</p>
+      <p class="lede">Meals celebrate the sea, the forest, and the rain. Every plate arrives warm and steady. Hospitality stays calm even during storms.</p>
     </header>
 
-    <!-- RESTAURANT 1 -->
-    <section id="coral-lantern" class="restaurant">
-      <!-- image on the left, framed by a scroll via CSS later -->
-      <figure class="restaurant__media scroll-frame" aria-label="Electro Seafood Curry image frame">
-        <img class="restaurant__photo"
-             src="images/dining_electro-seafood-curry.PNG"
-             alt="Electro Seafood Curry in a deep bowl with herbs and citrus." />
-        <figcaption class="sr-only">Electro Seafood Curry</figcaption>
+    <section id="coral-lantern" class="restaurant scroll-panel">
+      <figure class="restaurant__media">
+        <img class="restaurant__photo" src="images/dining_electro-seafood-curry.PNG" alt="Electro Seafood Curry in a deep bowl." />
       </figure>
-
-      <!-- description on the right -->
       <div class="restaurant__content">
         <h2 class="restaurant__title">Coral Lantern</h2>
-        <p>The cook simmers ocean fish with coconut and spices. The curry carries a bright citrus finish. Guests feel warmth spread with every spoonful. The meal supports focus when thunder begins. Service remains gentle and attentive during rain. People leave with steady energy and clear heads.</p>
-
-        <ul class="effects" role="list" aria-label="Dish effects">
+        <p>The cook simmers ocean fish with coconut and spice. The curry carries a bright citrus finish. Guests feel warmth spread with every spoonful. The meal supports focus when thunder begins. Service remains gentle during rain. People leave with clear minds and steady steps.</p>
+        <ul class="effects" role="list">
           <li>Shock resistance during storms</li>
           <li>Comforting heat for wet evenings</li>
         </ul>
       </div>
     </section>
 
-    <!-- RESTAURANT 2 -->
-    <section id="skewer-and-shroom" class="restaurant">
-      <figure class="restaurant__media scroll-frame" aria-label="Fish and Mushroom Skewer image frame">
-        <img class="restaurant__photo"
-             src="images/dining_fish-mushroom-skewer.WEBP"
-             alt="Grilled fish and mushroom skewers with glaze and herbs." />
-        <figcaption class="sr-only">Fish and Mushroom Skewer</figcaption>
+    <section id="skewer-and-shroom" class="restaurant scroll-panel">
+      <figure class="restaurant__media">
+        <img class="restaurant__photo" src="images/dining_fish-mushroom-skewer.WEBP" alt="Grilled fish and mushroom skewers." />
       </figure>
-
       <div class="restaurant__content">
         <h2 class="restaurant__title">Skewer &amp; Shroom House</h2>
         <p>Fresh fillets rest beside tender mushrooms on hot coals. The glaze shines with river honey and spice. Smoke lifts soft notes of wood and leaf. Climbers enjoy firm footing after this meal. The dish supports grip on slick stone paths. The porch faces trees that sway with calm rhythm.</p>
-
-        <ul class="effects" role="list" aria-label="Dish effects">
+        <ul class="effects" role="list">
           <li>Slip resistance for rainy climbs</li>
           <li>Light energy for long walks</li>
         </ul>
       </div>
     </section>
 
-    <!-- RESTAURANT 3 -->
-    <section id="hearth-bowl" class="restaurant">
-      <figure class="restaurant__media scroll-frame" aria-label="Hearty Meat and Rice Bowl image frame">
-        <img class="restaurant__photo"
-             src="images/dining_hearty-meat-rice-bowl.WEBP"
-             alt="Hearty meat and rice bowl with greens and a warm broth." />
-        <figcaption class="sr-only">Hearty Meat and Rice Bowl</figcaption>
+    <section id="hearth-bowl" class="restaurant scroll-panel">
+      <figure class="restaurant__media">
+        <img class="restaurant__photo" src="images/dining_hearty-meat-rice-bowl.WEBP" alt="Hearty meat and rice bowl." />
       </figure>
-
       <div class="restaurant__content">
         <h2 class="restaurant__title">Hearth Bowl House</h2>
-        <p>The kitchen serves a deep bowl with rich broth and rice. Slow cooked meat rests above bright greens. Steam rises with calm and steady warmth. Travelers regain strength after river trails. The meal supports heart and spirit with quiet care. Lantern light turns the room gentle and gold.</p>
-
-        <ul class="effects" role="list" aria-label="Dish effects">
+        <p>The kitchen serves a deep bowl with rich broth and rice. Slow cooked meat rests above bright greens. Steam rises with calm warmth. Travelers regain strength after river trails. The meal supports heart and spirit with quiet care. Lantern light turns the room gentle and gold.</p>
+        <ul class="effects" role="list">
           <li>Extra hearts for longer journeys</li>
           <li>Balanced comfort for night travel</li>
         </ul>
       </div>
     </section>
 
-    <!-- OPTIONAL SPECIAL -->
-    <section id="lurelin-paella" class="restaurant">
-      <figure class="restaurant__media scroll-frame" aria-label="Seafood Paella image frame">
-        <img class="restaurant__photo"
-             src="images/dining_seafood-paella.PNG"
-             alt="Seafood paella with shellfish, peppers, and fragrant rice." />
-        <figcaption class="sr-only">Seafood Paella</figcaption>
+    <section id="lurelin-paella" class="restaurant scroll-panel">
+      <figure class="restaurant__media">
+        <img class="restaurant__photo" src="images/dining_seafood-paella.PNG" alt="Seafood paella with bright saffron rice." />
       </figure>
-
       <div class="restaurant__content">
         <h2 class="restaurant__title">Lurelin Bay Special</h2>
         <p>The pan arrives with rice that sings with the sea. Shellfish rest in a circle of color and shine. Saffron adds warmth without heavy heat. Friends share plates while waves move outside. The breeze carries salt through the open door. Laughter fills the room with easy comfort.</p>
-
-        <ul class="effects" role="list" aria-label="Dish effects">
+        <ul class="effects" role="list">
           <li>Strong stamina for coastal walks</li>
           <li>Bright mood for evening views</li>
         </ul>
@@ -114,12 +86,5 @@
   <footer class="site-footer" role="contentinfo">
     <p><strong>Faron Jungle Travel Co.</strong> · <a href="mailto:info@faron-travel.co">info@faron-travel.co</a></p>
   </footer>
-
-  <!-- CSS notes for later:
-       .restaurant        → two-column layout with generous gap and padding
-       .scroll-frame      → apply scroll_top/mid/bot backgrounds behind each dish image
-       .effects           → small list; keep airy spacing; no icons required
-       keep paragraphs at six sentences, easy to read, no clutter
-  -->
 </body>
 </html>
