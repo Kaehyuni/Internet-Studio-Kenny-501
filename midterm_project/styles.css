@@ -28,409 +28,375 @@
    Webfonts (YAYA)
 ----------------------------------*/
 
-/* PT Sans */
 @font-face {
   font-family: "PT Sans";
   src: url("fonts/pt-sans-v18-latin-regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
-
-/* Asta Sans */
 @font-face {
   font-family: "Asta Sans";
   src: url("fonts/asta-sans-v3-latin-regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
-
-/* Hylia Serif (Zelda BOTW logo) */
 @font-face {
   font-family: "Hylia Serif";
   src: url("fonts/HyliaSerifBeta-Regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
-
-/* BOTW Hylian Text Font */
 @font-face {
   font-family: "BOTW Hylian";
   src: url("fonts/AlbwBotwHylian-Regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
-
-/* Hylian Symbol Font */
 @font-face {
   font-family: "Hylian Symbols";
   src: url("fonts/HylianSymbols.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
-
-/* Zonai Text Font */
 @font-face {
   font-family: "Zonai";
   src: url("fonts/Zonai-Regular.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  font-style: normal; font-weight: 400; font-display: swap;
 }
 
 /* --------------------------------
-   Base Reset (light)
+   Light Reset / Utilities
 ----------------------------------*/
 *,
 *::before,
-*::after{ box-sizing:border-box; }
-
-html,body{ margin:0; padding:0; }
-
-img{ max-width:100%; height:auto; display:block; }
-
-a{ color:inherit; text-decoration:none; }
-
-ul,ol{ margin:0; padding-left:1.25rem; }
-
-h1,h2,h3,h4,p,figure{ margin:0 0 20px; }
-
-/* Screen-reader only */
-.sr-only{
-  position:absolute !important;
-  width:1px; height:1px;
-  padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0);
-  white-space:nowrap; border:0;
+*::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0 0 20px; padding-left: 1.25rem; }
+h1, h2, h3, h4, p, figure { margin: 0 0 20px; }
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
 }
 
 /* --------------------------------
-   Global Typography & Colors
+   Global Typography & Backgrounds
 ----------------------------------*/
-body{
-  font-family:"PT Sans", Arial, sans-serif;
-  color:#1E6091;                     /* primary text */
-  background:linear-gradient(180deg, #D9ED92 0%, #ECF7C4 280px, #FFFFFF 600px);
-  line-height:1.65;
+body {
+  font-family: "PT Sans", Arial, sans-serif;
+  color: #1E6091;
+  background: linear-gradient(180deg, #D9ED92 0%, #ECF7C4 280px, #FFFFFF 600px);
+  line-height: 1.65;
 }
-
-h1,h2{
-  font-family:"Hylia Serif", Garamond, serif;
-  line-height:1.2;
-  color:#184E77;
-  letter-spacing:.02em;
+h1, h2 {
+  font-family: "Hylia Serif", Garamond, serif;
+  line-height: 1.2;
+  color: #184E77;
+  letter-spacing: .02em;
 }
-h3{ font-family:"Asta Sans","PT Sans",sans-serif; color:#1A759F; font-size:1.25rem; }
+h3 { font-family: "Asta Sans","PT Sans",sans-serif; color:#1A759F; font-size:1.25rem; }
 
-/* unified page width */
 .page,
 .site-header .site-nav,
-.site-footer > *{
-  width:min(100%, 1100px);
-  margin-inline:auto;
-  padding-inline:28px;
+.site-footer > * {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+  padding-inline: 28px;
 }
 
 /* --------------------------------
-   Navigation (shared)
+   Navigation
 ----------------------------------*/
-.site-header{
-  background:linear-gradient(180deg, #99D98C, #76C893);
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
+.site-header {
+  background: linear-gradient(180deg, #99D98C, #76C893);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
 }
+.site-nav .nav-list {
+  list-style: none;
+  display: flex; gap: 22px; justify-content: center; align-items: center;
+  padding: 14px 0; flex-wrap: wrap;
+}
+/* keep original template semantics */
+nav ul { list-style: none; display:flex; justify-content:center; flex-direction:row; gap:40px; }
+nav ul li { padding:0; background:none; border-radius:0; }
 
-.site-nav .nav-list{
-  list-style:none;
-  display:flex;
-  gap:22px;
-  justify-content:center;
-  align-items:center;
-  padding:14px 0;
-  flex-wrap:wrap;
+.site-nav a {
+  display: block; padding: 10px 16px;
+  background: #34A0A4; color: #FFFFFF; border-radius: 8px; font-weight: 600;
+  transition: transform .12s ease, background .12s ease;
 }
-
-/* your template, refined with palette */
-nav ul{
-  list-style:none;
-  display:flex;
-  justify-content:center;
-  flex-direction:row;
-  gap:40px;
-}
-nav ul li{ padding:0; background:none; border-radius:0; }
-
-.site-nav a{
-  display:block;
-  padding:10px 16px;
-  background:#34A0A4;
-  color:#FFFFFF;
-  border-radius:8px;
-  font-weight:600;
-  transition:transform .12s ease, background .12s ease;
-}
-.site-nav a:hover,
-.site-nav a:focus{ transform:translateY(-1px); background:#168AAD; }
-.site-nav a[aria-current="page"]{ background:#1A759F; }
+.site-nav a:hover, .site-nav a:focus { transform: translateY(-1px); background: #168AAD; }
+.site-nav a[aria-current="page"] { background: #1A759F; }
 
 /* --------------------------------
    Hero (Home)
 ----------------------------------*/
-.hero{
-  min-height:48svh;
-  position:relative;
-  display:grid;
-  place-items:center;
-  margin-bottom:40px;
+.hero {
+  min-height: 48svh; position: relative; display: grid; place-items: center; margin-bottom: 40px;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
+              url("images/index_hero_lurelin.jpg") center/cover no-repeat;
 }
-.hero__overlay{
-  inset:0;
-  width:100%;
-  padding-block: 80px;
-  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
-}
-.hero__content{
-  width:min(100%, 1100px);
-  margin-inline:auto;
-  padding-inline:28px;
-  color:#FFFFFF;
-  text-align:center;
-}
-.hero__title{ font-size:clamp(2.2rem, 4vw, 3.2rem); color:#FFFFFF; text-shadow:0 3px 10px rgba(0,0,0,.5); }
-.hero__subtitle{ font-size:clamp(1rem, 1.6vw, 1.25rem); opacity:.95; }
+.hero__overlay { inset: 0; width: 100%; padding-block: 80px; }
+.hero__content { width: min(100%, 1100px); margin-inline:auto; padding-inline:28px; color:#fff; text-align:center; }
+.hero__title { font-size: clamp(2.2rem, 4vw, 3.2rem); color:#fff; text-shadow:0 3px 10px rgba(0,0,0,.5); }
+.hero__subtitle { font-size: clamp(1rem, 1.6vw, 1.25rem); opacity: .95; }
 
 /* --------------------------------
-   Generic Sections
+   Section Basics
 ----------------------------------*/
-.page-header{ margin-block:40px 20px; }
-.lede{ font-size:1.05rem; max-width:70ch; color:#1E6091; }
-
-/* parchment scroll frame using your three images */
-.scroll-frame{
-  background:
-    url("images/scroll_top.JPG") center top no-repeat,
-    url("images/scroll_bot.JPG") center bottom no-repeat,
-    url("images/scroll_mid.JPG") center top repeat-y;
-  background-size: 100% auto, 100% auto, 100% 30px;
-  padding:26px 22px;
-  border-radius:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
-  background-color:#FFFFFF;
+.page-header { margin-block: 40px 20px; }
+.lede { font-size: 1.05rem; max-width: 70ch; color:#1E6091; }
+.section__title {
+  padding-bottom: 6px;
+  border-bottom: 3px solid #168AAD;
+  max-width: fit-content;
 }
 
 /* --------------------------------
-   Two-column Feature Blocks
+   Scroll Panels (mid body + flexible caps)
+   Apply .scroll-panel on each section to keep content inside parchment.
 ----------------------------------*/
-.place,
-.restaurant,
-.highlight{
-  display:grid;
-  grid-template-columns: 1fr minmax(320px, 560px);
-  align-items:start;
-  gap:40px;
-  margin-block: 32px;
-}
-.place__media,
-.restaurant__media,
-.highlight__media{
-  max-width:520px;
-  justify-self:start;
-  border-radius:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,.12);
-  background-color:#FFFFFF;
-}
-.place__photo,
-.restaurant__photo{ border-radius:8px; }
+.place.scroll-panel,
+.restaurant.scroll-panel,
+.company-info.scroll-panel,
+.contact-form.scroll-panel,
+.contact-details.scroll-panel,
+.statement-body.scroll-panel,
+.highlight.scroll-panel {
+  position: relative;
+  background: url("images/scroll_mid.JPG") center top repeat-y; /* mid only */
+  background-size: 100% 30px;            /* tile height of the paper grain */
+  padding: 60px 28px 60px;               /* room for top/bot caps + inner padding */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  margin-block: 28px;
 
-.place__content,
-.restaurant__content,
-.highlight__text{
-  max-width:65ch;
-  padding-top:6px;
-}
-.place__title,
-.restaurant__title{ margin-bottom:8px; }
-
-/* small helper chips and gem guide */
-.effects,
-.gem-list{
-  list-style:none;
-  padding:0;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.effects li{
-  background:#B5E48C;
-  color:#184E77;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:.95rem;
+  display:grid; gap:40px; align-items:start;
+  grid-template-columns: minmax(300px, 520px) 1fr; /* image left, text right */
 }
 
-/* gem guide thumbnails */
-.gem-guide{ margin-top:20px; }
-.gem{ width:88px; text-align:center; }
-.gem img{ border-radius:8px; box-shadow:0 12px 28px rgba(0,0,0,.12); }
-.gem figcaption{ font-size:.8rem; color:#1E6091; margin-top:6px; }
-.note{ font-size:.9rem; color:#1A759F; margin-top:6px; }
-
-/* home highlights separators */
-.highlights .highlight:not(:last-child){
-  border-bottom:1px solid rgba(24,78,119,.12);
-  padding-bottom:20px;
+/* Top & bottom caps that always hug the edges */
+.place.scroll-panel::before,
+.restaurant.scroll-panel::before,
+.company-info.scroll-panel::before,
+.contact-form.scroll-panel::before,
+.contact-details.scroll-panel::before,
+.statement-body.scroll-panel::before,
+.highlight.scroll-panel::before,
+.place.scroll-panel::after,
+.restaurant.scroll-panel::after,
+.company-info.scroll-panel::after,
+.contact-form.scroll-panel::after,
+.contact-details.scroll-panel::after,
+.statement-body.scroll-panel::after,
+.highlight.scroll-panel::after {
+  content:""; position:absolute; left:0; width:100%;
+  background-repeat:no-repeat; background-position:center; background-size:100% auto;
+  pointer-events:none;
 }
+.place.scroll-panel::before,
+.restaurant.scroll-panel::before,
+.company-info.scroll-panel::before,
+.contact-form.scroll-panel::before,
+.contact-details.scroll-panel::before,
+.statement-body.scroll-panel::before,
+.highlight.scroll-panel::before { top:0; height:70px; background-image:url("images/scroll_top.JPG"); }
+.place.scroll-panel::after,
+.restaurant.scroll-panel::after,
+.company-info.scroll-panel::after,
+.contact-form.scroll-panel::after,
+.contact-details.scroll-panel::after,
+.statement-body.scroll-panel::after,
+.highlight.scroll-panel::after { bottom:0; height:70px; background-image:url("images/scroll_bot.JPG"); }
+
+/* --------------------------------
+   Uniform Media Frames
+----------------------------------*/
+/* Activities / Highlights → 16:9 cinematic */
+.place.scroll-panel .place__media,
+.highlight__media {
+  width: 100%; max-width: 520px; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background:#fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+/* Dining → 4:3 for dishes (prevents squish) */
+.restaurant.scroll-panel .restaurant__media {
+  width: 100%; max-width: 540px; aspect-ratio: 4 / 3;
+  border-radius: 10px; overflow: hidden; background:#fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+/* Contact icons → square */
+.company-info.scroll-panel .contact__media,
+.contact-form.scroll-panel .contact__media,
+.contact-details.scroll-panel .contact__media {
+  width: 100%; max-width: 300px; aspect-ratio: 1 / 1;
+  border-radius: 12px; overflow:hidden; background:#fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+
+/* Photos fill their frames cleanly */
+.place.scroll-panel .place__photo,
+.restaurant.scroll-panel .restaurant__photo,
+.highlight__media img,
+.contact__media .contact__photo {
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+  border-radius: 8px;
+}
+
+/* Text columns */
+.place.scroll-panel .place__content,
+.restaurant.scroll-panel .restaurant__content,
+.company-info.scroll-panel .contact__content,
+.contact-form.scroll-panel .contact__content,
+.contact-details.scroll-panel .contact__content,
+.highlight.scroll-panel .highlight__text {
+  max-width: 65ch; padding-top: 6px;
+}
+
+/* Home highlights divider */
+.highlights .highlight:not(:last-child) {
+  border-bottom: 1px solid rgba(24,78,119,.12);
+  padding-bottom: 20px;
+}
+
+/* Effects & gem guide */
+.effects, .gem-list {
+  list-style: none; padding:0; display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;
+}
+.effects li {
+  background:#B5E48C; color:#184E77; padding:6px 10px; border-radius:999px; font-size:.95rem;
+}
+.gem-guide { margin-top:20px; }
+.gem { width:88px; text-align:center; }
+.gem img { border-radius:8px; box-shadow:0 12px 28px rgba(0,0,0,.12); }
+.gem figcaption { font-size:.8rem; color:#1E6091; margin-top:6px; }
+.note { font-size:.9rem; color:#1A759F; margin-top:6px; }
 
 /* --------------------------------
    Forms (Contact)
 ----------------------------------*/
-.form{
-  display:grid;
-  gap:10px;
-  max-width:640px;
+.form { display:grid; gap:10px; max-width:640px; }
+.form label { font-weight:600; color:#184E77; }
+.form input, .form textarea {
+  border:2px solid #76C893; padding:12px 14px; border-radius:10px;
+  background:#FFFFFF; font:inherit; color:#1E6091;
 }
-.form label{ font-weight:600; color:#184E77; }
-.form input,
-.form textarea{
-  border:2px solid #76C893;
-  padding:12px 14px;
-  border-radius:10px;
-  background:#FFFFFF;
-  font:inherit;
-  color:#1E6091;
-}
-.btn,
-button{
-  appearance:none;
-  border:none;
-  border-radius:999px;
-  background:#52B69A;
-  color:#FFFFFF;
-  font-weight:700;
-  padding:12px 18px;
-  width:fit-content;
-  cursor:pointer;
+.btn, button {
+  appearance:none; border:none; border-radius:999px; background:#52B69A; color:#FFFFFF;
+  font-weight:700; padding:12px 18px; width:fit-content; cursor:pointer;
   box-shadow:0 12px 28px rgba(0,0,0,.12);
-  transition:filter .15s ease, transform .12s ease;
+  transition: filter .15s ease, transform .12s ease;
 }
-.btn:hover, button:hover{ filter:brightness(1.05); transform:translateY(-1px); }
+.btn:hover, button:hover { filter:brightness(1.05); transform:translateY(-1px); }
 
 /* --------------------------------
    Footer
 ----------------------------------*/
-.site-footer{
-  margin-top:40px;
-  background:linear-gradient(180deg, #1A759F, #184E77);
-  color:#E8F6FF;
-  padding:18px 0;
-  text-align:center;
+.site-footer {
+  margin-top: 40px;
+  background: linear-gradient(180deg, #1A759F, #184E77);
+  color: #E8F6FF;
+  padding: 18px 0;
+  text-align: center;
 }
 
 /* --------------------------------
-   Page-specific backgrounds via body class
+   Page Background Variants (body class)
 ----------------------------------*/
-body.home .hero{
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25)),
-    url("images/index_hero_lurelin.jpg") center/cover no-repeat;
-}
-
-body.activities{
-  background-image:linear-gradient(180deg, #D9ED92, #F7FFE2 420px, #FFFFFF 1000px);
-}
-
-body.dining{
-  background-image:linear-gradient(180deg, #F3FFE7, #FFFFFF 700px);
-}
-
-body.statement{
-  background-image:linear-gradient(180deg, #EFFBE3, #FFFFFF 600px);
-}
-
-body.contact{
-  background-image:linear-gradient(180deg, #EEFCF6, #FFFFFF 600px);
-}
+body.activities { background-image: linear-gradient(180deg, #D9ED92, #F7FFE2 420px, #FFFFFF 1000px); }
+body.dining     { background-image: linear-gradient(180deg, #F3FFE7, #FFFFFF 700px); }
+body.statement  { background-image: linear-gradient(180deg, #EFFBE3, #FFFFFF 600px); }
+body.contact    { background-image: linear-gradient(180deg, #EEFCF6, #FFFFFF 600px); }
 
 /* --------------------------------
-   Media Queries (Responsive)
+   Responsive
 ----------------------------------*/
-@media (max-width: 900px){
-  .place,
-  .restaurant,
-  .highlight{
-    grid-template-columns: 1fr;    /* stack: image above text */
-  }
-  .place__media,
-  .restaurant__media,
-  .highlight__media{
-    justify-self:center;
-    max-width:100%;
-  }
-  .page,
-  .site-header .site-nav,
-  .site-footer > *{ padding-inline:16px; }
-}
-
-/* =========================
-   UNIFORM SCROLL MEDIA SIZING
-   ========================= */
-
-/* 1) Make every scroll-frame figure a consistent, responsive box */
-.place__media,
-.restaurant__media,
-.highlight__media {
-  /* same visual width everywhere, but still responsive */
-  width: clamp(280px, 42vw, 520px);
-
-  /* lock the shape so all images match */
-  aspect-ratio: 16 / 9;
-
-  /* keep your scroll look */
-  padding: 18px 18px; /* inner room for the parchment edges */
-  border-radius: 12px;
-  background:
-    url("images/scroll_top.JPG") center top no-repeat,
-    url("images/scroll_bot.JPG") center bottom no-repeat,
-    url("images/scroll_mid.JPG") center top repeat-y;
-  background-size: 100% auto, 100% auto, 100% 30px;
-
-  /* tidy */
-  overflow: hidden;              /* hide any overflow so edges are clean */
-  box-shadow: 0 12px 28px rgba(0,0,0,.12);
-  background-color: #FFFFFF;
-}
-
-/* 2) Make the image fill that box perfectly, without distortion */
-.place__photo,
-.restaurant__photo,
-.highlight__media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;             /* crop to fill, keeps aspect correct */
-  object-position: center;       /* center the crop */
-  border-radius: 8px;
-}
-
-/* 3) Mobile: give a bit more height so the image doesn't feel cramped */
 @media (max-width: 900px) {
-  .place__media,
-  .restaurant__media,
-  .highlight__media {
-    width: 100%;
-    aspect-ratio: 4 / 3;         /* slightly taller on phones */
+  .place.scroll-panel,
+  .restaurant.scroll-panel,
+  .company-info.scroll-panel,
+  .contact-form.scroll-panel,
+  .contact-details.scroll-panel,
+  .highlight.scroll-panel {
+    grid-template-columns: 1fr; gap: 18px; padding: 56px 18px 56px;
   }
+  /* slightly taller frames on phones */
+  .place.scroll-panel .place__media { aspect-ratio: 4 / 3; }
+  .restaurant.scroll-panel .restaurant__media { aspect-ratio: 1 / 1; }
 }
 
-/* --------------------------------
-   Section title underline
-----------------------------------*/
-.section__title{
-  padding-bottom:6px;
-  border-bottom:3px solid #168AAD;
-  max-width:fit-content;
+/* ======================================================================
+   PURE CSS SCROLL ANIMATIONS (no JS)
+   - Edge fades at top/bottom of viewport
+   - Section/block reveal on scroll
+   - Line-by-line text reveal (not per word/letter)
+   ====================================================================== */
+
+/* --- Edge fades fixed at top/bottom --- */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: 0; width: 100%; height: 120px;
+  pointer-events: none; z-index: 9999;
+  opacity: 1; /* always visible subtle edges */
+}
+body::before {
+  top: 0;
+  /* match page fade-to-white; change to parchment tint if desired */
+  background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+body::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* Optional: scroll-linked subtle modulation of overall page opacity */
+@scroll-timeline scrollfade {
+  source: auto;
+  orientation: block;
+}
+body {
+  animation: fadeEdges 1s linear both;
+  animation-timeline: scrollfade;
+}
+@keyframes fadeEdges {
+  0%   { opacity: 0.98; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* --- Reveal blocks when they enter view ---
+   Add class="reveal" to any element (e.g., .scroll-panel) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeSlideIn 1.2s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+@keyframes fadeSlideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Line-by-line text reveal ---
+   Wrap your lines in .reveal-lines and mark each line:
+   <div class="reveal-lines">
+     <p class="line" style="--line-index:0">...</p>
+     <p class="line" style="--line-index:1">...</p>
+   </div>
+*/
+.reveal-lines {
+  display: block;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+.reveal-lines .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: lineReveal 0.6s ease forwards;
+  animation-delay: calc(var(--line-index, 0) * 0.2s);
+}
+@keyframes lineReveal {
+  to { opacity: 1; transform: translateY(0); }
 }
