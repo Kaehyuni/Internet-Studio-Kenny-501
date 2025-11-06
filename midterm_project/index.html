@@ -4,12 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Faron Region Travel — Home</title>
-  <meta name="description" content="Discover the beauty of the Faron Region. Visit Lurelin Village, Lakeside Stable, Floria Bridge, and the ancient Zonai Ruins." />
+  <meta name="description" content="Welcome to the Faron Region: Lurelin Village, Lakeside Stable, Floria Bridge, and the Zonai Ruins." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body class="home">
-  <!-- GLOBAL NAVIGATION (use this header on all pages) -->
   <header class="site-header" role="banner">
     <nav class="site-nav" aria-label="Primary">
       <ul class="nav-list">
@@ -22,115 +20,64 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero" aria-label="Welcome to the Faron Region">
-    <!-- image will be background in CSS -->
+  <!-- Hero -->
+  <section class="hero" role="region" aria-label="Hero">
     <div class="hero__overlay">
       <div class="hero__content">
-        <h1 class="hero__title">Welcome to the Faron Region</h1>
-        <p class="hero__subtitle">Where jungles glow, dragons soar, and the sea carries stories of ancient times.</p>
+        <h1 class="hero__title">A Land of Calm Storms and Hidden Legends</h1>
+        <p class="hero__subtitle">Welcome to the Faron Region. Find bright shores, deep forests, and ancient paths. Breathe easy and wander with care.</p>
       </div>
     </div>
   </section>
 
   <main id="main" class="page">
-    <!-- INTRO SCROLL SECTION -->
-    <section class="intro scroll-frame">
-      <div class="intro__content">
-        <h2 class="section__title">A Land of Calm Storms and Hidden Legends</h2>
-        <p>The Faron Region stretches across southern Hyrule, filled with life and mystery. 
-        The forests whisper with rain and wind. The rivers run beneath bridges touched by lightning. 
-        Villages by the sea hum with gentle laughter. Animals move freely under the wide tropical sky. 
-        Every path brings discovery and calm. Travelers find peace in the rhythm of water and light.</p>
-      </div>
-
-      <figure class="intro__image scroll-frame">
-        <img src="images/index_map_faron.jpg" alt="Map of the Faron Region showing jungles, rivers, and coastlines." />
-        <figcaption class="sr-only">Map of the Faron Region</figcaption>
+    <!-- Map on a scroll -->
+    <section class="highlight scroll-panel" id="faron-map">
+      <figure class="highlight__media">
+        <img src="images/index_map_faron.jpg" alt="Map of southern Hyrule showing the Faron Region." />
       </figure>
+      <div class="highlight__text">
+        <h2>Where Adventure Meets Quiet</h2>
+        <p>The Faron Region stretches across southern Hyrule. Forests whisper with rain and wind. Rivers move under bridges touched by lightning. Villages by the sea hum with gentle laughter. Ancient statues stand among vines and ferns. Every road brings discovery and calm.</p>
+      </div>
     </section>
 
-    <!-- HIGHLIGHT SECTION -->
-    <section class="highlights">
-      <h2 class="section__title">Featured Destinations</h2>
-
-      <!-- 1. Lurelin Village -->
-      <article class="highlight">
-        <figure class="highlight__media scroll-frame">
-          <img src="images/index_card_lurelin.jpg" alt="Lurelin Village with huts built on wooden docks above the water." />
-          <figcaption class="sr-only">Lurelin Village</figcaption>
+    <!-- Featured destinations -->
+    <section class="highlights" aria-label="Featured Destinations">
+      <article class="place scroll-panel" id="home-lurelin">
+        <figure class="place__media">
+          <img class="place__photo" src="images/index_card_lurelin.jpg" alt="Lurelin Bay with palm trees and coastal houses." />
         </figure>
-        <div class="highlight__text">
-          <h3>Lurelin Village</h3>
-          <p>The seaside village rests by clear waves. Wooden homes stand above the tide. 
-          People gather for fishing and trade. Wind drifts through palm leaves and sailcloth. 
-          Children play near the shore while the sun falls warm and steady. The smell of salt and fresh catch fills the air.</p>
+        <div class="place__content">
+          <h2 class="place__title">Lurelin Village</h2>
+          <p>The seaside village rests by clear waves. Wooden homes stand above the tide. People gather for fishing and trade. Wind drifts through palm leaves and sailcloth. Children play near the shore while the sun falls warm and steady. The smell of salt and fresh catch fills the air.</p>
         </div>
       </article>
 
-      <!-- 2. Lakeside Stable -->
-      <article class="highlight">
-        <figure class="highlight__media scroll-frame">
-          <img src="images/activities_stable.jpg" alt="Lakeside Stable surrounded by tall trees and resting horses." />
-          <figcaption class="sr-only">Lakeside Stable</figcaption>
+      <article class="place scroll-panel" id="home-floria">
+        <figure class="place__media">
+          <img class="place__photo" src="images/index_card_floria.jpg" alt="Stone arches of Floria Bridge above a jungle river." />
         </figure>
-        <div class="highlight__text">
-          <h3>Lakeside Stable</h3>
-          <p>Travelers rest here between the jungle trails. 
-          Lanterns hang beneath broad eaves. Horses stamp gently as night falls. 
-          Friendly attendants serve meals beside the fire. 
-          Gentle rain brushes the roof before sunrise. The stable hums with life and quiet strength.</p>
+        <div class="place__content">
+          <h2 class="place__title">Floria Bridge</h2>
+          <p>The bridge rises above swift green water. Stone pillars hold firm without hurry. Mist gathers under the arches at dawn. The jungle breathes with a soft rhythm. Farosh sometimes glides near the span at dusk. The view carries both power and peace.</p>
         </div>
       </article>
 
-      <!-- 3. Floria Bridge -->
-      <article class="highlight">
-        <figure class="highlight__media scroll-frame">
-          <img src="images/index_card_floria.jpg" alt="Floria Bridge spanning a wide green river with clouds above." />
-          <figcaption class="sr-only">Floria Bridge</figcaption>
+      <article class="place scroll-panel" id="home-zonai">
+        <figure class="place__media">
+          <img class="place__photo" src="images/index_card_zonai.jpg" alt="Mossy Zonai statues beside an overgrown path." />
         </figure>
-        <div class="highlight__text">
-          <h3>Floria Bridge</h3>
-          <p>The bridge rises between cliffs and rushing water. 
-          Strong pillars hold against time and storm. 
-          Mists curl around its stones like drifting silk. 
-          The air hums when lightning rolls across the clouds. 
-          The view captures the vast and untamed spirit of the region. 
-          It stands as a path of beauty and courage.</p>
-        </div>
-      </article>
-
-      <!-- 4. Zonai Ruins -->
-      <article class="highlight">
-        <figure class="highlight__media scroll-frame">
-          <img src="images/index_card_zonai.jpg" alt="Ancient Zonai Ruins covered in moss and carvings of dragons." />
-          <figcaption class="sr-only">Zonai Ruins</figcaption>
-        </figure>
-        <div class="highlight__text">
-          <h3>Zonai Ruins</h3>
-          <p>Old stone statues sleep under vines. 
-          The carvings tell of a time beyond memory. 
-          Water runs between broken steps and roots. 
-          The air feels deep and patient. 
-          Travelers often stand silent before the dragon figures. 
-          The place holds stillness that reaches the heart.</p>
+        <div class="place__content">
+          <h2 class="place__title">Zonai Ruins</h2>
+          <p>Carved figures wait among vines and ferns. Patterns of stone hint at quiet stories. Pools reflect leaves and broken walls. Footsteps echo over worn thresholds. The air feels cool even during summer rain. Visitors leave with steady hearts and clear minds.</p>
         </div>
       </article>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <p><strong>Faron Jungle Travel Co.</strong> · <a href="mailto:info@faron-travel.co">info@faron-travel.co</a></p>
   </footer>
-
-  <!-- Notes for CSS:
-       .hero → large background image (index_hero_lurelin.jpg)
-       .scroll-frame → parchment scroll background for each figure
-       .highlight → two-column layout: image left, text right
-       .highlights → vertical spacing between articles
-       padding should remain wide and even
-       consistent nav across all pages (no target="_blank")
-  -->
 </body>
 </html>
