@@ -1,23 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Website Template (Please update for full credit)</title>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faron Region Travel — Contact Us</title>
+  <meta name="description" content="Contact Faron Jungle Travel Co. to plan your next paradise adventure across Lurelin Village, Floria Bridge, and the Faron Region." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="contact">
-<nav>
-  <ul>
-    <li><a href="index.html">Homepage</a></li>
-    <li><a href="activities/activities.html">Things to Do</a></li>
-    <li><a href="dining/dining.html">Where to Eat</a></li>
-    <li><a href="statement/statement.html">Design Statement</a></li>
-    <li><a href="contact/contact.html">Contact</a></li>
-  </ul>
-</nav>
-	<h1>Website Template</h1>
-	<p>Fork and use this template repo (a.k.a. "boilerplate") for any web project</p>
-	
+  <!-- Global navigation -->
+  <header class="site-header" role="banner">
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a aria-current="page" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <header class="page-header">
+      <h1>Contact Faron Jungle Travel Co.</h1>
+      <p class="lede">Paradise is closer than you think. Let us help you find your calm within the wild beauty of the Faron Region.</p>
+    </header>
+
+    <!-- Company Introduction -->
+    <section class="company-info">
+      <h2 class="section__title">Our Mission</h2>
+      <p>Faron Jungle Travel Co. was founded to bring travelers closer to the heart of adventure and peace. The company’s main goal is to offer a place of balance between the ocean, the jungle, and the traveler’s spirit. We believe paradise is not just a destination but a state of mind found in the gentle rain and calm breeze. Our tours guide guests through the rhythm of life in the Faron Region, where every path holds quiet wonder. The company seeks to preserve the beauty of nature while creating journeys filled with harmony and reflection. Visitors can rest by the sea, cross bridges wrapped in mist, and stand among ancient ruins that whisper with history. Each trip encourages travelers to slow down and see the details around them. The warmth of the people, the strength of the land, and the sound of falling water remind guests to breathe again. We aim to create vacations that restore peace to the heart and clarity to the mind. Our team works closely with local villagers to promote sustainable tourism and fair trade. Through each journey, we hope to connect travelers to something real and lasting. Paradise begins when you take your first step into Faron.</p>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form">
+      <h2 class="section__title">Get in Touch</h2>
+      <form action="#" method="post" class="form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 243-8790" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="comments">Comments or Questions:</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-details">
+      <h2 class="section__title">Contact Information</h2>
+      <p><strong>Company Name:</strong> Faron Jungle Travel Co.</p>
+      <p><strong>Email:</strong> <a href="mailto:info@faron-travel.co">info@faron-travel.co</a></p>
+      <p><strong>Phone:</strong> (555) 243-8790</p>
+      <p><strong>Address:</strong> 21 Floria Bridge Way, Faron Region, Hyrule</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p><strong>Faron Jungle Travel Co.</strong> · <a href="mailto:info@faron-travel.co">info@faron-travel.co</a> · (555) 243-8790</p>
+  </footer>
+
+  <!-- CSS Notes for later:
+       .form labels and inputs use consistent spacing and 100% width on small screens
+       .company-info paragraph spans full width with gentle line-height
+       .contact-details centered with subtle background or border
+       .btn styled scroll or parchment tone to match the site’s theme
+  -->
 </body>
 </html>
