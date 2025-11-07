@@ -209,7 +209,7 @@ nav ul li{ padding:0; background:none; border-radius:0; }
 .page-header{ margin-block:40px 20px; }
 .lede{ font-size:1.05rem; max-width:70ch; color:#1E6091; }
 
-/* parchment scroll frame using your three images */
+/* Basic card frame (used for text-only scrolls, not the image media) */
 .scroll-frame{
   background:
     url("images/scroll_top.JPG") center top no-repeat,
@@ -376,55 +376,128 @@ body.contact{
   .site-footer > *{ padding-inline:16px; }
 }
 
-/* =========================
-   UNIFORM SCROLL MEDIA SIZING
-   ========================= */
+/* ============================================================
+   PARCHMENT FRAMES (FINAL FIX) — Home / Activities / Dining
+   Images never touch the curls; consistent sizes across pages.
+   ============================================================ */
 
-/* 1) Make every scroll-frame figure a consistent, responsive box */
-.place__media,
-.restaurant__media,
-.highlight__media {
-  /* same visual width everywhere, but still responsive */
+/* ---------- ACTIVITIES: scenic photos ---------- */
+.place.scroll-panel .place__media{
+  position: relative;
   width: clamp(280px, 42vw, 520px);
-
-  /* lock the shape so all images match */
-  aspect-ratio: 16 / 9;
-
-  /* keep your scroll look */
-  padding: 18px 18px; /* inner room for the parchment edges */
   border-radius: 12px;
-  background:
-    url("images/scroll_top.JPG") center top no-repeat,
-    url("images/scroll_bot.JPG") center bottom no-repeat,
-    url("images/scroll_mid.JPG") center top repeat-y;
-  background-size: 100% auto, 100% auto, 100% 30px;
-
-  /* tidy */
-  overflow: hidden;              /* hide any overflow so edges are clean */
+  overflow: hidden;
+  background: url("images/scroll_mid.JPG") center top repeat-y;
+  background-size: 100% 26px;       /* mid parchment grain */
+  padding: 60px 18px;               /* room for curls + gutters */
   box-shadow: 0 12px 28px rgba(0,0,0,.12);
-  background-color: #FFFFFF;
+  background-color: #fff;
+}
+.place.scroll-panel .place__media::before,
+.place.scroll-panel .place__media::after{
+  content:"";
+  position:absolute; left:0; width:100%;
+  background-repeat:no-repeat; background-position:center;
+  background-size:100% auto; pointer-events:none;
+}
+.place.scroll-panel .place__media::before{
+  top:0; height:66px; background-image:url("images/scroll_top.JPG");
+}
+.place.scroll-panel .place__media::after{
+  bottom:0; height:66px; background-image:url("images/scroll_bot.JPG");
+}
+.place.scroll-panel .place__photo{
+  width:100%; max-width:490px; margin:0 auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover; object-position:center;
+  border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06);
 }
 
-/* 2) Make the image fill that box perfectly, without distortion */
-.place__photo,
-.restaurant__photo,
-.highlight__media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;             /* crop to fill, keeps aspect correct */
-  object-position: center;       /* center the crop */
-  border-radius: 8px;
+/* ---------- DINING: dish images (show full plate) ---------- */
+.restaurant.scroll-panel .restaurant__media{
+  position: relative;
+  width: clamp(280px, 42vw, 520px);
+  border-radius: 12px;
+  overflow: hidden;
+  background: url("images/scroll_mid.JPG") center top repeat-y;
+  background-size: 100% 26px;
+  padding: 56px 18px;               /* slightly less than scenic */
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  background-color: #fff;
+}
+.restaurant.scroll-panel .restaurant__media::before,
+.restaurant.scroll-panel .restaurant__media::after{
+  content:"";
+  position:absolute; left:0; width:100%;
+  background-repeat:no-repeat; background-position:center;
+  background-size:100% auto; pointer-events:none;
+}
+.restaurant.scroll-panel .restaurant__media::before{
+  top:0; height:64px; background-image:url("images/scroll_top.JPG");
+}
+.restaurant.scroll-panel .restaurant__media::after{
+  bottom:0; height:64px; background-image:url("images/scroll_bot.JPG");
+}
+.restaurant.scroll-panel .restaurant__photo{
+  width:100%; max-width:490px; margin:0 auto;
+  aspect-ratio: 4 / 3;              /* friendly for plates/bowls */
+  object-fit: contain;               /* show entire dish */
+  object-position:center;
+  border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06);
 }
 
-/* 3) Mobile: give a bit more height so the image doesn't feel cramped */
-@media (max-width: 900px) {
-  .place__media,
-  .restaurant__media,
-  .highlight__media {
+/* ---------- HOME: map & highlight cards ---------- */
+.highlight.scroll-panel .highlight__media{
+  position: relative;
+  width: clamp(280px, 44vw, 560px);
+  border-radius: 12px;
+  overflow: hidden;
+  background: url("images/scroll_mid.JPG") center top repeat-y;
+  background-size: 100% 26px;
+  padding: 60px 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  background-color: #fff;
+}
+.highlight.scroll-panel .highlight__media::before,
+.highlight.scroll-panel .highlight__media::after{
+  content:"";
+  position:absolute; left:0; width:100%;
+  background-repeat:no-repeat; background-position:center;
+  background-size:100% auto; pointer-events:none;
+}
+.highlight.scroll-panel .highlight__media::before{
+  top:0; height:66px; background-image:url("images/scroll_top.JPG");
+}
+.highlight.scroll-panel .highlight__media::after{
+  bottom:0; height:66px; background-image:url("images/scroll_bot.JPG");
+}
+.highlight.scroll-panel .highlight__media img{
+  width:100%; max-width:510px; margin:0 auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;               /* full map visible */
+  object-position:center;
+  border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06);
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 900px){
+  .place.scroll-panel .place__media,
+  .restaurant.scroll-panel .restaurant__media,
+  .highlight.scroll-panel .highlight__media{
     width: 100%;
-    aspect-ratio: 4 / 3;         /* slightly taller on phones */
+    padding: 56px 14px;
+    background-size: 100% 22px;
   }
+  .place.scroll-panel .place__media::before,
+  .place.scroll-panel .place__media::after,
+  .restaurant.scroll-panel .restaurant__media::before,
+  .restaurant.scroll-panel .restaurant__media::after,
+  .highlight.scroll-panel .highlight__media::before,
+  .highlight.scroll-panel .highlight__media::after{
+    height: 58px;
+  }
+  .place.scroll-panel .place__photo{ aspect-ratio: 4 / 3; }
+  .highlight.scroll-panel .highlight__media img{ aspect-ratio: 4 / 3; }
 }
 
 /* --------------------------------
@@ -434,4 +507,9 @@ body.contact{
   padding-bottom:6px;
   border-bottom:3px solid #168AAD;
   max-width:fit-content;
+}
+
+/* (Optional) contact icon size — stays neat with text */
+.contact-details .contact__media img{
+  width:80px; height:auto; display:block; margin:0 auto 12px auto; opacity:.9;
 }
