@@ -154,7 +154,7 @@ h3{ font-family:"Asta Sans","PT Sans",sans-serif; color:#1A759F; font-size:1.25r
   flex-wrap:wrap;
 }
 
-/* your template, refined with palette */
+/* keeps your provided structure */
 nav ul{
   list-style:none;
   display:flex;
@@ -209,7 +209,7 @@ nav ul li{ padding:0; background:none; border-radius:0; }
 .page-header{ margin-block:40px 20px; }
 .lede{ font-size:1.05rem; max-width:70ch; color:#1E6091; }
 
-/* Basic card frame (used for text-only scrolls, not the image media) */
+/* Text-only parchment frame (used for narrative blocks) */
 .scroll-frame{
   background:
     url("images/scroll_top.JPG") center top no-repeat,
@@ -377,8 +377,8 @@ body.contact{
 }
 
 /* ============================================================
-   PARCHMENT FRAMES (FINAL FIX) — Home / Activities / Dining
-   Images never touch the curls; consistent sizes across pages.
+   PARCHMENT FRAMES — Home / Activities / Dining
+   (Images never touch curls; consistent sizes)
    ============================================================ */
 
 /* ---------- ACTIVITIES: scenic photos ---------- */
@@ -413,7 +413,7 @@ body.contact{
   border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06);
 }
 
-/* ---------- DINING: dish images (show full plate) ---------- */
+/* ---------- DINING: dishes (show whole plate) ---------- */
 .restaurant.scroll-panel .restaurant__media{
   position: relative;
   width: clamp(280px, 42vw, 520px);
@@ -509,37 +509,40 @@ body.contact{
   max-width:fit-content;
 }
 
-/* (Optional) contact icon size — stays neat with text */
-.contact-details .contact__media img{
-  width:80px; height:auto; display:block; margin:0 auto 12px auto; opacity:.9;
-}
-
-/* -----------------------------
+/* --------------------------------
    CONTACT: icon bullets + layout
------------------------------- */
-.contact-details .section__title { margin-bottom: 10px; }
+----------------------------------*/
+.contact-details .section__title { margin-bottom: 14px; }
+
+.contact-details{ margin-top: 24px; }
+
+.contact-form .btn{
+  margin-top: 10px;
+  margin-bottom: 28px;         /* space below Submit */
+}
 
 .contact-list{
   list-style: none;
-  margin: 8px 0 16px;
+  margin: 10px 0 14px;
   padding: 0;
 }
 
 .contact-list li{
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 10px 0;
-  line-height: 1.5;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0;
+  line-height: 1.6;
 }
 
 .contact-list .contact-icon{
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
   display: block;
-  margin-top: 2px;                 /* aligns with first line of text */
-  opacity: .9;
+  opacity: .95;
+  /* optional palette tint */
+  filter: hue-rotate(170deg) saturate(115%) brightness(0.95);
 }
 
 .contact-list a{ color: #168AAD; }
@@ -549,5 +552,14 @@ body.contact{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 6px;
+}
+
+/* slightly smaller icons on very small screens */
+@media (max-width: 560px){
+  .contact-list .contact-icon{
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
 }
