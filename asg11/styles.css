@@ -25,224 +25,294 @@
  Insert all your glorious CSS styles below! */
 
 
-/* ------------------------------
-   FONT IMPORTS
---------------------------------*/
+/* =========================================
+   FONT IMPORTS (Google Web Fonts Helper)
+   ========================================= */
+
+/* Bona Nova: body text */
 @font-face {
+  font-display: swap;
   font-family: 'Bona Nova';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
   src: url('fonts/bona-nova-v12-latin-regular.woff2') format('woff2');
 }
-
 @font-face {
+  font-display: swap;
   font-family: 'Bona Nova';
   font-style: italic;
   font-weight: 400;
-  font-display: swap;
   src: url('fonts/bona-nova-v12-latin-italic.woff2') format('woff2');
 }
-
 @font-face {
+  font-display: swap;
   font-family: 'Bona Nova';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
   src: url('fonts/bona-nova-v12-latin-700.woff2') format('woff2');
 }
 
+/* Candal: headings (h1, h2) */
 @font-face {
-  font-family: 'Bungee Shade';
-  font-style: normal;
-  font-weight: 400;
   font-display: swap;
-  src: url('fonts/bungee-shade-v17-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
   font-family: 'Candal';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
   src: url('fonts/candal-v16-latin-regular.woff2') format('woff2');
 }
 
-/* ------------------------------
-   FLUID TYPE SCALE
-   (Generated externally)
---------------------------------*/
-html {
-  font-size: clamp(14px, 1.2vw, 18px);
+/* Bungee Shade: ONLY for the word “BLACKPINK” in the main title */
+@font-face {
+  font-display: swap;
+  font-family: 'Bungee Shade';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/bungee-shade-v17-latin-regular.woff2') format('woff2');
 }
 
-/* ------------------------------
-   GLOBAL PAGE STYLES
---------------------------------*/
-body {
-  font-family: 'Bona Nova', serif;
-  margin: 0;
-  padding: 0;
-  color: #FFD9DA;
-  line-height: 1.6;
 
-  /* Full-page gradient background */
-  background: linear-gradient(
+/* =========================================
+   GLOBAL RESET / BASE
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Bona Nova', serif;
+  font-size: 16px; /* base size in pixels */
+
+  /* Background image: gradient using your colour palette */
+  background-image: linear-gradient(
     135deg,
-    #30343F 0%,
-    #89023E 40%,
-    #EA638C 100%
+    #1B2021,
+    #30343F,
+    #89023E,
+    #EA638C
   );
   background-attachment: fixed;
-
-  animation: slowFadeIn 2.4s ease-out forwards;
+  background-size: cover;
+  background-position: center;
+  color: #FFD9DA; /* misty-rose text */
 }
 
-/* ------------------------------
-   PAGE CONTAINER
---------------------------------*/
-.main-container {
-  width: 100%;
-  max-width: 1350px;
-  margin: 0 auto;
-  padding: 1rem;
-}
 
-/* ------------------------------
-   BANNER SECTION
---------------------------------*/
-.banner {
-  text-align: center;
-  padding: 5rem 1.5rem 4rem;
+/* =========================================
+   ANIMATION
+   Slow in, soft upward motion
+   ========================================= */
 
-  /* Use OT4 image clearly, showing all faces */
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(27, 32, 33, 0.85),
-      rgba(27, 32, 33, 0.60)
-    ),
-    url("images/blackpink-team.jpg");
-
-  background-size: contain;      /* show all 4 members */
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #1B2021;     /* prevents empty space */
-}
-
-/* Banner title */
-.banner h1 {
-  font-family: 'Bungee Shade', cursive;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  margin: 0;
-  color: #FFD9DA;
-  letter-spacing: 3px;
-}
-
-/* Banner paragraph */
-.banner p {
-  max-width: 750px;
-  margin: 1rem auto 0;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  color: #FFD9DA;
-}
-
-/* ------------------------------
-   OT4 INTRO SECTION
---------------------------------*/
-.ot4-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  margin: 3rem 0;
-  flex-wrap: wrap;
-}
-
-/* OT4 image styling */
-.ot4-photo {
-  width: 45%;
-  min-width: 300px;
-  border-radius: 12px;
-  border: 6px solid #EA638C;
-  background: #1B2021;
-  animation: slowFadeIn 3s ease-out;
-}
-
-/* OT4 description box */
-.ot4-description {
-  background: rgba(27, 32, 33, 0.55);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 217, 218, 0.3);
-  width: 45%;
-  min-width: 300px;
-}
-
-/* OT4 description header */
-.ot4-description h2 {
-  font-family: 'Candal';
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  color: #FFD9DA;
-  margin-top: 0;
-}
-
-/* OT4 description text */
-.ot4-description p {
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
-  color: #FFD9DA;
-}
-
-/* ------------------------------
-   DODGEBALL TEAM GALLERY
---------------------------------*/
-.gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 5rem;
-}
-
-/* Each member card */
-.card {
-  background: rgba(27, 32, 33, 0.55);
-  border-radius: 14px;
-  padding: 1rem;
-  border: 2px solid #89023E;
-  width: 260px;
-  text-align: center;
-  animation: slowFadeIn 3s ease-out;
-}
-
-.card h3 {
-  font-family: 'Candal';
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
-  color: #FFD9DA;
-  margin-bottom: 0.7rem;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-  color: #FFD9DA;
-}
-
-/* ------------------------------
-   ANIMATIONS
---------------------------------*/
 @keyframes slowFadeIn {
   0% {
     opacity: 0;
     transform: translateY(18px);
   }
+  60% {
+    opacity: 0.6;
+    transform: translateY(6px);
+  }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Utility class (if you want to reuse) */
+/* .fade-in { animation: slowFadeIn 1.8s ease-out forwards; } */
+
+
+/* =========================================
+   BANNER (top section)
+   Uses blackpink-team.jpg as a background
+   ========================================= */
+
+.banner {
+  position: relative;
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.75rem;
+
+  /* background version of the OT4 image + dark overlay */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(27, 32, 33, 0.85),
+      rgba(27, 32, 33, 0.55)
+    ),
+    url("images/blackpink-team.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  color: #FFD9DA;
+  animation: slowFadeIn 2.1s ease-out forwards;
+}
+
+/* Main title */
+.title {
+  font-family: 'Candal', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);  /* fluid type scale */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* “BLACKPINK” word in special font */
+.bp-word {
+  font-family: 'Bungee Shade', cursive;
+  font-size: clamp(32px, 5vw, 48px);
+  color: #FFD9DA;
+}
+
+/* Intro paragraph under the title */
+.intro-text {
+  font-size: clamp(16px, 1.2vw + 12px, 18px);  /* fluid body text */
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #FFD9DA;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================
+   HERO SECTION (OT4 image + paragraph)
+   ========================================= */
+
+.hero {
+  display: flex;                 /* flexbox layout */
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem 2rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: slowFadeIn 2.4s ease-out forwards;
+}
+
+/* OT4 image left */
+.hero-img img {
+  width: 100%;
+  max-width: 650px;
+  border-radius: 12px;
+  border: 4px solid #EA638C;          /* blush */
+  box-shadow: 0 0 35px rgba(234, 99, 140, 0.6);
+}
+
+/* Hero text block on right */
+.hero-text {
+  max-width: 430px;
+  background-color: rgba(27, 32, 33, 0.55);  /* eerie-black overlay */
+  padding: 1.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 217, 218, 0.55);
+}
+
+.hero-text h2 {
+  font-family: 'Candal', sans-serif;
+  font-size: clamp(22px, 3vw, 28px);
+  margin: 0 0 0.75rem;
+  color: #FFD9DA;
+}
+
+.hero-text p {
+  font-size: clamp(15px, 1.1vw + 10px, 17px);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* =========================================
+   TEAM SECTION – FLEXBOX GALLERY
+   ========================================= */
+
+.team {
+  display: flex;            /* flexbox gallery */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 0 2rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+/* Each player card */
+.player {
+  background-color: #30343F;      /* gunmetal */
+  border: 3px solid #89023E;      /* murrey */
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem 1.4rem;
+  max-width: 240px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+
+  opacity: 0;  /* start hidden for animation */
+  animation: slowFadeIn 2s ease-out forwards;
+}
+
+/* Stagger the player animations slightly */
+.player:nth-child(1) { animation-delay: 0.3s; }
+.player:nth-child(2) { animation-delay: 0.5s; }
+.player:nth-child(3) { animation-delay: 0.7s; }
+.player:nth-child(4) { animation-delay: 0.9s; }
+
+.player img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Player names/sub-headings */
+.player h2 {
+  font-family: 'Candal', sans-serif;
+  font-size: clamp(18px, 2.3vw, 22px);
+  color: #EA638C;        /* blush pink */
+  margin: 0 0 0.6rem;
+}
+
+/* Player description text */
+.player p {
+  font-family: 'Bona Nova', serif;
+  font-size: clamp(14px, 1.1vw + 9px, 16px);
+  line-height: 1.6;
+  color: #FFD9DA;
+  margin: 0;
+}
+
+
+/* =========================================
+   GLOBAL TYPOGRAPHY OVERRIDES
+   (h1, h2, p are already styled above,
+   but these keep everything consistent)
+   ========================================= */
+
+h1, h2 {
+  font-family: 'Candal', sans-serif;
+}
+
+p {
+  font-family: 'Bona Nova', serif;
+}
+
+
+/* =========================================
+   RESPONSIVE TWEAKS
+   ========================================= */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding-top: 2.5rem;
+  }
+
+  .hero-text {
+    max-width: 90%;
   }
 }
