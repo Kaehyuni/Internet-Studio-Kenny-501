@@ -156,6 +156,23 @@ body {
 
 
 /* ================================
+   OT4 HERO SECTION
+   ================================ */
+
+.hero {
+  display: flex;
+  justify-content: flex-start;   /* keep hero card on the left */
+  padding: 0 1.5rem 2rem;
+}
+
+/* Hero OT4 card reuses .player styles, but can be a bit wider */
+.hero-card {
+  max-width: 260px;
+  animation-delay: 0.3s;
+}
+
+
+/* ================================
    TEAM SECTION (FLEXBOX GALLERY)
    ================================ */
 
@@ -179,24 +196,20 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
 
   animation: fadeIn 1s ease-out forwards;
-  animation-delay: 0.4s; /* all cards fade after banner */
 }
 
-/* Optional: staggered animation for each card */
-.player:nth-child(1) {
-  animation-delay: 0.4s;
+/* Staggered animation for the 4 individual members */
+.team .player:nth-child(1) {
+  animation-delay: 0.5s;
 }
-.player:nth-child(2) {
-  animation-delay: 0.55s;
+.team .player:nth-child(2) {
+  animation-delay: 0.65s;
 }
-.player:nth-child(3) {
-  animation-delay: 0.7s;
+.team .player:nth-child(3) {
+  animation-delay: 0.8s;
 }
-.player:nth-child(4) {
-  animation-delay: 0.85s;
-}
-.player:nth-child(5) {
-  animation-delay: 1s;
+.team .player:nth-child(4) {
+  animation-delay: 0.95s;
 }
 
 .player img {
