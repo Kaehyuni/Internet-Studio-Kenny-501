@@ -23,3 +23,230 @@
        
 
  Insert all your glorious CSS styles below! */
+
+/* ================================
+   FONT IMPORTS (Google Web Fonts)
+   ================================ */
+
+/* Bona Nova: body text */
+@font-face {
+  font-display: swap;
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/bona-nova-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Bona Nova';
+  font-style: italic;
+  font-weight: 400;
+  src: url('fonts/bona-nova-v12-latin-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Bona Nova';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/bona-nova-v12-latin-700.woff2') format('woff2');
+}
+
+/* Candal: headings (h1, h2, bold) */
+@font-face {
+  font-display: swap;
+  font-family: 'Candal';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/candal-v16-latin-regular.woff2') format('woff2');
+}
+
+/* Bungee Shade: ONLY for the word “BLACKPINK” in the banner */
+@font-face {
+  font-display: swap;
+  font-family: 'Bungee Shade';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/bungee-shade-v17-latin-regular.woff2') format('woff2');
+}
+
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================================
+   GLOBAL STYLES
+   ================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Bona Nova', serif;
+  font-size: 16px; /* base font size in pixels */
+
+  /* BLACKPINK-inspired gradient background */
+  background-image: linear-gradient(
+    135deg,
+    #1B2021,
+    #30343F,
+    #89023E,
+    #EA638C
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: #FFD9DA;
+}
+
+
+/* ================================
+   BANNER / HEADER
+   ================================ */
+
+.banner {
+  text-align: center;
+  padding: 2.5rem 1.5rem 2rem;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Main title: BLACKPINK Power Play */
+.title {
+  font-family: 'Candal', sans-serif;
+  font-size: clamp(28px, 4vw, 40px); /* fluid type scale */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+/* The word “BLACKPINK” only */
+.bp-word {
+  font-family: 'Bungee Shade', cursive;
+  font-size: clamp(32px, 5vw, 48px);
+  color: #FFD9DA; /* light pink highlight */
+}
+
+/* Intro paragraph under the title */
+.intro {
+  font-size: clamp(16px, 1.2vw + 12px, 18px); /* fluid body size */
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+  color: #FFD9DA;
+}
+
+
+/* ================================
+   TEAM SECTION (FLEXBOX GALLERY)
+   ================================ */
+
+.team {
+  display: flex;          /* FLEXBOX layout */
+  flex-wrap: wrap;        /* wrap cards on small screens */
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem 2.5rem;
+}
+
+/* Individual player cards */
+.player {
+  background-color: #30343F;         /* gunmetal */
+  border: 3px solid #89023E;         /* murrey */
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem 1.3rem;
+  max-width: 220px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.4s; /* all cards fade after banner */
+}
+
+/* Optional: staggered animation for each card */
+.player:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.player:nth-child(2) {
+  animation-delay: 0.55s;
+}
+.player:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.player:nth-child(4) {
+  animation-delay: 0.85s;
+}
+.player:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.player img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+
+/* ================================
+   TYPOGRAPHY
+   ================================ */
+
+/* All h1 and h2 share heading font */
+h1,
+h2 {
+  font-family: 'Candal', sans-serif;
+}
+
+/* Player sub-headings (names + roles) */
+.player h2 {
+  font-size: clamp(18px, 2.4vw, 24px); /* fluid heading */
+  color: #EA638C;                       /* blush pink */
+  margin: 0 0 0.5rem;
+}
+
+/* General paragraph styling */
+p {
+  font-size: clamp(14px, 1.1vw + 10px, 16px); /* fluid text size */
+  line-height: 1.6;
+}
+
+/* Body text inside each player card */
+.player p {
+  color: #FFD9DA; /* light pink text */
+  margin: 0;
+}
+
+
+/* ================================
+   RESPONSIVE TWEAKS
+   ================================ */
+
+@media (min-width: 900px) {
+  .banner {
+    padding-top: 3rem;
+  }
+
+  .team {
+    justify-content: space-between;
+  }
+}
