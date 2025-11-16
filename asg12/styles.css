@@ -23,3 +23,307 @@
        
 
  Insert all your glorious CSS styles below! */
+
+/* ----------------------------------------------------
+   Fonts
+   ---------------------------------------------------- */
+
+/* Alfa Slab One – headings */
+@font-face {
+  font-display: swap;
+  font-family: 'Alfa Slab One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/alfa-slab-one-v21-latin-regular.woff2') format('woff2');
+}
+
+/* Amiko – body text */
+@font-face {
+  font-display: swap;
+  font-family: 'Amiko';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/amiko-v15-latin-regular.woff2') format('woff2');
+}
+
+
+/* ----------------------------------------------------
+   Color Palette (reference)
+   ---------------------------------------------------- */
+
+/* Midnight Violet  #160C28  | rgba(22,12,40,1) */
+/* Royal Gold       #EFCB68  | rgba(239,203,104,1) */
+/* Honeydew         #E1EFE6  | rgba(225,239,230,1) */
+/* Ash Grey         #AEB7B3  | rgba(174,183,179,1) */
+/* Ink Black        #000411  | rgba(0,4,17,1) */
+
+
+/* ----------------------------------------------------
+   General Page Styling
+   ---------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Amiko', sans-serif;
+  background:
+    linear-gradient(180deg, rgba(22,12,40,0.97), rgba(0,4,17,0.98)),
+    url('bg-pattern.png');
+  background-size: cover;
+  background-attachment: fixed;
+  color: #E1EFE6;
+}
+
+
+/* ----------------------------------------------------
+   Banner Section
+   ---------------------------------------------------- */
+
+.banner {
+  max-width: 1000px;
+  margin: 30px auto 10px;
+  padding: 30px 20px 35px;
+  text-align: center;
+
+  background:
+    linear-gradient(135deg, rgba(22,12,40,0.95), rgba(0,4,17,0.95)),
+    url('star-decoration.PNG');
+  background-repeat: no-repeat;
+  background-position: right 10px top 10px;
+  background-size: 120px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(239,203,104,0.55);
+  box-shadow: 0 0 16px rgba(0,0,0,0.7);
+
+  animation: bannerFadeIn 1.6s ease-out both;
+}
+
+.banner h1 {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 3em;
+  color: #EFCB68;
+  margin: 0 0 18px;
+  letter-spacing: 0.06em;
+}
+
+.summary {
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1.05em;
+  color: #E1EFE6;
+}
+
+
+/* ----------------------------------------------------
+   Gallery Grid
+   ---------------------------------------------------- */
+
+.gallery {
+  margin: 40px auto 50px;
+  max-width: 1100px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px;
+
+  animation: galleryFadeUp 1.7s ease-out both;
+}
+
+
+/* ----------------------------------------------------
+   Movie Cards
+   ---------------------------------------------------- */
+
+.movie {
+  background: rgba(225,239,230,0.06);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(239,203,104,0.4);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 8px rgba(239,203,104,0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+
+  animation: cardFadeIn 1.4s ease-out both;
+}
+
+.movie img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  display: block;
+}
+
+.movie h2 {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 1.3em;
+  color: #EFCB68;
+  margin: 12px 0 8px;
+}
+
+.movie p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #E1EFE6;
+}
+
+/* Hover effect on cards */
+.movie:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.6);
+  border-color: #EFCB68;
+  background: rgba(225,239,230,0.1);
+}
+
+
+/* ----------------------------------------------------
+   Stars (Grid-positioned decorative items)
+   ---------------------------------------------------- */
+
+.star {
+  width: 120px;
+  justify-self: center;
+  align-self: center;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  animation: starFadeIn 1.5s ease-out both;
+}
+
+/* Positions to match your sketch */
+.star-1 { grid-column: 1; grid-row: 1; }
+.star-2 { grid-column: 4; grid-row: 2; }
+.star-3 { grid-column: 1; grid-row: 3; }
+.star-4 { grid-column: 4; grid-row: 4; }
+
+/* Hover effect on stars */
+.star:hover {
+  transform: scale(1.08) rotate(-3deg);
+  filter: drop-shadow(0 0 12px rgba(239,203,104,0.9));
+}
+
+
+/* ----------------------------------------------------
+   Animations (@keyframes)
+   ---------------------------------------------------- */
+
+/* Banner slides in slightly from top and fades in */
+@keyframes bannerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gallery rises up from below */
+@keyframes galleryFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual card fade + slight zoom */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Decorative star fade and gentle scale */
+@keyframes starFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ----------------------------------------------------
+   Responsive Layout
+   ---------------------------------------------------- */
+
+/* Medium screens – 2 columns */
+@media (max-width: 900px) {
+  .banner {
+    margin: 20px 10px;
+    padding: 24px 16px 28px;
+    background-position: right 5px top 5px;
+    background-size: 90px;
+  }
+
+  .banner h1 {
+    font-size: 2.4em;
+  }
+
+  .summary {
+    font-size: 1em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .star {
+    width: 90px;
+  }
+}
+
+/* Small screens – 1 column, hide decorative stars */
+@media (max-width: 550px) {
+  .banner {
+    margin: 15px 8px;
+    padding: 20px 14px 24px;
+    background-position: right -10px top -10px;
+    background-size: 70px;
+  }
+
+  .banner h1 {
+    font-size: 2em;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stars are purely decorative, so I can hide them on very small screens */
+  .star {
+    display: none;
+  }
+}
