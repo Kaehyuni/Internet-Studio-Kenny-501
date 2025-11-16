@@ -24,9 +24,10 @@
 
  Insert all your glorious CSS styles below! */
 
-/* ----------------------------------------------------
-   Fonts
-   ---------------------------------------------------- */
+
+/* --------------------------------------------------------
+   FONT IMPORTS
+   -------------------------------------------------------*/
 
 /* Alfa Slab One – headings */
 @font-face {
@@ -37,7 +38,7 @@
   src: url('fonts/alfa-slab-one-v21-latin-regular.woff2') format('woff2');
 }
 
-/* Amiko – body text */
+/* Amiko – body text (update filename if yours is different) */
 @font-face {
   font-display: swap;
   font-family: 'Amiko';
@@ -45,7 +46,6 @@
   font-weight: 400;
   src: url('fonts/amiko-v15-latin-regular.woff2') format('woff2');
 }
-
 
 /* ----------------------------------------------------
    Color Palette (reference)
@@ -58,272 +58,262 @@
 /* Ink Black        #000411  | rgba(0,4,17,1) */
 
 
-/* ----------------------------------------------------
-   General Page Styling
-   ---------------------------------------------------- */
+
+/* ===========================
+   BASE STYLES
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
+  min-height: 100vh;
   padding: 0;
-  font-family: 'Amiko', sans-serif;
-  background:
-    linear-gradient(180deg, rgba(22,12,40,0.97), rgba(0,4,17,0.98)),
+  color: #e1efe6;               /* Honeydew */
+  font-family: 'Amiko', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #160c28;    /* Midnight Violet */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(22, 12, 40, 0.95),
+      rgba(0, 4, 17, 0.9)
+    ),
     url('bg-pattern.png');
-  background-size: cover;
-  background-attachment: fixed;
-  color: #E1EFE6;
+  background-size: cover, 400px 400px;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed, scroll;
 }
 
+/* Clamp = simple fluid type scale */
+h1 {
+  font-family: 'Alfa Slab One', system-ui, sans-serif;
+  font-size: clamp(2.4rem, 2.2rem + 1.2vw, 3.3rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 1rem;
+}
 
-/* ----------------------------------------------------
-   Banner Section
-   ---------------------------------------------------- */
+h2 {
+  font-family: 'Alfa Slab One', system-ui, sans-serif;
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.7rem);
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+}
+
+p {
+  font-size: clamp(0.92rem, 0.88rem + 0.25vw, 1.02rem);
+  margin: 0;
+}
+
+/* ===========================
+   BANNER
+   =========================== */
 
 .banner {
-  max-width: 1000px;
-  margin: 30px auto 10px;
-  padding: 30px 20px 35px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 1.5rem auto 2rem;
+  padding: 1.8rem 1.5rem 2rem;
   text-align: center;
-
-  background:
-    linear-gradient(135deg, rgba(22,12,40,0.95), rgba(0,4,17,0.95)),
-    url('star-decoration.PNG');
-  background-repeat: no-repeat;
-  background-position: right 10px top 10px;
-  background-size: 120px;
-
-  border-radius: 18px;
-  border: 1px solid rgba(239,203,104,0.55);
-  box-shadow: 0 0 16px rgba(0,0,0,0.7);
-
-  animation: bannerFadeIn 1.6s ease-out both;
-}
-
-.banner h1 {
-  font-family: 'Alfa Slab One', serif;
-  font-size: 3em;
-  color: #EFCB68;
-  margin: 0 0 18px;
-  letter-spacing: 0.06em;
+  color: #e1efe6;
+  background: radial-gradient(circle at top, rgba(239, 203, 104, 0.22), transparent 60%);
+  position: relative;
+  overflow: hidden;
+  animation: fadeDown 1.6s ease-out both;
 }
 
 .summary {
   max-width: 780px;
   margin: 0 auto;
-  line-height: 1.7;
-  font-size: 1.05em;
-  color: #E1EFE6;
+  line-height: 1.8;
 }
 
-
-/* ----------------------------------------------------
-   Gallery Grid
-   ---------------------------------------------------- */
+/* ===========================
+   GALLERY GRID
+   =========================== */
 
 .gallery {
-  margin: 40px auto 50px;
-  max-width: 1100px;
-
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 4rem;
+  padding: 1.5rem 1rem 2.5rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  padding: 20px;
-
-  animation: galleryFadeUp 1.7s ease-out both;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
 }
 
-
-/* ----------------------------------------------------
-   Movie Cards
-   ---------------------------------------------------- */
+/* ===========================
+   MOVIE CARD
+   =========================== */
 
 .movie {
-  background: rgba(225,239,230,0.06);
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(239,203,104,0.4);
-  text-align: center;
-
+  background: rgba(22, 12, 40, 0.9);     /* Midnight Violet, slightly transparent */
+  border-radius: 18px;
+  border: 2px solid rgba(239, 203, 104, 0.65); /* Royal Gold */
+  box-shadow:
+    0 18px 35px rgba(0, 4, 17, 0.75),
+    0 0 0 1px rgba(0, 4, 17, 0.8);
+  padding: 1.1rem 1.1rem 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 8px rgba(239,203,104,0.25);
-
+  gap: 0.65rem;
+  animation: fadeUp 1.4s ease-out both;
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease;
-
-  animation: cardFadeIn 1.4s ease-out both;
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
 }
 
 .movie img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
   display: block;
-}
-
-.movie h2 {
-  font-family: 'Alfa Slab One', serif;
-  font-size: 1.3em;
-  color: #EFCB68;
-  margin: 12px 0 8px;
+  width: 100%;
+  max-width: 280px;      /* keeps images under 300px */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .movie p {
-  font-size: 0.95em;
-  line-height: 1.6;
-  color: #E1EFE6;
+  color: #e1efe6;
+  text-align: left;
+  line-height: 1.7;
 }
 
-/* Hover effect on cards */
+/* Hover effect on movie cards */
 .movie:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.6);
-  border-color: #EFCB68;
-  background: rgba(225,239,230,0.1);
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 45px rgba(0, 4, 17, 0.9),
+    0 0 0 1px rgba(239, 203, 104, 0.75);
+  border-color: #efcb68;
 }
 
+/* Optional subtle highlight on movie titles */
+.movie h2 {
+  color: #efcb68; /* Royal Gold */
+  text-shadow: 0 2px 5px rgba(0, 4, 17, 0.8);
+}
 
-/* ----------------------------------------------------
-   Stars (Grid-positioned decorative items)
-   ---------------------------------------------------- */
+/* ===========================
+   STAR DECORATIONS
+   =========================== */
 
 .star {
-  width: 120px;
+  width: 110px;
+  height: auto;
   justify-self: center;
   align-self: center;
-
+  filter:
+    drop-shadow(0 8px 16px rgba(0, 4, 17, 0.85));
+  animation: fadeIn 1.6s ease-out both;
   transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
-  animation: starFadeIn 1.5s ease-out both;
+    transform 220ms ease,
+    filter 220ms ease;
 }
-
-/* Positions to match your sketch */
-.star-1 { grid-column: 1; grid-row: 1; }
-.star-2 { grid-column: 4; grid-row: 2; }
-.star-3 { grid-column: 1; grid-row: 3; }
-.star-4 { grid-column: 4; grid-row: 4; }
 
 /* Hover effect on stars */
 .star:hover {
-  transform: scale(1.08) rotate(-3deg);
-  filter: drop-shadow(0 0 12px rgba(239,203,104,0.9));
+  transform: translateY(-4px) scale(1.06) rotate(-4deg);
+  filter:
+    drop-shadow(0 14px 24px rgba(0, 4, 17, 0.95));
 }
 
+/* You can tweak these if you want different placements later;
+   for now they follow the natural grid order from your HTML. */
 
-/* ----------------------------------------------------
-   Animations (@keyframes)
-   ---------------------------------------------------- */
+/* ===========================
+   ANIMATIONS
+   =========================== */
 
-/* Banner slides in slightly from top and fades in */
-@keyframes bannerFadeIn {
-  0% {
+@keyframes fadeDown {
+  from {
     opacity: 0;
-    transform: translateY(-25px);
+    transform: translateY(-20px);
   }
-  60% {
-    opacity: 1;
-    transform: translateY(4px);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Gallery rises up from below */
-@keyframes galleryFadeUp {
-  0% {
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Individual card fade + slight zoom */
-@keyframes cardFadeIn {
-  0% {
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transform: translateY(18px) scale(0.96);
+    transform: scale(0.9);
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Decorative star fade and gentle scale */
-@keyframes starFadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
+/* Stagger movie animations a tiny bit for a smoother entrance */
+.movie-1 { animation-delay: 0.1s; }
+.movie-2 { animation-delay: 0.15s; }
+.movie-3 { animation-delay: 0.2s; }
+.movie-4 { animation-delay: 0.25s; }
+.movie-5 { animation-delay: 0.3s; }
+.movie-6 { animation-delay: 0.35s; }
+.movie-7 { animation-delay: 0.4s; }
+.movie-8 { animation-delay: 0.45s; }
+.movie-9 { animation-delay: 0.5s; }
+.movie-10 { animation-delay: 0.55s; }
+.movie-11 { animation-delay: 0.6s; }
+.movie-12 { animation-delay: 0.65s; }
 
-/* ----------------------------------------------------
-   Responsive Layout
-   ---------------------------------------------------- */
+.star-1 { animation-delay: 0.2s; }
+.star-2 { animation-delay: 0.35s; }
+.star-3 { animation-delay: 0.5s; }
+.star-4 { animation-delay: 0.65s; }
 
-/* Medium screens – 2 columns */
+/* ===========================
+   RESPONSIVE LAYOUT
+   =========================== */
+
+/* Medium screens: 2-column grid */
 @media (max-width: 900px) {
-  .banner {
-    margin: 20px 10px;
-    padding: 24px 16px 28px;
-    background-position: right 5px top 5px;
-    background-size: 90px;
-  }
-
-  .banner h1 {
-    font-size: 2.4em;
-  }
-
-  .summary {
-    font-size: 1em;
-  }
-
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
   }
 
-  .star {
-    width: 90px;
+  .banner {
+    padding: 1.6rem 1.2rem 1.8rem;
   }
 }
 
-/* Small screens – 1 column, hide decorative stars */
-@media (max-width: 550px) {
-  .banner {
-    margin: 15px 8px;
-    padding: 20px 14px 24px;
-    background-position: right -10px top -10px;
-    background-size: 70px;
-  }
-
-  .banner h1 {
-    font-size: 2em;
-  }
-
+/* Small screens: single column */
+@media (max-width: 560px) {
   .gallery {
     grid-template-columns: 1fr;
   }
 
-  /* Stars are purely decorative, so I can hide them on very small screens */
+  .banner {
+    margin-top: 1.2rem;
+    padding: 1.4rem 1rem 1.6rem;
+  }
+
   .star {
-    display: none;
+    width: 90px;
   }
 }
