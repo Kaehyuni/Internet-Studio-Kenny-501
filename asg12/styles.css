@@ -56,8 +56,9 @@
 /* Ash Grey         #AEB7B3  | rgba(174,183,179,1) */
 /* Ink Black        #000411  | rgba(0,4,17,1) */
 
+
 /* ===========================
-   BACKGROUND PATTERN
+   BACKGROUND PATTERNS
    =========================== */
 
 /* Background pattern layer (HTML: <div class="bg-pattern"></div>) */
@@ -71,17 +72,18 @@
   opacity: 0.18; /* subtle so text stays readable */
 }
 
-/* Additional background layer */
+/* Additional background layer (HTML: <div class="bg-pattern2"></div>) */
 .bg-pattern2 {
   position: fixed;
   inset: 0;
   z-index: -3;
   background-image: url('images/bg-pattern2.png');
-  background-size: 480px 480px; /* adjust bigger/smaller as needed */
+  background-size: 480px 480px;
   background-repeat: repeat;
-  opacity: 0.14; /* subtle layer */
+  opacity: 0.14;
   pointer-events: none;
 }
+
 
 /* ===========================
    BASE STYLES
@@ -114,7 +116,7 @@ body {
   background-attachment: fixed;
 }
 
-/* Clamp = simple fluid type scale */
+/* Fluid type scale for headings and body */
 h1 {
   font-family: 'Alfa Slab One', system-ui, sans-serif;
   font-size: clamp(2.4rem, 2.2rem + 1.2vw, 3.3rem);
@@ -166,6 +168,22 @@ p {
   animation: fadeDown 1.6s ease-out both;
 }
 
+/* optional tiled pattern just inside banner
+   (HTML: <div class="banner-pattern"></div> inside .banner if you want it) */
+.banner-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 340px; /* adjust to match banner height */
+  z-index: -1;
+  background-image: url('images/bg-pattern2.png');
+  background-size: 380px 380px;
+  background-repeat: repeat;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
 /* gold glow behind the title */
 .banner::before {
   content: "";
@@ -202,21 +220,6 @@ p {
   line-height: 1.9;
   color: #e1efe6;
 }
-
-/* Background just for the banner area */
-.banner-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 340px; /* adjust to match banner size */
-  z-index: -1;
-  background-image: url('images/bg-pattern2.png');
-  background-size: 380px 380px;
-  background-repeat: repeat;
-  opacity: 0.18;
-  pointer-events: none;
-
 
 
 /* ===========================
