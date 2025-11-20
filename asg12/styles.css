@@ -118,13 +118,16 @@ p {
    BACKGROUND PATTERN
    =========================== */
 
-background-image:
-  linear-gradient(
-    135deg,
-    rgba(22, 12, 40, 0.95),
-    rgba(0, 4, 17, 0.9)
-  ),
-  url('images/bg-pattern.png');
+.bg-pattern {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url('images/bg-pattern.png');
+    background-size: 350px 350px;
+    background-repeat: repeat;
+    opacity: 0.15;  /* make pattern subtle */
+}
 
 /* ===========================
    BANNER
