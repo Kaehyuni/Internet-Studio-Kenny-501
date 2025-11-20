@@ -21,7 +21,6 @@
              ||_.-.   ||_.-.
             (_.--__) (_.--__)
        
-
  Insert all your glorious CSS styles below! */
 
 
@@ -38,7 +37,7 @@
   src: url('fonts/alfa-slab-one-v21-latin-regular.woff2') format('woff2');
 }
 
-/* Amiko – body text (update filename if yours is different) */
+/* Amiko – body text */
 @font-face {
   font-display: swap;
   font-family: 'Amiko';
@@ -58,7 +57,6 @@
 /* Ink Black        #000411  | rgba(0,4,17,1) */
 
 
-
 /* ===========================
    BASE STYLES
    =========================== */
@@ -71,25 +69,34 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
   padding: 0;
-  color: #e1efe6;               /* Honeydew */
+  min-height: 100vh;
+  color: #e1efe6; /* Honeydew */
   font-family: 'Amiko', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #160c28;    /* Midnight Violet */
+  background-color: #000411; /* Ink Black */
   background-image:
     linear-gradient(
       135deg,
-      rgba(22, 12, 40, 0.95),
-      rgba(0, 4, 17, 0.9)
-    ),
-    url('bg-pattern.png');
-  background-size: cover, 400px 400px;
-  background-repeat: no-repeat, repeat;
-  background-attachment: fixed, scroll;
+      rgba(22, 12, 40, 0.96),  /* Midnight Violet */
+      rgba(0, 4, 17, 0.96)     /* Ink Black */
+    );
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Background pattern layer (HTML: <div class="bg-pattern"></div>) */
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url('images/bg-pattern.png');
+  background-size: 350px 350px;
+  background-repeat: repeat;
+  opacity: 0.18; /* subtle so text stays readable */
 }
 
 /* Clamp = simple fluid type scale */
@@ -100,34 +107,24 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   margin: 0 0 1rem;
+  color: #efcb68; /* Royal Gold */
+  text-shadow: 0 3px 8px rgba(0, 4, 17, 0.9);
 }
 
 h2 {
   font-family: 'Alfa Slab One', system-ui, sans-serif;
   font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.7rem);
   letter-spacing: 0.05em;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
+  color: #efcb68; /* Royal Gold */
 }
 
 p {
   font-size: clamp(0.92rem, 0.88rem + 0.25vw, 1.02rem);
   margin: 0;
+  color: #e1efe6; /* Honeydew */
 }
 
-/* ===========================
-   BACKGROUND PATTERN
-   =========================== */
-
-.bg-pattern {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-
-    background-image: url('images/bg-pattern.png');
-    background-size: 350px 350px;
-    background-repeat: repeat;
-    opacity: 0.15;  /* make pattern subtle */
-}
 
 /* ===========================
    BANNER
@@ -136,21 +133,61 @@ p {
 .banner {
   max-width: 1100px;
   width: 100%;
-  margin: 1.5rem auto 2rem;
-  padding: 1.8rem 1.5rem 2rem;
+  margin: 1.8rem auto 2.4rem;
+  padding: 2rem 1.8rem 2.4rem;
   text-align: center;
   color: #e1efe6;
-  background: radial-gradient(circle at top, rgba(239, 203, 104, 0.22), transparent 60%);
+  
+  /* main banner block */
+  background: rgba(22, 12, 40, 0.94); /* Midnight Violet */
+  border-radius: 24px;
+  border: 2px solid #efcb68; /* Royal Gold */
+  box-shadow:
+    0 22px 40px rgba(0, 4, 17, 0.95),
+    0 0 0 1px rgba(174, 183, 179, 0.4); /* Ash Grey edge */
+
   position: relative;
   overflow: hidden;
   animation: fadeDown 1.6s ease-out both;
 }
 
-.summary {
-  max-width: 780px;
-  margin: 0 auto;
-  line-height: 1.8;
+/* gold glow behind the title */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(circle at top center, rgba(239, 203, 104, 0.25), transparent 65%),
+    radial-gradient(circle at bottom center, rgba(174, 183, 179, 0.16), transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
+
+/* decorative gold bar under H1 */
+.banner h1 {
+  position: relative;
+  z-index: 1;
+}
+
+.banner h1::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 4px;
+  margin: 0.7rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(to right, #e1efe6, #efcb68, #e1efe6);
+}
+
+.summary {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 1.1rem auto 0;
+  line-height: 1.9;
+  color: #e1efe6;
+}
+
 
 /* ===========================
    GALLERY GRID
@@ -160,64 +197,72 @@ p {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto 4rem;
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 1.5rem 1.2rem 2.8rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem 1.5rem;
+  gap: 2rem 1.6rem;
 }
+
 
 /* ===========================
    MOVIE CARD
    =========================== */
 
 .movie {
-  background: rgba(22, 12, 40, 0.9);     /* Midnight Violet, slightly transparent */
+  background: rgba(0, 4, 17, 0.92); /* Ink Black with a bit of transparency */
   border-radius: 18px;
-  border: 2px solid rgba(239, 203, 104, 0.65); /* Royal Gold */
+  border: 1px solid #aeb7b3; /* Ash Grey */
   box-shadow:
-    0 18px 35px rgba(0, 4, 17, 0.75),
-    0 0 0 1px rgba(0, 4, 17, 0.8);
-  padding: 1.1rem 1.1rem 1.2rem;
+    0 18px 35px rgba(0, 4, 17, 0.9),
+    0 0 0 1px rgba(22, 12, 40, 0.8); /* Midnight Violet ring */
+  padding: 1.15rem 1.15rem 1.25rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+  align-items: stretch;
+  gap: 0.7rem;
   animation: fadeUp 1.4s ease-out both;
   transition:
     transform 250ms ease,
     box-shadow 250ms ease,
-    border-color 250ms ease;
+    border-color 250ms ease,
+    background 250ms ease;
 }
 
+/* Title underline inside each card */
+.movie h2 {
+  text-shadow: 0 2px 6px rgba(0, 4, 17, 0.8);
+  border-bottom: 1px solid rgba(174, 183, 179, 0.6); /* Ash Grey */
+  padding-bottom: 0.35rem;
+}
+
+/* Paragraph alignment */
+.movie p {
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* Movie image */
 .movie img {
   display: block;
   width: 100%;
-  max-width: 280px;      /* keeps images under 300px */
+  max-width: 280px; /* keeps images under 300px */
   height: auto;
   border-radius: 12px;
   object-fit: cover;
-}
-
-.movie p {
-  color: #e1efe6;
-  text-align: left;
-  line-height: 1.7;
+  align-self: center;
+  box-shadow: 0 10px 24px rgba(0, 4, 17, 0.9);
 }
 
 /* Hover effect on movie cards */
 .movie:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 24px 45px rgba(0, 4, 17, 0.9),
-    0 0 0 1px rgba(239, 203, 104, 0.75);
+    0 24px 45px rgba(0, 4, 17, 0.97),
+    0 0 0 1px rgba(239, 203, 104, 0.85); /* Royal Gold ring */
   border-color: #efcb68;
+  background: radial-gradient(circle at top, rgba(239, 203, 104, 0.14), rgba(0, 4, 17, 0.98));
 }
 
-/* Optional subtle highlight on movie titles */
-.movie h2 {
-  color: #efcb68; /* Royal Gold */
-  text-shadow: 0 2px 5px rgba(0, 4, 17, 0.8);
-}
 
 /* ===========================
    STAR DECORATIONS
@@ -229,7 +274,7 @@ p {
   justify-self: center;
   align-self: center;
   filter:
-    drop-shadow(0 8px 16px rgba(0, 4, 17, 0.85));
+    drop-shadow(0 8px 16px rgba(0, 4, 17, 0.95));
   animation: fadeIn 1.6s ease-out both;
   transition:
     transform 220ms ease,
@@ -240,11 +285,9 @@ p {
 .star:hover {
   transform: translateY(-4px) scale(1.06) rotate(-4deg);
   filter:
-    drop-shadow(0 14px 24px rgba(0, 4, 17, 0.95));
+    drop-shadow(0 14px 24px rgba(0, 4, 17, 1));
 }
 
-/* You can tweak these if you want different placements later;
-   for now they follow the natural grid order from your HTML. */
 
 /* ===========================
    ANIMATIONS
@@ -253,7 +296,7 @@ p {
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-22px);
   }
   to {
     opacity: 1;
@@ -264,7 +307,7 @@ p {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -275,7 +318,7 @@ p {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
   to {
     opacity: 1;
@@ -302,6 +345,7 @@ p {
 .star-3 { animation-delay: 0.5s; }
 .star-4 { animation-delay: 0.65s; }
 
+
 /* ===========================
    RESPONSIVE LAYOUT
    =========================== */
@@ -313,7 +357,8 @@ p {
   }
 
   .banner {
-    padding: 1.6rem 1.2rem 1.8rem;
+    padding: 1.8rem 1.3rem 2rem;
+    margin: 1.4rem auto 2rem;
   }
 }
 
@@ -325,7 +370,7 @@ p {
 
   .banner {
     margin-top: 1.2rem;
-    padding: 1.4rem 1rem 1.6rem;
+    padding: 1.5rem 1.1rem 1.8rem;
   }
 
   .star {
