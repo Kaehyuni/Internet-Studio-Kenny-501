@@ -115,6 +115,18 @@ p {
 }
 
 /* ===========================
+   BACKGROUND PATTERN
+   =========================== */
+
+background-image:
+  linear-gradient(
+    135deg,
+    rgba(22, 12, 40, 0.95),
+    rgba(0, 4, 17, 0.9)
+  ),
+  url('images/bg-pattern.png');
+
+/* ===========================
    BANNER
    =========================== */
 
