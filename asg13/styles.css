@@ -21,9 +21,7 @@
              ||_.-.   ||_.-.
             (_.--__) (_.--__)
 
-
- Insert all your glorious CSS styles below! */
-
+/* Insert all your glorious CSS styles below! */
 
 /* ============================
    FONT IMPORTS
@@ -87,7 +85,6 @@
   src: url("fonts/tourney-v16-latin-900.woff2") format("woff2");
 }
 
-
 /* ============================
    ROOT VARIABLES
    ============================ */
@@ -117,7 +114,6 @@
   --radius-card: 1rem;
   --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
 }
-
 
 /* ============================
    GLOBAL / RESET
@@ -171,7 +167,6 @@ p {
   font-size: 1rem;
   color: var(--color-text);
 }
-
 
 /* ============================
    HEADER + BANNER
@@ -270,7 +265,6 @@ p {
   font-size: 0.95rem;
 }
 
-
 /* ============================
    MAIN LAYOUT
    ============================ */
@@ -303,7 +297,6 @@ main {
     rgba(153, 0, 51, 0.85)
   );
 }
-
 
 /* ============================
    JOB GRID + CARDS (CSS GRID)
@@ -362,7 +355,6 @@ main {
   max-width: 130px;
   height: auto;
   display: block;
-  animation: logoFloat 5s ease-in-out infinite;
 }
 
 .job-title {
@@ -401,7 +393,6 @@ main {
   font-size: 0.96rem;
 }
 
-
 /* ============================
    FOOTER
    ============================ */
@@ -413,120 +404,6 @@ main {
   font-size: 0.9rem;
   color: var(--color-muted);
 }
-
-
-/* ============================
-   ANIMATIONS
-   ============================ */
-
-/* Fade + pop upwards */
-@keyframes fadePop {
-  0% {
-    opacity: 0;
-    transform: translateY(24px) scale(0.96);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-4px) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Gentle floating for logos */
-@keyframes logoFloat {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* Top banner + tagline pop in on load */
-.banner {
-  animation: fadePop 0.9s cubic-bezier(0.23, 0.88, 0.33, 1.08) 0.1s both;
-}
-
-.tagline {
-  animation: fadePop 0.9s cubic-bezier(0.23, 0.88, 0.33, 1.08) 0.35s both;
-}
-
-/* Intro also pops on load (usually visible on first screen) */
-.intro {
-  animation: fadePop 0.9s ease-out 0.5s both;
-}
-
-/* Fallback: simple staggered animation for sections and cards */
-.jobs {
-  animation: fadePop 0.9s ease-out 0.65s both;
-}
-
-.freelance-reflection {
-  animation: fadePop 0.9s ease-out 0.9s both;
-}
-
-/* Stagger job cards */
-.job-card {
-  opacity: 0;
-  animation: fadePop 0.9s ease-out both;
-}
-
-.job-card:nth-child(1) {
-  animation-delay: 0.75s;
-}
-
-.job-card:nth-child(2) {
-  animation-delay: 0.9s;
-}
-
-.job-card:nth-child(3) {
-  animation-delay: 1.05s;
-}
-
-/* Upgrade: scroll-linked animations when supported */
-@supports (animation-timeline: view()) {
-  .intro,
-  .jobs,
-  .freelance-reflection,
-  .job-card {
-    opacity: 0;
-    animation-name: fadePop;
-    animation-duration: 0.8s;
-    animation-timing-function: cubic-bezier(0.23, 0.88, 0.33, 1.08);
-    animation-fill-mode: both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 35%;
-  }
-
-  /* Keep banner + tagline controlled by load timing, not scroll */
-  .banner,
-  .tagline {
-    animation-timeline: auto;
-  }
-}
-
-
-/* ============================
-   REDUCED MOTION SUPPORT
-   ============================ */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 
 /* ============================
    RESPONSIVE TWEAKS
