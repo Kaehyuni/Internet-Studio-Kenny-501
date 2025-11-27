@@ -24,10 +24,12 @@
 
  Insert all your glorious CSS styles below! */
 
-/* --------------------------------------------------
-      FONT IMPORTS
--------------------------------------------------- */
 
+/* ============================
+   FONT IMPORTS
+   ============================ */
+
+/* tirra-regular - latin */
 @font-face {
   font-display: swap;
   font-family: "Tirra";
@@ -36,6 +38,7 @@
   src: url("fonts/tirra-v2-latin-regular.woff2") format("woff2");
 }
 
+/* tourney weights - latin */
 @font-face {
   font-display: swap;
   font-family: "Tourney";
@@ -84,9 +87,41 @@
   src: url("fonts/tourney-v16-latin-900.woff2") format("woff2");
 }
 
-/* --------------------------------------------------
-      GLOBAL RESET + BODY
--------------------------------------------------- */
+
+/* ============================
+   ROOT VARIABLES
+   ============================ */
+
+:root {
+  /* Palette from your colors */
+  --dark-garnet: #660000;
+  --dark-amaranth: #990033;
+  --night-bordeaux: #5f021f;
+  --deep-crimson: #8c001a;
+  --deep-saffron: #ff9000;
+
+  /* Role-based colors */
+  --color-bg: var(--night-bordeaux);
+  --color-bg-alt: #2b020a;
+  --color-card: var(--dark-garnet);
+  --color-accent: var(--deep-saffron);
+  --color-accent-soft: rgba(255, 144, 0, 0.18);
+  --color-text: #ffe9df;
+  --color-muted: #f4b7c3;
+
+  --font-heading: "Tourney", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-body: "Tirra", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  --radius-card: 1rem;
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ============================
+   GLOBAL / RESET
+   ============================ */
 
 *,
 *::before,
@@ -97,98 +132,148 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Tirra", sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: #ffe9df;
+  color: var(--color-text);
   background-image:
     url("images/bg-pattern.svg"),
     radial-gradient(circle at top left, rgba(255, 144, 0, 0.18), transparent 55%),
     radial-gradient(circle at bottom right, rgba(153, 0, 51, 0.55), transparent 55%),
-    linear-gradient(135deg, #5f021f, #660000);
+    linear-gradient(135deg, var(--night-bordeaux), var(--dark-garnet));
   background-repeat: repeat, no-repeat, no-repeat, no-repeat;
   background-size: auto, cover, cover, cover;
-  background-attachment: fixed;
+  background-attachment: fixed, scroll, scroll, scroll;
 }
 
-h1, h2, h3 {
-  font-family: "Tourney";
-  letter-spacing: 0.04em;
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
   text-wrap: balance;
+  letter-spacing: 0.04em;
   margin-top: 0;
 }
 
-h2 { font-size: 1.6rem; margin-bottom: 0.75rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
 
 p {
   margin-top: 0;
   margin-bottom: 0.75rem;
-  color: #ffe9df;
+  font-size: 1rem;
+  color: var(--color-text);
 }
 
-/* --------------------------------------------------
-      HEADER + BANNER
--------------------------------------------------- */
+
+/* ============================
+   HEADER + BANNER
+   ============================ */
 
 .site-header {
+  padding: 1.5rem 1.5rem 0.5rem;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 0.5rem;
 }
 
 .banner {
   position: relative;
   overflow: hidden;
-  padding: 2.2rem 1.8rem;
   border-radius: 1.5rem;
+  padding: 2.2rem 1.8rem;
   background-image:
     url("images/banner-pattern.svg"),
     linear-gradient(135deg, rgba(95, 2, 31, 0.98), rgba(140, 0, 26, 0.8));
-  background-size: cover;
+  background-size: cover, cover;
+  background-position: center;
   border: 1px solid rgba(255, 144, 0, 0.5);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  box-shadow: var(--shadow-soft);
 }
 
-/* Banner layered text */
+/* Base style for all banner text layers */
 .banner-text {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
   position: absolute;
   left: 1.9rem;
   top: 50%;
   transform: translateY(-50%);
-  text-transform: uppercase;
   white-space: nowrap;
-  margin: 0;
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
 }
 
+/* Main visible heading: weight 900, white */
 .banner-text-900 {
+  position: relative;
   z-index: 3;
   font-weight: 900;
   color: #ffffff;
-  text-shadow: 0 0 20px rgba(0,0,0,0.65);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.65);
 }
 
-.banner-text-500 { font-weight: 500; color:#ff9000; opacity:0.35; transform:translate(1.9rem, -50%) translateY(-0.3rem); }
-.banner-text-400 { font-weight: 400; color:#8c001a; opacity:0.28; transform:translate(2.4rem, -50%) translateY(0.5rem); }
-.banner-text-300 { font-weight: 300; color:#990033; opacity:0.22; transform:translate(3rem, -50%) translateY(1.3rem); }
-.banner-text-200 { font-weight: 200; color:rgba(255,144,0,0.35); opacity:0.18; transform:translate(3.6rem,-50%) translateY(2.1rem); }
-.banner-text-100 { font-weight: 100; color:rgba(255,255,255,0.25); opacity:0.16; transform:translate(4.3rem,-50%) translateY(2.9rem); }
+/* Decay layers: weights + colors from palette */
+.banner-text-500 {
+  font-weight: 500;
+  color: var(--deep-saffron);
+  opacity: 0.35;
+  transform: translate(1.9rem, -50%) translateY(-0.3rem);
+  z-index: 1;
+}
+
+.banner-text-400 {
+  font-weight: 400;
+  color: var(--deep-crimson);
+  opacity: 0.28;
+  transform: translate(2.4rem, -50%) translateY(0.5rem);
+  z-index: 1;
+}
+
+.banner-text-300 {
+  font-weight: 300;
+  color: var(--dark-amaranth);
+  opacity: 0.22;
+  transform: translate(3rem, -50%) translateY(1.3rem);
+  z-index: 1;
+}
+
+.banner-text-200 {
+  font-weight: 200;
+  color: rgba(255, 144, 0, 0.35);
+  opacity: 0.18;
+  transform: translate(3.6rem, -50%) translateY(2.1rem);
+  z-index: 1;
+}
+
+.banner-text-100 {
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.25);
+  opacity: 0.16;
+  transform: translate(4.3rem, -50%) translateY(2.9rem);
+  z-index: 1;
+}
 
 .tagline {
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   padding: 0.75rem 1.3rem;
-  background-color: rgba(17, 6, 10, 0.7);
-  color: #f4b7c3;
-  border: 1px solid rgba(255, 144, 0, 0.35);
   border-radius: 1rem;
+  background-color: rgba(17, 6, 10, 0.7);
+  border: 1px solid rgba(255, 144, 0, 0.35);
+  color: var(--color-muted);
   font-size: 0.95rem;
 }
 
-/* --------------------------------------------------
-      MAIN SECTIONS
--------------------------------------------------- */
+
+/* ============================
+   MAIN LAYOUT
+   ============================ */
 
 main {
   max-width: 1080px;
@@ -196,7 +281,6 @@ main {
   padding: 0 1.5rem 2rem;
 }
 
-/* Section Panels */
 .intro,
 .jobs,
 .freelance-reflection {
@@ -205,122 +289,180 @@ main {
     rgba(95, 2, 31, 0.96),
     rgba(140, 0, 26, 0.75)
   );
-  padding: 1.75rem 1.5rem;
   border-radius: 1.25rem;
-  border: 1px solid rgba(255,144,0,0.35);
+  border: 1px solid rgba(255, 144, 0, 0.35);
+  padding: 1.75rem 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  box-shadow: var(--shadow-soft);
 }
 
 .jobs {
   background: linear-gradient(
     135deg,
-    rgba(95,2,31,0.98),
-    rgba(153,0,51,0.85)
+    rgba(95, 2, 31, 0.98),
+    rgba(153, 0, 51, 0.85)
   );
 }
 
-/* --------------------------------------------------
-      JOB GRID + CARDS
--------------------------------------------------- */
+
+/* ============================
+   JOB GRID + CARDS (CSS GRID)
+   ============================ */
 
 .job-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  display: grid; /* Using CSS Grid for layout */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.25rem;
   margin-top: 1rem;
 }
 
 .job-card {
-  background-color: rgba(102,0,0,0.95);
-  border-radius: 1rem;
+  background-color: rgba(102, 0, 0, 0.95);
+  border-radius: var(--radius-card);
   padding: 1.25rem 1.1rem 1.3rem;
-  border: 1px solid rgba(255,144,0,0.35);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  position: relative;
+  border: 1px solid rgba(255, 144, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
   overflow: hidden;
 }
 
+/* Accent glow behind card content */
 .job-card::before {
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background: radial-gradient(circle at top, rgba(255,144,0,0.18), transparent 60%);
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at top,
+    var(--color-accent-soft),
+    transparent 60%
+  );
+  opacity: 1;
+  pointer-events: none;
+}
+
+.job-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .job-logo {
-  background-color: rgba(15,5,10,0.7);
+  margin: 0;
   padding: 0.35rem 0.5rem 0.65rem;
   border-radius: 0.9rem;
+  background-color: rgba(15, 5, 10, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .job-logo img {
   max-width: 130px;
+  height: auto;
+  display: block;
   animation: logoFloat 5s ease-in-out infinite;
 }
 
-.job-company {
-  color: #f4b7c3;
+.job-title {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
+.job-company {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Job link styling */
 .job-link {
+  font-size: 0.92rem;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background-color: rgba(15,5,10,0.9);
-  border: 1px solid rgba(255,144,0,0.9);
-  color: #ff9000;
+  background-color: rgba(15, 5, 10, 0.9);
+  border: 1px solid rgba(255, 144, 0, 0.9);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
-.job-link:hover {
-  background-color: rgba(255,144,0,0.13);
+.job-link:hover,
+.job-link:focus-visible {
+  background-color: rgba(255, 144, 0, 0.13);
+  outline: none;
 }
 
-/* --------------------------------------------------
-      FOOTER
--------------------------------------------------- */
+.job-description {
+  font-size: 0.96rem;
+}
+
+
+/* ============================
+   FOOTER
+   ============================ */
 
 .site-footer {
-  text-align:center;
-  padding:1.5rem 1rem 2rem;
-  border-top:1px solid rgba(148,163,184,0.3);
-  color:#f4b7c3;
-  font-size:0.9rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
 }
 
-/* --------------------------------------------------
-      ANIMATIONS
--------------------------------------------------- */
 
+/* ============================
+   ANIMATIONS
+   ============================ */
+
+/* Fade + pop upwards */
 @keyframes fadePop {
-  0% { opacity:0; transform:translateY(24px) scale(0.96); }
-  60% { opacity:1; transform:translateY(-4px) scale(1.02); }
-  100% { opacity:1; transform:translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
+/* Gentle floating for logos */
 @keyframes logoFloat {
-  0% { transform:translateY(0); }
-  50% { transform:translateY(-5px); }
-  100% { transform:translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-/* Load Animations */
+/* Top banner + tagline pop in on load */
 .banner {
-  animation: fadePop 0.9s cubic-bezier(0.23,0.88,0.33,1.08) 0.1s both;
+  animation: fadePop 0.9s cubic-bezier(0.23, 0.88, 0.33, 1.08) 0.1s both;
 }
 
 .tagline {
-  animation: fadePop 0.9s cubic-bezier(0.23,0.88,0.33,1.08) 0.35s both;
+  animation: fadePop 0.9s cubic-bezier(0.23, 0.88, 0.33, 1.08) 0.35s both;
 }
 
+/* Intro also pops on load (usually visible on first screen) */
 .intro {
   animation: fadePop 0.9s ease-out 0.5s both;
 }
 
+/* Fallback: simple staggered animation for sections and cards */
 .jobs {
   animation: fadePop 0.9s ease-out 0.65s both;
 }
@@ -329,16 +471,25 @@ main {
   animation: fadePop 0.9s ease-out 0.9s both;
 }
 
+/* Stagger job cards */
 .job-card {
-  opacity:0;
+  opacity: 0;
   animation: fadePop 0.9s ease-out both;
 }
 
-.job-card:nth-child(1){ animation-delay:0.75s; }
-.job-card:nth-child(2){ animation-delay:0.9s; }
-.job-card:nth-child(3){ animation-delay:1.05s; }
+.job-card:nth-child(1) {
+  animation-delay: 0.75s;
+}
 
-/* Scroll-triggered animations when supported */
+.job-card:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.job-card:nth-child(3) {
+  animation-delay: 1.05s;
+}
+
+/* Upgrade: scroll-linked animations when supported */
 @supports (animation-timeline: view()) {
   .intro,
   .jobs,
@@ -347,36 +498,57 @@ main {
     opacity: 0;
     animation-name: fadePop;
     animation-duration: 0.8s;
-    animation-timing-function: cubic-bezier(0.23,0.88,0.33,1.08);
+    animation-timing-function: cubic-bezier(0.23, 0.88, 0.33, 1.08);
     animation-fill-mode: both;
     animation-timeline: view();
     animation-range: entry 0% cover 35%;
   }
 
+  /* Keep banner + tagline controlled by load timing, not scroll */
   .banner,
   .tagline {
     animation-timeline: auto;
   }
 }
 
-/* --------------------------------------------------
-      REDUCED MOTION
--------------------------------------------------- */
+
+/* ============================
+   REDUCED MOTION SUPPORT
+   ============================ */
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* --------------------------------------------------
-      RESPONSIVE
--------------------------------------------------- */
+
+/* ============================
+   RESPONSIVE TWEAKS
+   ============================ */
 
 @media (max-width: 640px) {
-  .site-header { padding-inline:1rem; }
-  main { padding-inline:1rem; }
-  .intro, .jobs, .freelance-reflection { padding-inline:1.25rem; }
-  .banner-text { left:1.2rem; font-size:1.7rem; }
+  .site-header {
+    padding-inline: 1rem;
+  }
+
+  main {
+    padding-inline: 1rem;
+  }
+
+  .intro,
+  .jobs,
+  .freelance-reflection {
+    padding-inline: 1.25rem;
+  }
+
+  .banner-text {
+    left: 1.2rem;
+    font-size: 1.7rem;
+  }
 }
