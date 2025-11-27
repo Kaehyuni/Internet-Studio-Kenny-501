@@ -507,14 +507,3 @@ main {
     animation-iteration-count: 1 !important;
   }
 }
-
-/* ============================
-   Responsive
-   ============================ */
-
-@media (max-width: 640px) {
-  .site-header { padding-inline:1rem; }
-  main { padding-inline:1rem; }
-  .intro, .jobs, .freelance-reflection { padding-inline:1.25rem; }
-  .banner-text { left:1.2rem; font-size:1.7rem; }
-}
