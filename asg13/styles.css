@@ -429,3 +429,92 @@ main {
     font-size: 1.7rem;
   }
 }
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+
+@keyframes fadePop {
+  0% { opacity:0; transform:translateY(24px) scale(0.96); }
+  60% { opacity:1; transform:translateY(-4px) scale(1.02); }
+  100% { opacity:1; transform:translateY(0) scale(1); }
+}
+
+@keyframes logoFloat {
+  0% { transform:translateY(0); }
+  50% { transform:translateY(-5px); }
+  100% { transform:translateY(0); }
+}
+
+/* Load Animations */
+.banner {
+  animation: fadePop 0.9s cubic-bezier(0.23,0.88,0.33,1.08) 0.1s both;
+}
+
+.tagline {
+  animation: fadePop 0.9s cubic-bezier(0.23,0.88,0.33,1.08) 0.35s both;
+}
+
+.intro {
+  animation: fadePop 0.9s ease-out 0.5s both;
+}
+
+.jobs {
+  animation: fadePop 0.9s ease-out 0.65s both;
+}
+
+.freelance-reflection {
+  animation: fadePop 0.9s ease-out 0.9s both;
+}
+
+.job-card {
+  opacity:0;
+  animation: fadePop 0.9s ease-out both;
+}
+
+.job-card:nth-child(1){ animation-delay:0.75s; }
+.job-card:nth-child(2){ animation-delay:0.9s; }
+.job-card:nth-child(3){ animation-delay:1.05s; }
+
+/* Scroll-triggered animations when supported */
+@supports (animation-timeline: view()) {
+  .intro,
+  .jobs,
+  .freelance-reflection,
+  .job-card {
+    opacity: 0;
+    animation-name: fadePop;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.23,0.88,0.33,1.08);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+
+  .banner,
+  .tagline {
+    animation-timeline: auto;
+  }
+}
+
+/* ============================
+   REDUCED MOTION
+   ============================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ============================
+   Responsive
+   ============================ */
+
+@media (max-width: 640px) {
+  .site-header { padding-inline:1rem; }
+  main { padding-inline:1rem; }
+  .intro, .jobs, .freelance-reflection { padding-inline:1.25rem; }
+  .banner-text { left:1.2rem; font-size:1.7rem; }
+}
