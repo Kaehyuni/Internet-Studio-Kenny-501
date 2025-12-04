@@ -20,6 +20,7 @@
              ||       ||
              ||_.-.   ||_.-.
             (_.--__) (_.--__)
+*/
 
 /* Insert all your glorious CSS styles below! */
 
@@ -288,6 +289,11 @@ main {
   padding: 1.75rem 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: var(--shadow-soft);
+
+  /* smooth hover pop from normal size */
+  transition: transform 0.25s ease-out,
+              box-shadow 0.25s ease-out,
+              border-color 0.25s ease-out;
 }
 
 .jobs {
@@ -320,6 +326,11 @@ main {
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
+
+  /* smooth hover pop from normal size */
+  transition: transform 0.25s ease-out,
+              box-shadow 0.25s ease-out,
+              border-color 0.25s ease-out;
 }
 
 /* Accent glow behind card content */
@@ -498,37 +509,18 @@ main {
 }
 
 /* ============================
-   HOVER POP ANIMATION
+   HOVER POP (NO ANIMATION OVERRIDE)
    ============================ */
 
 .intro:hover,
 .jobs:hover,
 .freelance-reflection:hover,
 .job-card:hover {
-  animation: hoverPop 0.25s ease-out forwards;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 144, 0, 0.9);
 }
 
-/* ============================
-   KEYFRAMES
-   ============================ */
-
-@keyframes fadePop {
-  0% { opacity:0; transform:translateY(24px) scale(0.96); }
-  60% { opacity:1; transform:translateY(-4px) scale(1.02); }
-  100% { opacity:1; transform:translateY(0) scale(1); }
-}
-
-@keyframes logoFloat {
-  0% { transform:translateY(0); }
-  50% { transform:translateY(-5px); }
-  100% { transform:translateY(0); }
-}
-
-@keyframes hoverPop {
-  0% { transform: translateY(0) scale(1); }
-  60% { transform: translateY(-5px) scale(1.03); }
-  100% { transform: translateY(-6px) scale(1.02); }
-      
 /* ============================
    REDUCED MOTION
    ============================ */
