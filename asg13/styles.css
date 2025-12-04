@@ -125,6 +125,12 @@
   box-sizing: border-box;
 }
 
+/* Fix white overscroll background*/
+html {
+  background-color: #5f021f;
+}
+
+
 body {
   margin: 0;
   min-height: 100vh;
